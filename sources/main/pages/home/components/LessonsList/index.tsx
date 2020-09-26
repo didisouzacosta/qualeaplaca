@@ -1,9 +1,8 @@
 import React from "react";
 
-import { List, SectionTitle, Lesson, LessonType } from "./styles";
+import { List, SectionTitle, Lesson, LessonType, AllLessons } from "./styles";
 
 import OptionsList from "../OptionsList";
-import AllSimulatorsCard from "../AllSimulatorsCard";
 
 type ItemType = JSX.Element;
 
@@ -12,7 +11,7 @@ export default function LessonsList() {
     const items: ItemType[] = [
       <OptionsList />,
       <SectionTitle>Simulados</SectionTitle>,
-      <AllSimulatorsCard />,
+      <AllLessons />,
       <Lesson
         initials="R"
         title="Regulamentação"

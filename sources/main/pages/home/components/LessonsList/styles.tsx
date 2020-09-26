@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, H2 } from "../../../../components/Text";
-import { FlatList, ViewProps } from "react-native";
+import { FlatList, View, ViewProps } from "react-native";
 import styled from "styled-components/native";
 
 export enum LessonType {
@@ -45,6 +45,36 @@ export const Lesson = ({ initials, title, type }: LessonProps) => (
   </Card>
 );
 
+export const AllLessons = () => (
+  <Card style={{ flexDirection: "row", alignItems: "center" }}>
+    <Text style={{ flex: 1, fontSize: 18 }}>Todas as placas</Text>
+    <View>
+      <View style={{ flexDirection: "row" }}>
+        <Bullet>
+          <BulletLabel>R</BulletLabel>
+        </Bullet>
+        <Bullet>
+          <BulletLabel>A</BulletLabel>
+        </Bullet>
+        <Bullet>
+          <BulletLabel>IC</BulletLabel>
+        </Bullet>
+      </View>
+      <View style={{ flexDirection: "row" }}>
+        <Bullet>
+          <BulletLabel>i</BulletLabel>
+        </Bullet>
+        <Bullet>
+          <BulletLabel>e</BulletLabel>
+        </Bullet>
+        <Bullet>
+          <BulletLabel>SEA</BulletLabel>
+        </Bullet>
+      </View>
+    </View>
+  </Card>
+);
+
 const Card = styled.TouchableOpacity<CardProps>`
   border-radius: 8px;
   padding-right: 16px;
@@ -63,4 +93,21 @@ const LessonInitials = styled(H2)`
 const LessonTitle = styled(Text)`
   font-size: 14px;
   color: white;
+`;
+
+const Bullet = styled.View`
+  width: 20px;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  margin: 1px;
+  background-color: red;
+`;
+
+const BulletLabel = styled(Text)`
+  font-size: 8px;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
 `;
