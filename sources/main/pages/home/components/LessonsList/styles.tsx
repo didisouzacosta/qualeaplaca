@@ -18,6 +18,10 @@ type LessonProps = {
   initials: string;
 };
 
+type BulletProps = {
+  type: LessonType;
+};
+
 interface CardProps extends ViewProps {
   backgroundColor?: string;
 }
@@ -50,24 +54,24 @@ export const AllLessons = () => (
     <Text style={{ flex: 1, fontSize: 18 }}>Todas as placas</Text>
     <View>
       <View style={{ flexDirection: "row" }}>
-        <Bullet>
+        <Bullet type={LessonType.Regulamentation}>
           <BulletLabel>R</BulletLabel>
         </Bullet>
-        <Bullet>
+        <Bullet type={LessonType.Warning}>
           <BulletLabel>A</BulletLabel>
         </Bullet>
-        <Bullet>
+        <Bullet type={LessonType.MoreInformations}>
           <BulletLabel>IC</BulletLabel>
         </Bullet>
       </View>
       <View style={{ flexDirection: "row" }}>
-        <Bullet>
+        <Bullet type={LessonType.Identification}>
           <BulletLabel>i</BulletLabel>
         </Bullet>
-        <Bullet>
+        <Bullet type={LessonType.Educational}>
           <BulletLabel>e</BulletLabel>
         </Bullet>
-        <Bullet>
+        <Bullet type={LessonType.SpecialSignWarning}>
           <BulletLabel>SEA</BulletLabel>
         </Bullet>
       </View>
@@ -95,14 +99,14 @@ const LessonTitle = styled(Text)`
   color: white;
 `;
 
-const Bullet = styled.View`
+const Bullet = styled.View<BulletProps>`
   width: 20px;
   height: 20px;
   align-items: center;
   justify-content: center;
   border-radius: 10px;
   margin: 1px;
-  background-color: red;
+  background-color: ${(props) => props.type};
 `;
 
 const BulletLabel = styled(Text)`
