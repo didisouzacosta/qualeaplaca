@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components/native";
 import { Text } from "./../../../../components/Text";
 
-type CardType = {
+type OptionProps = {
   title: string;
 };
 
@@ -12,15 +12,15 @@ export const ScrollView = styled.ScrollView`
   margin-bottom: 32px;
 `;
 
-export const Card = ({ title }: CardType) => {
+export const Option = ({ title }: OptionProps) => {
   return (
-    <BaseCard>
+    <Card>
       <Text>{title}</Text>
-    </BaseCard>
+    </Card>
   );
 };
 
-export const BaseCard = styled.TouchableOpacity`
+const Card = styled.TouchableOpacity`
   height: 160px;
   width: 120px;
   background-color: white;

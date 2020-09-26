@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ScrollView, Card } from "./styles";
+import { ScrollView, Option } from "./styles";
 
 export default function OptionsList() {
   return (
@@ -9,10 +9,10 @@ export default function OptionsList() {
       removeClippedSubviews={true}
       showsHorizontalScrollIndicator={false}
     >
-      <Card title="Plano Plus" />
-      <Card title="Progesso" />
-      <Card title="Ajustes" />
-      <Card title="Sobre" />
+      <Option title="Plano Plus" />
+      <Option title="Progesso" />
+      <Option title="Ajustes" />
+      <Option title="Sobre" />
     </ScrollView>
   );
 }
