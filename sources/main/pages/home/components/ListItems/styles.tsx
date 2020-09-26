@@ -1,4 +1,5 @@
 import React from "react";
+import { Text, H2 } from "./../../../../components/Text";
 import { FlatList, ViewProps } from "react-native";
 import styled from "styled-components/native";
 
@@ -31,7 +32,7 @@ export const List = styled(FlatList as new () => FlatList<JSX.Element>).attrs(
   overflow: visible;
 `;
 
-export const SectionTitle = styled.Text`
+export const SectionTitle = styled(Text)`
   padding: 16px;
   font-size: 22px;
   font-weight: bold;
@@ -44,23 +45,22 @@ export const Card = styled.TouchableOpacity<CardProps>`
   padding-top: 12px;
   padding-bottom: 12px;
   margin-bottom: 8px;
+  overflow: hidden;
   background-color: ${(props) => props.backgroundColor ?? "white"};
 `;
 
 export const LessonCard = ({ initials, title, type }: LessonCardProps) => (
   <Card style={{ backgroundColor: type }}>
-    <LessonInitial>{initials}</LessonInitial>
+    <LessonInitials>{initials}</LessonInitials>
     <LessonTitle>{title}</LessonTitle>
   </Card>
 );
 
-const LessonInitial = styled.Text`
-  font-size: 32px;
-  font-weight: bold;
+const LessonInitials = styled(H2)`
   color: white;
 `;
 
-const LessonTitle = styled.Text`
+const LessonTitle = styled(Text)`
   font-size: 14px;
   color: white;
 `;
