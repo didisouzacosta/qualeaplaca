@@ -3,7 +3,7 @@ import { View, TouchableOpacity, Text, ScrollView } from "react-native";
 
 import styles from "./styles";
 
-export default function OptionsSection() {
+export default function OptionsList() {
   return (
     <View style={styles.container}>
       <ScrollView
