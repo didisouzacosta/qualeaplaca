@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, H2 } from "./../../../../components/Text";
+import { Text, H2 } from "../../../../components/Text";
 import { FlatList, ViewProps } from "react-native";
 import styled from "styled-components/native";
 
@@ -12,7 +12,7 @@ export enum LessonType {
   MoreInformations = "#FF8520",
 }
 
-type LessonCardProps = {
+type LessonProps = {
   type: LessonType;
   title: string;
   initials: string;
@@ -38,7 +38,7 @@ export const SectionTitle = styled(Text)`
   font-weight: bold;
 `;
 
-export const LessonCard = ({ initials, title, type }: LessonCardProps) => (
+export const Lesson = ({ initials, title, type }: LessonProps) => (
   <Card style={{ backgroundColor: type }}>
     <LessonInitials>{initials}</LessonInitials>
     <LessonTitle>{title}</LessonTitle>

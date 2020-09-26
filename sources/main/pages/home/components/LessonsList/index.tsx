@@ -1,40 +1,36 @@
 import React from "react";
 
-import { List, SectionTitle, LessonCard, LessonType } from "./styles";
+import { List, SectionTitle, Lesson, LessonType } from "./styles";
 
 import OptionsList from "../OptionsList";
 import AllSimulatorsCard from "../AllSimulatorsCard";
 
 type ItemType = JSX.Element;
 
-export default function ListItems() {
+export default function LessonsList() {
   const { items } = React.useMemo(() => {
     const items: ItemType[] = [
       <OptionsList />,
       <SectionTitle>Simulados</SectionTitle>,
       <AllSimulatorsCard />,
-      <LessonCard
+      <Lesson
         initials="R"
         title="Regulamentação"
         type={LessonType.Regulamentation}
       />,
-      <LessonCard initials="A" title="Advertência" type={LessonType.Warning} />,
-      <LessonCard
+      <Lesson initials="A" title="Advertência" type={LessonType.Warning} />,
+      <Lesson
         initials="I"
         title="Identificação"
         type={LessonType.Identification}
       />,
-      <LessonCard
-        initials="E"
-        title="Educativa"
-        type={LessonType.Educational}
-      />,
-      <LessonCard
+      <Lesson initials="E" title="Educativa" type={LessonType.Educational} />,
+      <Lesson
         initials="SEA"
         title="Sinalização especial de advertência"
         type={LessonType.SpecialSignWarning}
       />,
-      <LessonCard
+      <Lesson
         initials="IC"
         title="Informações complementares"
         type={LessonType.MoreInformations}
