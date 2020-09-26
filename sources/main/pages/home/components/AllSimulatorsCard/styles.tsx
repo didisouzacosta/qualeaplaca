@@ -19,7 +19,7 @@ export default StyleSheet.create({
     justifyContent: "center",
     width: 20,
     height: 20,
-    backgroundColor: "red",
+    backgroundColor: "#E02020",
     borderRadius: 10,
     margin: 1,
   },
