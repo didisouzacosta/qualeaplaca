@@ -10,3 +10,9 @@ export const List = styled(FlatList as new () => FlatList<JSX.Element>).attrs(
 )`
   overflow: visible;
 `;
+
+export const SectionTitle = styled.Text`
+  font-size: 22px;
+  font-weight: bold;
+  padding: 16px;
+`;

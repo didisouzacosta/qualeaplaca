@@ -1,9 +1,8 @@
 import React from "react";
 
-import { List } from "./styles";
+import { List, SectionTitle } from "./styles";
 
 import OptionsList from "../OptionsList";
-import SectionHeader from "../SectionHeader";
 import AllSimulatorsCard from "../AllSimulatorsCard";
 import LessonCard from "../LessonCard";
 
@@ -13,7 +12,7 @@ export default function ListItems() {
   const { items } = React.useMemo(() => {
     const items: ItemType[] = [
       <OptionsList />,
-      <SectionHeader title="Simulados" />,
+      <SectionTitle>Simulados</SectionTitle>,
       <AllSimulatorsCard />,
       <LessonCard initials="R" title="Regulamentação" />,
       <LessonCard initials="A" title="Advertência" />,
