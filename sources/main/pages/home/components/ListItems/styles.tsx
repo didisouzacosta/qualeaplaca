@@ -38,7 +38,14 @@ export const SectionTitle = styled(Text)`
   font-weight: bold;
 `;
 
-export const Card = styled.TouchableOpacity<CardProps>`
+export const LessonCard = ({ initials, title, type }: LessonCardProps) => (
+  <Card style={{ backgroundColor: type }}>
+    <LessonInitials>{initials}</LessonInitials>
+    <LessonTitle>{title}</LessonTitle>
+  </Card>
+);
+
+const Card = styled.TouchableOpacity<CardProps>`
   border-radius: 8px;
   padding-right: 16px;
   padding-left: 16px;
@@ -48,13 +55,6 @@ export const Card = styled.TouchableOpacity<CardProps>`
   overflow: hidden;
   background-color: ${(props) => props.backgroundColor ?? "white"};
 `;
-
-export const LessonCard = ({ initials, title, type }: LessonCardProps) => (
-  <Card style={{ backgroundColor: type }}>
-    <LessonInitials>{initials}</LessonInitials>
-    <LessonTitle>{title}</LessonTitle>
-  </Card>
-);
 
 const LessonInitials = styled(H2)`
   color: white;
