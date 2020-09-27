@@ -21,6 +21,10 @@ type BulletProps = {
   type: LessonType;
 };
 
+type AllLessonsProps = {
+  lessons: LessonType[];
+};
+
 export const List = styled(FlatList as new () => FlatList<JSX.Element>).attrs(
   () => ({
     contentContainerStyle: {
@@ -48,36 +52,15 @@ export const Lesson = ({ type }: LessonProps) => {
   );
 };
 
-export const AllLessons = () => (
+export const AllLessons = ({ lessons }: AllLessonsProps) => (
   <Card style={{ flexDirection: "row", alignItems: "center" }}>
     <AllLessonTitle>Todas as placas</AllLessonTitle>
-    <View>
-      <View style={{ flexDirection: "row" }}>
-        {[
-          LessonType.Regulamentation,
-          LessonType.Warning,
-          LessonType.Identification,
-        ].map((lesson) => (
-          <Bullet key={lesson} type={lesson}>
-            <BulletLabel>
-              {lessonDescriptionByType(lesson).initials}
-            </BulletLabel>
-          </Bullet>
-        ))}
-      </View>
-      <View style={{ flexDirection: "row" }}>
-        {[
-          LessonType.Educational,
-          LessonType.SpecialSignWarning,
-          LessonType.MoreInformations,
-        ].map((lesson) => (
-          <Bullet key={lesson} type={lesson}>
-            <BulletLabel>
-              {lessonDescriptionByType(lesson).initials}
-            </BulletLabel>
-          </Bullet>
-        ))}
-      </View>
+    <View style={{ flexDirection: "row", flexWrap: "wrap", maxWidth: 66 }}>
+      {lessons.map((lesson) => (
+        <Bullet key={lesson} type={lesson}>
+          <BulletLabel>{lessonDescriptionByType(lesson).initials}</BulletLabel>
+        </Bullet>
+      ))}
     </View>
   </Card>
 );
@@ -89,6 +72,7 @@ const Card = styled.TouchableOpacity<CardProps>`
   padding-top: 12px;
   padding-bottom: 12px;
   margin-bottom: 8px;
+  min-height: 76px;
   overflow: hidden;
   background-color: ${(props) => {
     if (props.type) {

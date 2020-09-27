@@ -14,7 +14,7 @@ export default function LessonsList({ lessons }: Props) {
     const base = [
       <OptionsList />,
       <SectionTitle>Simulados</SectionTitle>,
-      <AllLessons />,
+      <AllLessons lessons={lessons} />,
     ];
 
     const items = [

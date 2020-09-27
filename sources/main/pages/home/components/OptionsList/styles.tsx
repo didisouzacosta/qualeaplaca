@@ -15,7 +15,7 @@ export const ScrollView = styled.ScrollView`
 export const Option = ({ title }: OptionProps) => {
   return (
     <Card>
-      <Text>{title}</Text>
+      <Label>{title}</Label>
     </Card>
   );
 };
@@ -29,4 +29,8 @@ const Card = styled.TouchableOpacity`
   border-radius: 8px;
   box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.05);
   background-color: ${(props) => props.theme.colors.cardColor};
+`;
+
+const Label = styled(Text)`
+  font-weight: bold;
 `;
