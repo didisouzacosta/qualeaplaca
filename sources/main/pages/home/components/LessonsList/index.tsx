@@ -1,8 +1,9 @@
 import React from "react";
 
-import { List, SectionTitle, Lesson, LessonType, AllLessons } from "./styles";
+import { List, SectionTitle, Lesson, AllLessons } from "./styles";
 
 import OptionsList from "../OptionsList";
+import { LessonType } from "../../../../enums";
 
 type ItemType = JSX.Element;
 

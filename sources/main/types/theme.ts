@@ -6,6 +6,14 @@ declare module "styled-components" {
       text: string;
       backgroundColor: string;
       cardColor: string;
+      lessons: {
+        regulamentation: string;
+        warning: string;
+        identification: string;
+        educational: string;
+        specialSignOfWarning: string;
+        moreInformations: string;
+      };
     };
   }
 }
