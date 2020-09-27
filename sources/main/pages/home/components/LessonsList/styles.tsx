@@ -53,26 +53,30 @@ export const AllLessons = () => (
     <AllLessonTitle>Todas as placas</AllLessonTitle>
     <View>
       <View style={{ flexDirection: "row" }}>
-        <Bullet type={LessonType.Regulamentation}>
-          <BulletLabel>R</BulletLabel>
-        </Bullet>
-        <Bullet type={LessonType.Warning}>
-          <BulletLabel>A</BulletLabel>
-        </Bullet>
-        <Bullet type={LessonType.Identification}>
-          <BulletLabel>i</BulletLabel>
-        </Bullet>
+        {[
+          LessonType.Regulamentation,
+          LessonType.Warning,
+          LessonType.Identification,
+        ].map((lesson) => (
+          <Bullet key={lesson} type={lesson}>
+            <BulletLabel>
+              {lessonDescriptionByType(lesson).initials}
+            </BulletLabel>
+          </Bullet>
+        ))}
       </View>
       <View style={{ flexDirection: "row" }}>
-        <Bullet type={LessonType.Educational}>
-          <BulletLabel>e</BulletLabel>
-        </Bullet>
-        <Bullet type={LessonType.SpecialSignWarning}>
-          <BulletLabel>SEA</BulletLabel>
-        </Bullet>
-        <Bullet type={LessonType.MoreInformations}>
-          <BulletLabel>IC</BulletLabel>
-        </Bullet>
+        {[
+          LessonType.Educational,
+          LessonType.SpecialSignWarning,
+          LessonType.MoreInformations,
+        ].map((lesson) => (
+          <Bullet key={lesson} type={lesson}>
+            <BulletLabel>
+              {lessonDescriptionByType(lesson).initials}
+            </BulletLabel>
+          </Bullet>
+        ))}
       </View>
     </View>
   </Card>
