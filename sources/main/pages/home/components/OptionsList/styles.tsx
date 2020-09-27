@@ -27,4 +27,6 @@ const Card = styled.TouchableOpacity`
   padding: 16px;
   margin-right: 8px;
   border-radius: 8px;
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.05);
+  background-color: ${(props) => props.theme.colors.cardColor};
 `;

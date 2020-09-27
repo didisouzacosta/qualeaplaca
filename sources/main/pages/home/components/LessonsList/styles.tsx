@@ -40,6 +40,7 @@ export const SectionTitle = styled(Text)`
   padding: 16px;
   font-size: 22px;
   font-weight: bold;
+  color: ${(props) => props.theme.colors.primary};
 `;
 
 export const Lesson = ({ initials, title, type }: LessonProps) => (
@@ -51,7 +52,7 @@ export const Lesson = ({ initials, title, type }: LessonProps) => (
 
 export const AllLessons = () => (
   <Card style={{ flexDirection: "row", alignItems: "center" }}>
-    <Text style={{ flex: 1, fontSize: 18 }}>Todas as placas</Text>
+    <AllLessonTitle>Todas as placas</AllLessonTitle>
     <View>
       <View style={{ flexDirection: "row" }}>
         <Bullet type={LessonType.Regulamentation}>
@@ -87,7 +88,7 @@ const Card = styled.TouchableOpacity<CardProps>`
   padding-bottom: 12px;
   margin-bottom: 8px;
   overflow: hidden;
-  background-color: ${(props) => props.backgroundColor ?? "white"};
+  background-color: ${(props) => props.theme.colors.cardColor};
 `;
 
 const LessonInitials = styled(H2)`
@@ -97,6 +98,11 @@ const LessonInitials = styled(H2)`
 const LessonTitle = styled(Text)`
   font-size: 14px;
   color: white;
+`;
+
+const AllLessonTitle = styled(Text)`
+  flex: 1;
+  font-size: 18px;
 `;
 
 const Bullet = styled.View<BulletProps>`

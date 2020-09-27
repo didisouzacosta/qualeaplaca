@@ -1,6 +1,5 @@
-import { FlatList } from "react-native";
 import styled from "styled-components/native";
 
 export const SafeAreaView = styled.SafeAreaView`
-  background-color: #f4f4f4;
+  background-color: ${(props) => props.theme.colors.backgroundColor};
 `;

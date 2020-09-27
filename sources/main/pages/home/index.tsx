@@ -7,7 +7,7 @@ import LessonsList from "./components/LessonsList";
 export default function Home() {
   return (
     <>
-      <StatusBar style="dark" />
+      <StatusBar style="auto" />
       <SafeAreaView>
         <LessonsList />
       </SafeAreaView>
