@@ -40,7 +40,7 @@ export const SectionTitle = styled(Text)`
   padding: 16px;
   font-size: 22px;
   font-weight: bold;
-  color: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.text};
 `;
 
 export const Lesson = ({ initials, title, type }: LessonProps) => (

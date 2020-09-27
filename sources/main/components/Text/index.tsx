@@ -2,7 +2,7 @@ import styled from "styled-components/native";
 
 export const Text = styled.Text`
   font-size: 16px;
-  color: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.text};
 `;
 
 export const H1 = styled(Text)`
