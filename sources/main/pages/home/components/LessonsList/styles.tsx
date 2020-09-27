@@ -59,19 +59,19 @@ export const AllLessons = () => (
         <Bullet type={LessonType.Warning}>
           <BulletLabel>A</BulletLabel>
         </Bullet>
-        <Bullet type={LessonType.MoreInformations}>
-          <BulletLabel>IC</BulletLabel>
-        </Bullet>
-      </View>
-      <View style={{ flexDirection: "row" }}>
         <Bullet type={LessonType.Identification}>
           <BulletLabel>i</BulletLabel>
         </Bullet>
+      </View>
+      <View style={{ flexDirection: "row" }}>
         <Bullet type={LessonType.Educational}>
           <BulletLabel>e</BulletLabel>
         </Bullet>
         <Bullet type={LessonType.SpecialSignWarning}>
           <BulletLabel>SEA</BulletLabel>
+        </Bullet>
+        <Bullet type={LessonType.MoreInformations}>
+          <BulletLabel>IC</BulletLabel>
         </Bullet>
       </View>
     </View>

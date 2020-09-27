@@ -6,12 +6,12 @@ export const light: DefaultTheme = {
     backgroundColor: "#f4f4f4",
     cardColor: "#fff",
     lessons: {
-      regulamentation: "#E02020",
-      warning: "#FFCE00",
-      identification: "#64BA09",
-      educational: "#0091FF",
-      specialSignOfWarning: "#FF8520",
-      moreInformations: "#FF8520",
+      regulamentation: "#f94144",
+      warning: "#fdc500",
+      identification: "#90be6d",
+      educational: "#577590",
+      specialSignOfWarning: "#f3722c",
+      moreInformations: "#8d99ae",
     },
   },
 };
