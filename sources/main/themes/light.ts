@@ -9,9 +9,9 @@ export const light: DefaultTheme = {
       regulamentation: "#f94144",
       warning: "#fdc500",
       identification: "#90be6d",
-      educational: "#577590",
+      educational: "#30638e",
       specialSignOfWarning: "#f3722c",
-      moreInformations: "#8d99ae",
+      moreInformations: "gray",
     },
   },
 };

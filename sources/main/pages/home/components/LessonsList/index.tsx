@@ -5,21 +5,23 @@ import { List, SectionTitle, Lesson, AllLessons } from "./styles";
 import OptionsList from "../OptionsList";
 import { LessonType } from "../../../../enums";
 
-type ItemType = JSX.Element;
+type Props = {
+  lessons: LessonType[];
+};
 
-export default function LessonsList() {
+export default function LessonsList({ lessons }: Props) {
   const { items } = React.useMemo(() => {
-    const items: ItemType[] = [
+    const base = [
       <OptionsList />,
       <SectionTitle>Simulados</SectionTitle>,
       <AllLessons />,
-      <Lesson type={LessonType.Regulamentation} />,
-      <Lesson type={LessonType.Warning} />,
-      <Lesson type={LessonType.Identification} />,
-      <Lesson type={LessonType.Educational} />,
-      <Lesson type={LessonType.SpecialSignWarning} />,
-      <Lesson type={LessonType.MoreInformations} />,
     ];
+
+    const items = [
+      ...base,
+      ...lessons.map((lesson) => <Lesson type={lesson} />),
+    ];
+
     return { items };
   }, []);
 
