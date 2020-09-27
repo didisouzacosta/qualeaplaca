@@ -13,28 +13,12 @@ export default function LessonsList() {
       <OptionsList />,
       <SectionTitle>Simulados</SectionTitle>,
       <AllLessons />,
-      <Lesson
-        initials="R"
-        title="Regulamentação"
-        type={LessonType.Regulamentation}
-      />,
-      <Lesson initials="A" title="Advertência" type={LessonType.Warning} />,
-      <Lesson
-        initials="I"
-        title="Identificação"
-        type={LessonType.Identification}
-      />,
-      <Lesson initials="E" title="Educativa" type={LessonType.Educational} />,
-      <Lesson
-        initials="SEA"
-        title="Sinalização especial de advertência"
-        type={LessonType.SpecialSignWarning}
-      />,
-      <Lesson
-        initials="IC"
-        title="Informações complementares"
-        type={LessonType.MoreInformations}
-      />,
+      <Lesson type={LessonType.Regulamentation} />,
+      <Lesson type={LessonType.Warning} />,
+      <Lesson type={LessonType.Identification} />,
+      <Lesson type={LessonType.Educational} />,
+      <Lesson type={LessonType.SpecialSignWarning} />,
+      <Lesson type={LessonType.MoreInformations} />,
     ];
     return { items };
   }, []);

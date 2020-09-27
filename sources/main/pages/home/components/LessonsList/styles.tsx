@@ -1,22 +1,25 @@
 import React from "react";
-import { Text, H2 } from "../../../../components/Text";
-import { FlatList, View, ViewProps } from "react-native";
 import styled from "styled-components/native";
+
+import { Text, H2 } from "../../../../components/Text";
+import { FlatList, View } from "react-native";
 import { LessonType } from "../../../../enums";
+import {
+  lessonColorByType,
+  lessonDescriptionByType,
+} from "../../../../utils/lessonInfos";
+
+type CardProps = {
+  type?: LessonType;
+};
 
 type LessonProps = {
   type: LessonType;
-  title: string;
-  initials: string;
 };
 
 type BulletProps = {
   type: LessonType;
 };
-
-interface CardProps extends ViewProps {
-  backgroundColor?: string;
-}
 
 export const List = styled(FlatList as new () => FlatList<JSX.Element>).attrs(
   () => ({
@@ -35,12 +38,15 @@ export const SectionTitle = styled(Text)`
   color: ${(props) => props.theme.colors.text};
 `;
 
-export const Lesson = ({ initials, title, type }: LessonProps) => (
-  <Card style={{ backgroundColor: type }}>
-    <LessonInitials>{initials}</LessonInitials>
-    <LessonTitle>{title}</LessonTitle>
-  </Card>
-);
+export const Lesson = ({ type }: LessonProps) => {
+  const { initials, name } = lessonDescriptionByType(type);
+  return (
+    <Card type={type}>
+      <LessonInitials>{initials}</LessonInitials>
+      <LessonTitle>{name}</LessonTitle>
+    </Card>
+  );
+};
 
 export const AllLessons = () => (
   <Card style={{ flexDirection: "row", alignItems: "center" }}>
@@ -80,7 +86,12 @@ const Card = styled.TouchableOpacity<CardProps>`
   padding-bottom: 12px;
   margin-bottom: 8px;
   overflow: hidden;
-  background-color: ${(props) => props.theme.colors.cardColor};
+  background-color: ${(props) => {
+    if (props.type) {
+      return lessonColorByType(props.type, props.theme);
+    }
+    return props.theme.colors.cardColor;
+  }};
 `;
 
 const LessonInitials = styled(H2)`
@@ -104,7 +115,7 @@ const Bullet = styled.View<BulletProps>`
   justify-content: center;
   border-radius: 10px;
   margin: 1px;
-  background-color: ${(props) => props.type};
+  background-color: ${(props) => lessonColorByType(props.type, props.theme)};
 `;
 
 const BulletLabel = styled(Text)`
