@@ -1,10 +1,11 @@
 class AssetImage {
   constructor(private light?: any, private dark?: any) {}
   getImage(theme: string = "light"): any | undefined {
-    if (theme == "light") {
-      return this.light ?? this.dark;
+    const { light, dark } = this;
+    if (theme === "light") {
+      return light ?? dark;
     }
-    return this.dark ?? this.light;
+    return dark ?? light;
   }
 }
 

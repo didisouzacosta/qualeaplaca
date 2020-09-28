@@ -8,22 +8,23 @@ import { OptionListItem } from "./components/OptionsList";
 
 export default function Home() {
   const theme = useColorScheme();
-  const { options } = useMemo(() => {
+  const { options, lessons } = useMemo(() => {
+    let lessons = [
+      LessonType.Regulamentation,
+      LessonType.Warning,
+      LessonType.Identification,
+      LessonType.Educational,
+      LessonType.SpecialSignWarning,
+      LessonType.MoreInformations,
+    ];
+
     const options: OptionListItem[] = [
       { title: "Progresso", icon: icons.progress.getImage(theme) },
       { title: "Ajustes", icon: icons.adjusts.getImage(theme) },
       { title: "Sobre", icon: icons.about.getImage(theme) },
     ];
-    return { options };
+    return { options, lessons };
   }, [theme]);
 
-  let lessons = [
-    LessonType.Regulamentation,
-    LessonType.Warning,
-    LessonType.Identification,
-    LessonType.Educational,
-    LessonType.SpecialSignWarning,
-    LessonType.MoreInformations,
-  ];
   return <LessonsList lessons={lessons} options={options} />;
 }
