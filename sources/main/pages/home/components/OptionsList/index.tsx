@@ -2,17 +2,25 @@ import React from "react";
 
 import { ScrollView, Option } from "./styles";
 
-export default function OptionsList() {
+export type OptionListItem = {
+  title: string;
+  image?: string;
+};
+
+type Props = {
+  options: OptionListItem[];
+};
+
+export default function OptionsList({ options }: Props) {
   return (
     <ScrollView
       horizontal={true}
       removeClippedSubviews={true}
       showsHorizontalScrollIndicator={false}
     >
-      <Option title="Plano Plus" />
-      <Option title="Progesso" />
-      <Option title="Ajustes" />
-      <Option title="Sobre" />
+      {options.map((option) => (
+        <Option title={option.title} />
+      ))}
     </ScrollView>
   );
 }

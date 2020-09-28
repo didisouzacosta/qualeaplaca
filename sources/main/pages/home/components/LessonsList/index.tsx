@@ -12,7 +12,13 @@ type Props = {
 export default function LessonsList({ lessons }: Props) {
   const { items } = React.useMemo(() => {
     const base = [
-      <OptionsList />,
+      <OptionsList
+        options={[
+          { title: "Progresso" },
+          { title: "Ajustes" },
+          { title: "Sobre" },
+        ]}
+      />,
       <SectionTitle>Simulados</SectionTitle>,
       <AllLessons lessons={lessons} />,
     ];
