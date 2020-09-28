@@ -1,24 +1,19 @@
-import React from "react";
+import React, { useMemo } from "react";
 
 import { List, SectionTitle, Lesson, AllLessons } from "./styles";
 
-import OptionsList from "../OptionsList";
+import OptionsList, { OptionListItem } from "../OptionsList";
 import { LessonType } from "../../../../enums";
 
 type Props = {
   lessons: LessonType[];
+  options: OptionListItem[];
 };
 
-export default function LessonsList({ lessons }: Props) {
-  const { items } = React.useMemo(() => {
+export default function LessonsList({ lessons, options }: Props) {
+  const { items } = useMemo(() => {
     const base = [
-      <OptionsList
-        options={[
-          { title: "Progresso" },
-          { title: "Ajustes" },
-          { title: "Sobre" },
-        ]}
-      />,
+      <OptionsList options={options} />,
       <SectionTitle>Simulados</SectionTitle>,
       <AllLessons lessons={lessons} />,
     ];
@@ -29,7 +24,7 @@ export default function LessonsList({ lessons }: Props) {
     ];
 
     return { items };
-  }, []);
+  }, [options]);
 
   return (
     <List

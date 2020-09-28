@@ -4,6 +4,7 @@ import { Text } from "./../../../../components/Text";
 
 type OptionProps = {
   title: string;
+  icon?: any;
 };
 
 export const ScrollView = styled.ScrollView`
@@ -12,17 +13,17 @@ export const ScrollView = styled.ScrollView`
   margin-bottom: 32px;
 `;
 
-export const Option = ({ title }: OptionProps) => {
+export const Option = ({ title, icon }: OptionProps) => {
   return (
     <Card>
       <Label>{title}</Label>
-      <Image source={{ uri: "" }} resizeMode="contain" />
+      {icon && <Image source={icon} resizeMode="contain" />}
     </Card>
   );
 };
 
 const Card = styled.TouchableOpacity`
-  flex: 1;
+  /* flex: 1; */
   height: 160px;
   width: 120px;
   background-color: white;
@@ -39,6 +40,6 @@ const Label = styled(Text)`
 
 const Image = styled.Image`
   flex: 1;
-  background-color: red;
+  width: 100%;
   margin-top: 12px;
 `;

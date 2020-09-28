@@ -1,4 +1,5 @@
 import { DefaultTheme } from "styled-components/native";
+import { icons } from "../assets";
 
 export const light: DefaultTheme = {
   colors: {
