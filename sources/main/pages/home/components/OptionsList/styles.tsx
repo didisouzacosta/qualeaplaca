@@ -1,5 +1,4 @@
 import React from "react";
-import { Image } from "react-native";
 import styled from "styled-components/native";
 import { Text } from "./../../../../components/Text";
 
@@ -17,11 +16,13 @@ export const Option = ({ title }: OptionProps) => {
   return (
     <Card>
       <Label>{title}</Label>
+      <Image source={{ uri: "" }} resizeMode="contain" />
     </Card>
   );
 };
 
 const Card = styled.TouchableOpacity`
+  flex: 1;
   height: 160px;
   width: 120px;
   background-color: white;
@@ -34,4 +35,10 @@ const Card = styled.TouchableOpacity`
 
 const Label = styled(Text)`
   font-weight: bold;
+`;
+
+const Image = styled.Image`
+  flex: 1;
+  background-color: red;
+  margin-top: 12px;
 `;
