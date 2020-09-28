@@ -2,7 +2,7 @@ import React from "react";
 
 import { ScrollView, Option } from "./styles";
 
-export type OptionListItem = {
+type OptionListItem = {
   title: string;
   image?: string;
 };
