@@ -19,6 +19,7 @@ export default function Home() {
   ];
 
   const options: OptionListItem[] = [
+    { title: "Placas", icon: icons.adjusts.getImage(theme) },
     { title: "Progresso", icon: icons.progress.getImage(theme) },
     { title: "Ajustes", icon: icons.adjusts.getImage(theme) },
     { title: "Sobre", icon: icons.about.getImage(theme) },
