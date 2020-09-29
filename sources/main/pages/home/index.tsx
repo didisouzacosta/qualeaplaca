@@ -2,20 +2,20 @@ import React, { useMemo } from "react";
 import { useColorScheme } from "react-native-appearance";
 import { LessonType } from "../../enums";
 
-import LessonsList from "./components/LessonsList";
+import LessonsList, { LessonInfo } from "./components/LessonsList";
 import { icons } from "./../../assets";
 import { OptionListItem } from "./components/OptionsList";
 
 export default function Home() {
   const theme = useColorScheme();
 
-  let lessons = [
-    LessonType.Regulamentation,
-    LessonType.Warning,
-    LessonType.Identification,
-    LessonType.Educational,
-    LessonType.SpecialSignWarning,
-    LessonType.MoreInformations,
+  let lessons: LessonInfo[] = [
+    { type: LessonType.Regulamentation, progress: 44 },
+    { type: LessonType.Warning, progress: 20 },
+    { type: LessonType.Identification, progress: 100 },
+    { type: LessonType.Educational, progress: 98 },
+    { type: LessonType.SpecialSignWarning, progress: 0 },
+    { type: LessonType.MoreInformations, progress: 2 },
   ];
 
   const options: OptionListItem[] = [

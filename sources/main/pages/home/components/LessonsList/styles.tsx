@@ -1,8 +1,8 @@
 import React from "react";
+import { FlatList, View } from "react-native";
 import styled from "styled-components/native";
 
 import { Text, H2 } from "../../../../components/Text";
-import { FlatList, View } from "react-native";
 import { LessonType } from "../../../../enums";
 import {
   lessonColorByType,
@@ -15,6 +15,7 @@ type CardProps = {
 
 type LessonProps = {
   type: LessonType;
+  progress: number;
 };
 
 type BulletProps = {
@@ -22,7 +23,11 @@ type BulletProps = {
 };
 
 type AllLessonsProps = {
-  lessons: LessonType[];
+  types: LessonType[];
+};
+
+type LessonProgressProps = {
+  percentage: number;
 };
 
 export const List = styled(FlatList as new () => FlatList<JSX.Element>).attrs(
@@ -42,23 +47,26 @@ export const SectionTitle = styled(Text)`
   color: ${(props) => props.theme.colors.text};
 `;
 
-export const Lesson = ({ type }: LessonProps) => {
+export const Lesson = ({ type, progress }: LessonProps) => {
   const { initials, name } = lessonDescriptionByType(type);
   return (
     <Card type={type}>
-      <LessonInitials>{initials}</LessonInitials>
-      <LessonTitle>{name}</LessonTitle>
+      <View style={{ flex: 1, marginRight: 16 }}>
+        <LessonInitials>{initials}</LessonInitials>
+        <LessonTitle>{name}</LessonTitle>
+      </View>
+      <LessonProgress percentage={progress} />
     </Card>
   );
 };
 
-export const AllLessons = ({ lessons }: AllLessonsProps) => (
+export const AllLessons = ({ types }: AllLessonsProps) => (
   <Card style={{ flexDirection: "row", alignItems: "center" }}>
     <AllLessonTitle>Todas as placas</AllLessonTitle>
     <View style={{ flexDirection: "row", flexWrap: "wrap", maxWidth: 66 }}>
-      {lessons.map((lesson) => (
-        <Bullet key={lesson} type={lesson}>
-          <BulletLabel>{lessonDescriptionByType(lesson).initials}</BulletLabel>
+      {types.map((type) => (
+        <Bullet key={type} type={type}>
+          <BulletLabel>{lessonDescriptionByType(type).initials}</BulletLabel>
         </Bullet>
       ))}
     </View>
@@ -66,6 +74,8 @@ export const AllLessons = ({ lessons }: AllLessonsProps) => (
 );
 
 const Card = styled.TouchableOpacity<CardProps>`
+  flex-direction: row;
+  align-items: center;
   border-radius: 8px;
   padding-right: 16px;
   padding-left: 16px;
@@ -81,6 +91,34 @@ const Card = styled.TouchableOpacity<CardProps>`
     return props.theme.colors.cardColor;
   }};
 `;
+
+const LessonProgress = ({ percentage }: LessonProgressProps) => (
+  <View style={{ width: 48, height: 48 }}>
+    <View
+      style={{
+        width: "100%",
+        height: "100%",
+        borderColor: "white",
+        borderWidth: 6,
+        borderRadius: 24,
+        opacity: 0.3,
+      }}
+    ></View>
+    <View
+      style={{
+        position: "absolute",
+        width: "100%",
+        height: "100%",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <Text style={{ fontSize: 10, fontWeight: "bold", color: "white" }}>
+        {percentage}%
+      </Text>
+    </View>
+  </View>
+);
 
 const LessonInitials = styled(H2)`
   color: white;

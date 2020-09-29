@@ -5,8 +5,13 @@ import { List, SectionTitle, Lesson, AllLessons } from "./styles";
 import OptionsList, { OptionListItem } from "../OptionsList";
 import { LessonType } from "../../../../enums";
 
+export type LessonInfo = {
+  type: LessonType;
+  progress: number;
+};
+
 type Props = {
-  lessons: LessonType[];
+  lessons: LessonInfo[];
   options: OptionListItem[];
 };
 
@@ -15,12 +20,14 @@ export default function LessonsList({ lessons, options }: Props) {
     const base = [
       <OptionsList options={options} />,
       <SectionTitle>Simulados</SectionTitle>,
-      <AllLessons lessons={lessons} />,
+      <AllLessons types={lessons.map((lesson) => lesson.type)} />,
     ];
 
     const items = [
       ...base,
-      ...lessons.map((lesson) => <Lesson type={lesson} />),
+      ...lessons.map((lesson) => (
+        <Lesson type={lesson.type} progress={lesson.progress} />
+      )),
     ];
 
     return { items };
