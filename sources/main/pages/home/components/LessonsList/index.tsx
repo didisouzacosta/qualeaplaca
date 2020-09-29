@@ -11,13 +11,20 @@ type Props = {
 };
 
 export default function LessonsList({ lessons, options }: Props) {
-  const base = [
-    <OptionsList options={options} />,
-    <SectionTitle>Simulados</SectionTitle>,
-    <AllLessons lessons={lessons} />,
-  ];
+  const { items } = useMemo(() => {
+    const base = [
+      <OptionsList options={options} />,
+      <SectionTitle>Simulados</SectionTitle>,
+      <AllLessons lessons={lessons} />,
+    ];
 
-  const items = [...base, ...lessons.map((lesson) => <Lesson type={lesson} />)];
+    const items = [
+      ...base,
+      ...lessons.map((lesson) => <Lesson type={lesson} />),
+    ];
+
+    return { items };
+  }, [options, lessons]);
 
   return (
     <List
