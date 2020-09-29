@@ -24,7 +24,7 @@ export default function LessonsList({ lessons, options }: Props) {
     ];
 
     return { items };
-  }, [options, lessons]);
+  }, [lessons, options]);
 
   return (
     <List
