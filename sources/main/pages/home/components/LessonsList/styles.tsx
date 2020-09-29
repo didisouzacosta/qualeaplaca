@@ -1,6 +1,7 @@
 import React from "react";
 import { FlatList, View } from "react-native";
 import styled from "styled-components/native";
+import { AnimatedCircularProgress } from "react-native-circular-progress";
 
 import { Text, H2 } from "../../../../components/Text";
 import { LessonType } from "../../../../enums";
@@ -55,7 +56,22 @@ export const Lesson = ({ type, progress }: LessonProps) => {
         <LessonInitials>{initials}</LessonInitials>
         <LessonTitle>{name}</LessonTitle>
       </View>
-      <LessonProgress percentage={progress} />
+      <AnimatedCircularProgress
+        size={44}
+        width={4}
+        fill={progress}
+        lineCap="round"
+        rotation={0}
+        backgroundWidth={2}
+        tintColor="#fff"
+        backgroundColor="rgba(255, 255, 255, 0.2)"
+      >
+        {(_fill) => (
+          <Text style={{ fontSize: 9, fontWeight: "bold", color: "white" }}>
+            {progress}%
+          </Text>
+        )}
+      </AnimatedCircularProgress>
     </Card>
   );
 };
@@ -91,34 +107,6 @@ const Card = styled.TouchableOpacity<CardProps>`
     return props.theme.colors.cardColor;
   }};
 `;
-
-const LessonProgress = ({ percentage }: LessonProgressProps) => (
-  <View style={{ width: 48, height: 48 }}>
-    <View
-      style={{
-        width: "100%",
-        height: "100%",
-        borderColor: "white",
-        borderWidth: 6,
-        borderRadius: 24,
-        opacity: 0.3,
-      }}
-    ></View>
-    <View
-      style={{
-        position: "absolute",
-        width: "100%",
-        height: "100%",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      <Text style={{ fontSize: 10, fontWeight: "bold", color: "white" }}>
-        {percentage}%
-      </Text>
-    </View>
-  </View>
-);
 
 const LessonInitials = styled(H2)`
   color: white;

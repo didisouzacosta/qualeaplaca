@@ -13,7 +13,7 @@ export default function Home() {
     { type: LessonType.Regulamentation, progress: 44 },
     { type: LessonType.Warning, progress: 20 },
     { type: LessonType.Identification, progress: 100 },
-    { type: LessonType.Educational, progress: 98 },
+    { type: LessonType.Educational, progress: 28 },
     { type: LessonType.SpecialSignWarning, progress: 0 },
     { type: LessonType.MoreInformations, progress: 2 },
   ];
