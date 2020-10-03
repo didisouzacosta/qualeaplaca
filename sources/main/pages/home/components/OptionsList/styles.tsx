@@ -2,9 +2,10 @@ import React from "react";
 import styled from "styled-components/native";
 import { Text } from "./../../../../components/Text";
 
-type OptionProps = {
+export type OptionProps = {
   title: string;
   icon?: any;
+  onPress: () => void;
 };
 
 export const ScrollView = styled.ScrollView`
@@ -13,9 +14,9 @@ export const ScrollView = styled.ScrollView`
   margin-bottom: 32px;
 `;
 
-export const Option = ({ title, icon }: OptionProps) => {
+export const Option = ({ title, icon, onPress }: OptionProps) => {
   return (
-    <Card>
+    <Card onPress={() => onPress()}>
       <Label>{title}</Label>
       {icon && <Image source={icon} resizeMode="contain" />}
     </Card>

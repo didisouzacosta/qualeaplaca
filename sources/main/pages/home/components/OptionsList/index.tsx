@@ -1,11 +1,8 @@
 import React from "react";
 
-import { ScrollView, Option } from "./styles";
+import { ScrollView, Option, OptionProps } from "./styles";
 
-export type OptionListItem = {
-  title: string;
-  icon?: any;
-};
+export type OptionListItem = OptionProps;
 
 type Props = {
   options: OptionListItem[];
@@ -19,7 +16,12 @@ export default function OptionsList({ options }: Props) {
       showsHorizontalScrollIndicator={false}
     >
       {options.map((option, index) => (
-        <Option key={`${index}`} title={option.title} icon={option.icon} />
+        <Option
+          key={`${index}`}
+          title={option.title}
+          icon={option.icon}
+          onPress={option.onPress}
+        />
       ))}
     </ScrollView>
   );

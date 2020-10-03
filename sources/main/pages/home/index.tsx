@@ -20,10 +20,34 @@ const Home = () => {
   ];
 
   const options: OptionListItem[] = [
-    { title: "Placas", icon: icons.adjusts.getImage(theme) },
-    { title: "Progresso", icon: icons.progress.getImage(theme) },
-    { title: "Ajustes", icon: icons.adjusts.getImage(theme) },
-    { title: "Sobre", icon: icons.about.getImage(theme) },
+    {
+      title: "Placas",
+      icon: icons.adjusts.getImage(theme),
+      onPress: () => {
+        alert("Placas");
+      },
+    },
+    {
+      title: "Progresso",
+      icon: icons.progress.getImage(theme),
+      onPress: () => {
+        alert("Progresso");
+      },
+    },
+    {
+      title: "Ajustes",
+      icon: icons.adjusts.getImage(theme),
+      onPress: () => {
+        alert("Ajustes");
+      },
+    },
+    {
+      title: "Sobre",
+      icon: icons.about.getImage(theme),
+      onPress: () => {
+        alert("Sobre");
+      },
+    },
   ];
 
   return (
