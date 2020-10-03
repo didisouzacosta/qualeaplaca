@@ -8,10 +8,10 @@ export const light: DefaultTheme = {
     cardColor: "#fff",
     lessons: {
       regulamentation: "#f94144",
-      warning: "#fdc500",
+      warning: "#ffba08",
       identification: "#90be6d",
       educational: "#30638e",
-      specialSignOfWarning: "#f3722c",
+      specialSignOfWarning: "#FC7A1E",
       moreInformations: "gray",
     },
   },
