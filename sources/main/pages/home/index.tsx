@@ -1,12 +1,13 @@
-import React, { useMemo } from "react";
+import React from "react";
 import { useColorScheme } from "react-native-appearance";
 import { LessonType } from "../../enums";
 
 import LessonsList, { LessonInfo } from "./components/LessonsList";
 import { icons } from "./../../assets";
 import { OptionListItem } from "./components/OptionsList";
+import { SafeAreaView } from "./../../components/SafeAreaView";
 
-export default function Home() {
+const Home = () => {
   const theme = useColorScheme();
 
   let lessons: LessonInfo[] = [
@@ -25,5 +26,11 @@ export default function Home() {
     { title: "Sobre", icon: icons.about.getImage(theme) },
   ];
 
-  return <LessonsList lessons={lessons} options={options} />;
-}
+  return (
+    <SafeAreaView>
+      <LessonsList lessons={lessons} options={options} />
+    </SafeAreaView>
+  );
+};
+
+export default Home;
