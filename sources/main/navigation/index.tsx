@@ -1,25 +1,33 @@
 import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer, ParamListBase } from "@react-navigation/native";
+import {
+  createStackNavigator,
+  StackScreenProps,
+} from "@react-navigation/stack";
 
 import Home from "./../pages/home";
 import Boards from "./../pages/boards";
 
-const Stack = createStackNavigator();
+export type StackParams = {
+  Home: undefined;
+  Boards: undefined;
+};
 
-const Navigation = () => {
+const Stack = createStackNavigator<StackParams>();
+
+const StackScreen = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="home"
+          name="Home"
           component={Home}
           options={{ headerShown: false }}
         />
-        <Stack.Screen name="boards" component={Boards} />
+        <Stack.Screen name="Boards" component={Boards} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 };
 
-export default Navigation;
+export default StackScreen;

@@ -4,7 +4,7 @@ import { ThemeProvider } from "styled-components";
 import { useColorScheme } from "react-native-appearance";
 
 import themes from "./../themes";
-import Navigation from "./../navigation";
+import StackScreens from "./../navigation";
 
 export default function App() {
   const theme = useColorScheme() == "dark" ? themes.dark : themes.light;
@@ -13,7 +13,7 @@ export default function App() {
     <>
       <StatusBar style="auto" />
       <ThemeProvider theme={theme}>
-        <Navigation />
+        <StackScreens />
       </ThemeProvider>
     </>
   );

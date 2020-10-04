@@ -6,8 +6,13 @@ import LessonsList, { LessonInfo } from "./components/LessonsList";
 import { icons } from "./../../assets";
 import { OptionListItem } from "./components/OptionsList";
 import { SafeAreaView } from "./../../components/SafeAreaView";
+import { StackScreenProps } from "@react-navigation/stack";
 
-const Home = () => {
+import { StackParams } from "./../../navigation";
+
+type Props = StackScreenProps<StackParams, "Home">;
+
+const Home = ({ navigation }: Props) => {
   const theme = useColorScheme();
 
   let lessons: LessonInfo[] = [
@@ -24,7 +29,7 @@ const Home = () => {
       title: "Placas",
       icon: icons.adjusts.getImage(theme),
       onPress: () => {
-        alert("Placas");
+        navigation.navigate("Boards");
       },
     },
     {
