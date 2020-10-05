@@ -1,5 +1,4 @@
 import React from "react";
-import { View } from "react-native";
 import styled from "styled-components/native";
 
 type SafeAreaProps = {
@@ -9,9 +8,7 @@ type SafeAreaProps = {
 export const SafeAreaView = ({ children }: SafeAreaProps) => {
   return (
     <SafeArea>
-      <View style={{ margin: 16, overflow: "visible" }}>
-        {children && children}
-      </View>
+      <SafeAreaContent>{children && children}</SafeAreaContent>
     </SafeArea>
   );
 };
@@ -19,4 +16,9 @@ export const SafeAreaView = ({ children }: SafeAreaProps) => {
 const SafeArea = styled.SafeAreaView`
   flex: 1;
   background-color: ${(props) => props.theme.colors.backgroundColor};
+`;
+
+const SafeAreaContent = styled.View`
+  margin: 16px;
+  overflow: visible;
 `;
