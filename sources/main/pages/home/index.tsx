@@ -36,21 +36,21 @@ const Home = ({ navigation }: Props) => {
       title: "Progresso",
       icon: icons.progress.getImage(theme),
       onPress: () => {
-        alert("Progresso");
+        navigation.navigate("Progress");
       },
     },
     {
       title: "Ajustes",
       icon: icons.adjusts.getImage(theme),
       onPress: () => {
-        alert("Ajustes");
+        navigation.navigate("Adjusts");
       },
     },
     {
       title: "Sobre",
       icon: icons.about.getImage(theme),
       onPress: () => {
-        alert("Sobre");
+        navigation.navigate("About");
       },
     },
   ];
