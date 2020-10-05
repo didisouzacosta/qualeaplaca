@@ -7,7 +7,7 @@ import { StackParams } from "./../../navigation";
 
 type Props = StackScreenProps<StackParams, "Progress">;
 
-const Progress = ({ navigation, route }: Props) => {
+const ProgressScreen = ({ navigation, route }: Props) => {
   return (
     <SafeAreaView>
       <Text>{route.name}</Text>
@@ -15,4 +15,4 @@ const Progress = ({ navigation, route }: Props) => {
   );
 };
 
-export default Progress;
+export default ProgressScreen;

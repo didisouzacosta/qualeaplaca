@@ -12,7 +12,7 @@ import { StackParams } from "./../../navigation";
 
 type Props = StackScreenProps<StackParams, "Home">;
 
-const Home = ({ navigation }: Props) => {
+const HomeScreen = ({ navigation }: Props) => {
   const theme = useColorScheme();
 
   let lessons: LessonInfo[] = [
@@ -62,4 +62,4 @@ const Home = ({ navigation }: Props) => {
   );
 };
 
-export default Home;
+export default HomeScreen;

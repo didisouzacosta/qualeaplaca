@@ -6,7 +6,7 @@ import { Text, SafeAreaView } from "../../components";
 
 type Props = StackScreenProps<StackParams, "Adjusts">;
 
-const Boards = ({ route }: Props) => {
+const AdjustsScreen = ({ route }: Props) => {
   return (
     <SafeAreaView>
       <Text>{route.name}</Text>
@@ -14,4 +14,4 @@ const Boards = ({ route }: Props) => {
   );
 };
 
-export default Boards;
+export default AdjustsScreen;

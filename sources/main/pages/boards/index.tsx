@@ -7,7 +7,7 @@ import { StackParams } from "./../../navigation";
 
 type Props = StackScreenProps<StackParams, "Boards">;
 
-const Boards = ({ navigation, route }: Props) => {
+const BoardsScreen = ({ navigation, route }: Props) => {
   return (
     <SafeAreaView>
       <Text>{route.name}</Text>
@@ -15,4 +15,4 @@ const Boards = ({ navigation, route }: Props) => {
   );
 };
 
-export default Boards;
+export default BoardsScreen;
