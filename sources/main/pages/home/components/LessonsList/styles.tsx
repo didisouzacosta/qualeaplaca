@@ -33,9 +33,7 @@ type LessonProgressProps = {
 
 export const List = styled(FlatList as new () => FlatList<JSX.Element>).attrs(
   () => ({
-    contentContainerStyle: {
-      padding: 16,
-    },
+    contentContainerStyle: {},
   })
 )`
   overflow: visible;
