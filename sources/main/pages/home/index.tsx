@@ -17,6 +17,9 @@ const HomeScreen = ({ navigation }: Props) => {
   return (
     <SafeAreaView>
       <LessonsList
+        allBoardsOnPress={() => {
+          navigation.navigate("Lesson", { type: LessonType.All });
+        }}
         lessons={[
           {
             type: LessonType.Regulamentation,

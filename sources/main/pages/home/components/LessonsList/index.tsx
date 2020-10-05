@@ -5,16 +5,24 @@ import { List, SectionTitle, Lesson, AllLessons, LessonProps } from "./styles";
 import OptionsList, { OptionListItem } from "../OptionsList";
 
 type Props = {
+  allBoardsOnPress(): void;
   lessons: LessonProps[];
   options: OptionListItem[];
 };
 
-export default function LessonsList({ lessons, options }: Props) {
+export default function LessonsList({
+  lessons,
+  options,
+  allBoardsOnPress,
+}: Props) {
   const { items } = useMemo(() => {
     const base = [
       <OptionsList options={options} />,
       <SectionTitle>Simulados</SectionTitle>,
-      <AllLessons types={lessons.map((lesson) => lesson.type)} />,
+      <AllLessons
+        types={lessons.map((lesson) => lesson.type)}
+        onPress={allBoardsOnPress}
+      />,
     ];
 
     const items = [

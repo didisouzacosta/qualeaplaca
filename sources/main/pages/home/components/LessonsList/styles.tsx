@@ -17,7 +17,7 @@ type CardProps = {
 export type LessonProps = {
   type: LessonType;
   progress: number;
-  onPress: (type: LessonType) => void;
+  onPress(type: LessonType): void;
 };
 
 type BulletProps = {
@@ -26,6 +26,7 @@ type BulletProps = {
 
 type AllLessonsProps = {
   types: LessonType[];
+  onPress(): void;
 };
 
 type LessonProgressProps = {
@@ -75,8 +76,11 @@ export const Lesson = ({ type, progress, onPress }: LessonProps) => {
   );
 };
 
-export const AllLessons = ({ types }: AllLessonsProps) => (
-  <Card style={{ flexDirection: "row", alignItems: "center" }}>
+export const AllLessons = ({ types, onPress }: AllLessonsProps) => (
+  <Card
+    style={{ flexDirection: "row", alignItems: "center" }}
+    onPress={onPress}
+  >
     <AllLessonTitle>Todas as placas</AllLessonTitle>
     <View style={{ flexDirection: "row", flexWrap: "wrap", maxWidth: 66 }}>
       {types.map((type) => (

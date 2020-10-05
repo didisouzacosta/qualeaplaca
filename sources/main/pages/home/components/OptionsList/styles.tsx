@@ -5,7 +5,7 @@ import { Text } from "./../../../../components/Text";
 export type OptionProps = {
   title: string;
   icon?: any;
-  onPress: () => void;
+  onPress(): void;
 };
 
 export const ScrollView = styled.ScrollView`
