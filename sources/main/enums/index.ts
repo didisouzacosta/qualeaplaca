@@ -5,4 +5,5 @@ export enum LessonType {
   Educational,
   SpecialSignWarning,
   MoreInformations,
+  All,
 }

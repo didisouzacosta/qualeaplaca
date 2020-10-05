@@ -14,9 +14,10 @@ type CardProps = {
   type?: LessonType;
 };
 
-type LessonProps = {
+export type LessonProps = {
   type: LessonType;
   progress: number;
+  onPress: (type: LessonType) => void;
 };
 
 type BulletProps = {
@@ -46,10 +47,10 @@ export const SectionTitle = styled(Text)`
   color: ${(props) => props.theme.colors.text};
 `;
 
-export const Lesson = ({ type, progress }: LessonProps) => {
+export const Lesson = ({ type, progress, onPress }: LessonProps) => {
   const { initials, name } = lessonDescriptionByType(type);
   return (
-    <Card type={type}>
+    <Card type={type} onPress={() => onPress(type)}>
       <View style={{ flex: 1, marginRight: 16 }}>
         <LessonInitials>{initials}</LessonInitials>
         <LessonTitle>{name}</LessonTitle>

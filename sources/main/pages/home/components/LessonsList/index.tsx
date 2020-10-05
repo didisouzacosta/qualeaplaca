@@ -1,17 +1,11 @@
 import React, { useMemo } from "react";
 
-import { List, SectionTitle, Lesson, AllLessons } from "./styles";
+import { List, SectionTitle, Lesson, AllLessons, LessonProps } from "./styles";
 
 import OptionsList, { OptionListItem } from "../OptionsList";
-import { LessonType } from "../../../../enums";
-
-export type LessonInfo = {
-  type: LessonType;
-  progress: number;
-};
 
 type Props = {
-  lessons: LessonInfo[];
+  lessons: LessonProps[];
   options: OptionListItem[];
 };
 
@@ -26,7 +20,11 @@ export default function LessonsList({ lessons, options }: Props) {
     const items = [
       ...base,
       ...lessons.map((lesson) => (
-        <Lesson type={lesson.type} progress={lesson.progress} />
+        <Lesson
+          type={lesson.type}
+          progress={lesson.progress}
+          onPress={lesson.onPress}
+        />
       )),
     ];
 

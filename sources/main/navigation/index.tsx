@@ -7,6 +7,13 @@ import BoardsScreen from "./../pages/boards";
 import ProgressScreen from "./../pages/progress";
 import AdjustsScreen from "./../pages/adjusts";
 import AboutScreen from "./../pages/about";
+import LessonScreen from "./../pages/lesson";
+
+import { LessonType } from "./../enums";
+
+type LessonProps = {
+  type: LessonType;
+};
 
 export type StackParams = {
   Home: undefined;
@@ -14,7 +21,7 @@ export type StackParams = {
   Progress: undefined;
   Adjusts: undefined;
   About: undefined;
-  Lesson: undefined;
+  Lesson: LessonProps;
 };
 
 const Stack = createStackNavigator<StackParams>();
@@ -32,6 +39,7 @@ const StackScreen = () => {
         <Stack.Screen name="Progress" component={ProgressScreen} />
         <Stack.Screen name="Adjusts" component={AdjustsScreen} />
         <Stack.Screen name="About" component={AboutScreen} />
+        <Stack.Screen name="Lesson" component={LessonScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
