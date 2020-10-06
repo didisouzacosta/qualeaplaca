@@ -3,9 +3,9 @@ import { StackScreenProps } from "@react-navigation/stack";
 
 import { Text } from "./../../components/Text";
 import { SafeAreaView } from "./../../components";
-import { StackParams } from "./../../navigation";
+import { MainStackParams } from "./../../navigation";
 
-type Props = StackScreenProps<StackParams, "Progress">;
+type Props = StackScreenProps<MainStackParams, "Progress">;
 
 const ProgressScreen = ({ navigation, route }: Props) => {
   return (

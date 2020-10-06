@@ -1,15 +1,14 @@
 import React from "react";
 import { useColorScheme } from "react-native-appearance";
-import { LessonType } from "../../enums";
+import { StackScreenProps } from "@react-navigation/stack";
 
+import { LessonType } from "../../enums";
 import LessonsList from "./components/LessonsList";
 import { icons } from "./../../assets";
 import { SafeAreaView } from "./../../components/SafeAreaView";
-import { StackScreenProps } from "@react-navigation/stack";
+import { MainStackParams } from "./../../navigation";
 
-import { StackParams } from "./../../navigation";
-
-type Props = StackScreenProps<StackParams, "Home">;
+type Props = StackScreenProps<MainStackParams, "Home">;
 
 const HomeScreen = ({ navigation }: Props) => {
   const theme = useColorScheme();

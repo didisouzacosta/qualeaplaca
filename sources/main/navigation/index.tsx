@@ -1,6 +1,9 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import {
+  createStackNavigator,
+  TransitionPresets,
+} from "@react-navigation/stack";
 
 import HomeScreen from "./../pages/home";
 import BoardsScreen from "./../pages/boards";
@@ -15,34 +18,73 @@ type LessonProps = {
   type: LessonType;
 };
 
-export type StackParams = {
+export type MainStackParams = {
   Home: undefined;
   Boards: undefined;
   Progress: undefined;
   Adjusts: undefined;
   About: undefined;
+};
+
+export type LessonStackParams = {
   Lesson: LessonProps;
 };
 
-const Stack = createStackNavigator<StackParams>();
+export type RootStackParams = {
+  Main: undefined;
+  Lesson: undefined;
+};
 
-const StackScreen = () => {
+const MainStack = createStackNavigator<MainStackParams>();
+const LessonStack = createStackNavigator<LessonStackParams>();
+const RootStack = createStackNavigator<RootStackParams>();
+
+const MainStackScreen = () => {
+  return (
+    <MainStack.Navigator>
+      <MainStack.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{ headerShown: false }}
+      />
+      <MainStack.Screen name="Boards" component={BoardsScreen} />
+      <MainStack.Screen name="Progress" component={ProgressScreen} />
+      <MainStack.Screen name="Adjusts" component={AdjustsScreen} />
+      <MainStack.Screen name="About" component={AboutScreen} />
+    </MainStack.Navigator>
+  );
+};
+
+const LessonStackScreen = () => {
+  return (
+    <LessonStack.Navigator
+      screenOptions={{
+        safeAreaInsets: { left: 8, right: 8 },
+        headerStyle: { height: 56 },
+        headerStatusBarHeight: 0,
+      }}
+    >
+      <LessonStack.Screen name="Lesson" component={LessonScreen} />
+    </LessonStack.Navigator>
+  );
+};
+
+const RootStackScreen = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen name="Boards" component={BoardsScreen} />
-        <Stack.Screen name="Progress" component={ProgressScreen} />
-        <Stack.Screen name="Adjusts" component={AdjustsScreen} />
-        <Stack.Screen name="About" component={AboutScreen} />
-        <Stack.Screen name="Lesson" component={LessonScreen} />
-      </Stack.Navigator>
+      <RootStack.Navigator
+        screenOptions={{
+          gestureEnabled: true,
+          cardOverlayEnabled: true,
+          ...TransitionPresets.ModalPresentationIOS,
+        }}
+        headerMode="none"
+      >
+        <RootStack.Screen name="Main" component={MainStackScreen} />
+        <RootStack.Screen name="Lesson" component={LessonStackScreen} />
+      </RootStack.Navigator>
     </NavigationContainer>
   );
 };
 
-export default StackScreen;
+export default RootStackScreen;
