@@ -22,6 +22,8 @@ export const lessonDescriptionByType = (
       return { initials: "SEA", name: "Sinalização especial de advertência" };
     case LessonType.MoreInformations:
       return { initials: "IC", name: "Informações complementares" };
+    case LessonType.All:
+      return { initials: "*", name: "Todas as placas" };
   }
 };
 
