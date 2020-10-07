@@ -59,7 +59,6 @@ const LessonStackScreen = () => {
   return (
     <LessonStack.Navigator
       screenOptions={{
-        safeAreaInsets: { left: 8, right: 8 },
         headerStyle: { height: 56 },
         headerStatusBarHeight: 0,
       }}

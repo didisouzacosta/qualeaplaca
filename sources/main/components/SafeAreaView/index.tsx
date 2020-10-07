@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components/native";
 
 type SafeAreaProps = {
-  children?: JSX.Element;
+  children?: React.ReactNode;
 };
 
 export const SafeAreaView = ({ children }: SafeAreaProps) => {

@@ -8,7 +8,7 @@ import { LessonType } from "../../../../enums";
 import {
   lessonColorByType,
   lessonDescriptionByType,
-} from "../../../../utils/lessonInfos";
+} from "../../../../utils/LessonInfos";
 
 type CardProps = {
   type?: LessonType;

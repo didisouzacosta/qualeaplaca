@@ -1,5 +1,5 @@
 import { DefaultTheme } from "styled-components";
-import { LessonType } from "../enums";
+import { LessonType } from "../../enums";
 
 type LessonDescription = {
   initials: string;
