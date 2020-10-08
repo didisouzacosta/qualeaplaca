@@ -8,6 +8,8 @@ export const dark: DefaultTheme = {
     text: "#fff",
     backgroundColor: "#1E1E1E",
     cardColor: "#434343",
+    progress: "#6dd400",
+    progressBackground: "#000",
     lessons: { ...light.colors.lessons },
   },
 };

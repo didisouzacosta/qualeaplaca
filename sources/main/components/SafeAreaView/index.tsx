@@ -19,6 +19,7 @@ const SafeArea = styled.SafeAreaView`
 `;
 
 const SafeAreaContent = styled.View`
+  flex: 1;
   margin: 16px;
   overflow: visible;
 `;

@@ -1,3 +1,4 @@
 import Progress from "./Progress";
+import Question from "./Question";
 
-export { Progress };
+export { Progress, Question };
