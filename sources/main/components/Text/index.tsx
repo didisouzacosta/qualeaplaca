@@ -17,3 +17,8 @@ export const H2 = styled(H1)`
 export const H3 = styled(H2)`
   font-size: 24px;
 `;
+
+export const TextButton = styled(Text)`
+  font-size: 18px;
+  font-weight: bold;
+`;

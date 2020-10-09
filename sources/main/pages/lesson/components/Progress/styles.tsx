@@ -16,7 +16,7 @@ export const Label = styled.Text`
 
 export const ProgressContainer = styled.View`
   height: 8px;
-  background-color: ${(props) => props.theme.colors.progressBackground};
+  background-color: ${(props) => props.theme.colors.progressBackgroundColor};
   overflow: hidden;
   border-radius: 4px;
 `;

@@ -1,13 +1,15 @@
 import React from "react";
+import { StyleProp, ViewProps } from "react-native";
 import styled from "styled-components/native";
 
 type SafeAreaProps = {
   children?: React.ReactNode;
+  style?: StyleProp<ViewProps>;
 };
 
-export const SafeAreaView = ({ children }: SafeAreaProps) => {
+export const SafeAreaView = ({ children, style }: SafeAreaProps) => {
   return (
-    <SafeArea>
+    <SafeArea style={style}>
       <SafeAreaContent>{children && children}</SafeAreaContent>
     </SafeArea>
   );

@@ -7,7 +7,8 @@ declare module "styled-components" {
       backgroundColor: string;
       cardColor: string;
       progress: string;
-      progressBackground: string;
+      progressBackgroundColor: string;
+      lessonBackgroundColor: string;
       lessons: {
         regulamentation: string;
         warning: string;

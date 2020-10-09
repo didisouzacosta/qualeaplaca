@@ -7,7 +7,8 @@ export const light: DefaultTheme = {
     backgroundColor: "#f4f4f4",
     cardColor: "#fff",
     progress: "#6dd400",
-    progressBackground: "#eaeaea",
+    progressBackgroundColor: "#eaeaea",
+    lessonBackgroundColor: "#f4f4f4",
     lessons: {
       regulamentation: "#f94144",
       warning: "#ffba08",
