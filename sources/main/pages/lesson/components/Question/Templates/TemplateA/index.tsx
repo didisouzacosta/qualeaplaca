@@ -1,14 +1,17 @@
 import React from "react";
 
-import { Container, AnswerButton } from "./styles";
+import { AnswerButton } from "./../../../../components/Button";
+
+import { Container } from "./styles";
 
 const TemplateA = () => {
   return (
     <Container>
-      <AnswerButton title="45h" />
-      <AnswerButton title="44h" />
-      <AnswerButton title="30h" />
-      <AnswerButton title="28h" />
+      <AnswerButton label="a)" title="45 horas" />
+      <AnswerButton label="b)" title="35 horas" />
+      <AnswerButton label="c)" title="44 horas" />
+      <AnswerButton label="d)" title="20 horas" />
+      <AnswerButton label="e)" title="24 horas" />
     </Container>
   );
 };

@@ -1,21 +1,33 @@
 import React from "react";
 import { StyleProp, ViewStyle } from "react-native";
 
-import { Button, Text } from "./styles";
+import {
+  Button,
+  Text,
+  AnswerButtonContainer,
+  AnswerLabel,
+  AnswerText,
+} from "./styles";
 
-type TextButtonProps = {
-  title: string;
+type ButtonProps = {
+  children?: React.ReactNode;
   style?: StyleProp<ViewStyle>;
+};
+
+type AnswerButtonProps = {
+  label: string;
+  title: string;
 };
 
 export const VerifyButton = () => (
   <Button>
-    <Text>Verificar</Text>
+    <Text style={{ textAlign: "center" }}>Verificar</Text>
   </Button>
 );
 
-export const TextButton = ({ title, style }: TextButtonProps) => (
-  <Button style={style}>
-    <Text>{title}</Text>
-  </Button>
+export const AnswerButton = ({ label, title }: AnswerButtonProps) => (
+  <AnswerButtonContainer>
+    <AnswerLabel>{label}</AnswerLabel>
+    <AnswerText>{title}</AnswerText>
+  </AnswerButtonContainer>
 );

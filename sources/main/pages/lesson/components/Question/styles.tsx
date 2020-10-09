@@ -9,9 +9,8 @@ export const Container = styled.View`
 
 export const Answer = styled.View`
   flex: 1;
-  background-color: blue;
-  margin-top: 16px;
-  margin-bottom: 16px;
+  margin-top: 32px;
+  margin-bottom: 32px;
 `;
 
 export const Text = styled(OriginalText)`
