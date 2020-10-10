@@ -21,6 +21,7 @@ declare module "styled-components" {
         active: string;
         background: string;
         raiseColor: string;
+        raiseSelectedColor: string;
       };
     };
   }

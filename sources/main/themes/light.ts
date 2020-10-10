@@ -18,9 +18,10 @@ export const light: DefaultTheme = {
       moreInformations: "gray",
     },
     answerButton: {
-      active: "#E4E4E4",
+      active: "#CFEEFF",
       background: "#fff",
       raiseColor: "#E4E4E4",
+      raiseSelectedColor: "#8CD6FF",
     },
   },
 };

@@ -7,6 +7,7 @@ import { TextButton } from "./../../../../components";
 
 type AwesomeButtonDefaultProps = {
   children?: React.ReactNode;
+  selected?: boolean;
   disabled?: boolean;
   style?: ViewStyle;
 };
@@ -14,18 +15,29 @@ type AwesomeButtonDefaultProps = {
 const AwesomeButton = ({
   children,
   style,
+  selected,
   disabled,
 }: AwesomeButtonDefaultProps) => {
   const { colors } = useTheme();
+  const { answerButton } = colors;
+
+  const backgroundColor = selected
+    ? answerButton.active
+    : answerButton.background;
+
+  const raiseColor = selected
+    ? answerButton.raiseSelectedColor
+    : answerButton.raiseColor;
+
   return (
     <RAButton
-      backgroundActive={colors.answerButton.active}
-      backgroundDarker={colors.answerButton.raiseColor}
-      backgroundColor={colors.answerButton.background}
+      backgroundActive={answerButton.active}
+      backgroundDarker={raiseColor}
+      backgroundColor={backgroundColor}
       backgroundShadow="transparent"
       borderRadius={12}
-      disabled={disabled}
-      raiseLevel={disabled ? 0 : 4}
+      disabled={disabled || selected}
+      // raiseLevel={selected ? 0 : 4}
       stretch={true}
       style={style}
     >
