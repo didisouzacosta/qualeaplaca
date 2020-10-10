@@ -12,5 +12,10 @@ export const dark: DefaultTheme = {
     progressBackgroundColor: "#000",
     lessonBackgroundColor: "#1E1E1E",
     lessons: { ...light.colors.lessons },
+    answerButton: {
+      active: "#2F2F2F",
+      background: "#434343",
+      raiseColor: "#2F2F2F",
+    },
   },
 };

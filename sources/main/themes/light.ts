@@ -17,5 +17,10 @@ export const light: DefaultTheme = {
       specialSignOfWarning: "#FC7A1E",
       moreInformations: "gray",
     },
+    answerButton: {
+      active: "#E4E4E4",
+      background: "#fff",
+      raiseColor: "#E4E4E4",
+    },
   },
 };

@@ -17,6 +17,11 @@ declare module "styled-components" {
         specialSignOfWarning: string;
         moreInformations: string;
       };
+      answerButton: {
+        active: string;
+        background: string;
+        raiseColor: string;
+      };
     };
   }
 }
