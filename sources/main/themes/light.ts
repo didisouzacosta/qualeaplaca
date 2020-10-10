@@ -19,9 +19,11 @@ export const light: DefaultTheme = {
     },
     answerButton: {
       active: "#CFEEFF",
+      isCorrect: "#B5EB7C",
       background: "#fff",
       raiseColor: "#E4E4E4",
-      raiseSelectedColor: "#8CD6FF",
+      raiseIsCorrectColor: "#A3CB79",
+      raiseSelectedColor: "#B1E3FF",
     },
   },
 };

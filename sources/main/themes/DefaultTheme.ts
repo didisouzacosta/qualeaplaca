@@ -19,8 +19,10 @@ declare module "styled-components" {
       };
       answerButton: {
         active: string;
+        isCorrect: string;
         background: string;
         raiseColor: string;
+        raiseIsCorrectColor: string;
         raiseSelectedColor: string;
       };
     };

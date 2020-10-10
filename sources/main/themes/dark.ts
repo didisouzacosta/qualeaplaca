@@ -13,10 +13,12 @@ export const dark: DefaultTheme = {
     lessonBackgroundColor: "#1E1E1E",
     lessons: { ...light.colors.lessons },
     answerButton: {
-      active: "#077CD5",
+      active: "#3F91BE",
+      isCorrect: "#5EAF08",
       background: "#434343",
       raiseColor: "#2F2F2F",
-      raiseSelectedColor: "#055490",
+      raiseIsCorrectColor: "#417D00",
+      raiseSelectedColor: "#1E6992",
     },
   },
 };

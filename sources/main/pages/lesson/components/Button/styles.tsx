@@ -9,6 +9,7 @@ type AwesomeButtonDefaultProps = {
   children?: React.ReactNode;
   selected?: boolean;
   disabled?: boolean;
+  isCorrect?: boolean;
   style?: ViewStyle;
 };
 
@@ -17,27 +18,49 @@ const AwesomeButton = ({
   style,
   selected,
   disabled,
+  isCorrect,
 }: AwesomeButtonDefaultProps) => {
   const { colors } = useTheme();
   const { answerButton } = colors;
 
-  const backgroundColor = selected
-    ? answerButton.active
-    : answerButton.background;
+  const _disabled = disabled || selected || isCorrect;
 
-  const raiseColor = selected
-    ? answerButton.raiseSelectedColor
-    : answerButton.raiseColor;
+  const activeColor = () => {
+    if (isCorrect) {
+      return answerButton.isCorrect;
+    } else {
+      return answerButton.active;
+    }
+  };
+
+  const backgroundColor = () => {
+    if (isCorrect) {
+      return answerButton.isCorrect;
+    } else if (selected) {
+      return answerButton.active;
+    } else {
+      return answerButton.background;
+    }
+  };
+
+  const raiseColor = () => {
+    if (isCorrect) {
+      return answerButton.raiseIsCorrectColor;
+    } else if (selected) {
+      return answerButton.raiseSelectedColor;
+    } else {
+      return answerButton.raiseColor;
+    }
+  };
 
   return (
     <RAButton
-      backgroundActive={answerButton.active}
-      backgroundDarker={raiseColor}
-      backgroundColor={backgroundColor}
+      backgroundActive={activeColor()}
+      backgroundDarker={raiseColor()}
+      backgroundColor={backgroundColor()}
       backgroundShadow="transparent"
       borderRadius={12}
-      disabled={disabled || selected}
-      // raiseLevel={selected ? 0 : 4}
+      disabled={_disabled}
       stretch={true}
       style={style}
     >
@@ -66,7 +89,6 @@ export const AnswerLabel = styled(Text)`
   width: 24px;
   margin-left: 16px;
   margin-right: 8px;
-  color: orange;
 `;
 
 export const AnswerText = styled(Text)`

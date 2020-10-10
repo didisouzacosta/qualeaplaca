@@ -17,6 +17,7 @@ type AnswerButtonProps = {
   title: string;
   selected?: boolean;
   disabled?: boolean;
+  isCorrect?: boolean;
 };
 
 export const VerifyButton = ({ disabled }: VerifyButtonProps) => (
@@ -30,8 +31,13 @@ export const AnswerButton = ({
   title,
   selected,
   disabled,
+  isCorrect,
 }: AnswerButtonProps) => (
-  <AnswerButtonContainer selected={selected} disabled={disabled}>
+  <AnswerButtonContainer
+    selected={selected}
+    disabled={disabled}
+    isCorrect={isCorrect}
+  >
     <AnswerLabel>{label}</AnswerLabel>
     <AnswerText>{title}</AnswerText>
   </AnswerButtonContainer>
