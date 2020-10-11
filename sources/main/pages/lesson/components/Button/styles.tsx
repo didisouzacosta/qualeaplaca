@@ -1,25 +1,27 @@
 import React from "react";
 import { ViewStyle } from "react-native";
-import RAButton from "react-native-really-awesome-button";
+import AwesomeButton from "react-native-really-awesome-button";
 import styled, { useTheme } from "styled-components/native";
 
 import { TextButton } from "./../../../../components";
 
-type AwesomeButtonDefaultProps = {
-  children?: React.ReactNode;
-  selected?: boolean;
-  disabled?: boolean;
-  isCorrect?: boolean;
-  style?: ViewStyle;
-};
+namespace AwesomeBaseButton {
+  export type Props = {
+    children?: React.ReactNode;
+    selected?: boolean;
+    disabled?: boolean;
+    isCorrect?: boolean;
+    style?: ViewStyle;
+  };
+}
 
-const AwesomeButton = ({
+const AwesomeBaseButton = ({
   children,
   style,
   selected,
   disabled,
   isCorrect,
-}: AwesomeButtonDefaultProps) => {
+}: AwesomeBaseButton.Props) => {
   const { colors } = useTheme();
   const { answerButton } = colors;
 
@@ -54,7 +56,7 @@ const AwesomeButton = ({
   };
 
   return (
-    <RAButton
+    <AwesomeButton
       backgroundActive={activeColor()}
       backgroundDarker={raiseColor()}
       backgroundColor={backgroundColor()}
@@ -65,15 +67,15 @@ const AwesomeButton = ({
       style={style}
     >
       {children}
-    </RAButton>
+    </AwesomeButton>
   );
 };
 
-export const Button = styled(AwesomeButton)`
+export const Button = styled(AwesomeBaseButton)`
   opacity: ${(props) => (props.disabled ? 0.3 : 1)};
 `;
 
-export const AnswerButtonContainer = styled(Button)`
+export const AnswerButtonContainer = styled(AwesomeBaseButton)`
   display: flex;
   margin-bottom: 8px;
 `;
