@@ -13,7 +13,7 @@ const Question = () => {
         candidato à Permissão Para Dirigir (PPD)?
       </Text>
       <Answer>
-        <TemplateC />
+        <TemplateB />
       </Answer>
       <ConfirmationButton />
     </Container>
