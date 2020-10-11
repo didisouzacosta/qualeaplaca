@@ -26,7 +26,7 @@ namespace BaseAnswerButton {
   };
 }
 
-namespace BaseVerifyButton {
+namespace BaseConfirmationButton {
   export type Props = {
     children?: React.ReactNode;
     disabled?: boolean;
@@ -121,12 +121,12 @@ const BaseAnswerButton = ({
   );
 };
 
-const BaseVerifyButton = ({
+const BaseConfirmationButton = ({
   children,
   style,
   disabled,
   isLoading,
-}: BaseVerifyButton.Props) => {
+}: BaseConfirmationButton.Props) => {
   const { colors } = useTheme();
   const { verifyButton } = colors;
 
@@ -149,13 +149,13 @@ export const AnswerButtonContainer = styled(BaseAnswerButton)`
   opacity: ${(props) => (props.disabled ? 0.3 : 1)};
 `;
 
-export const VerifyButtonContainer = styled(BaseVerifyButton)`
+export const ConfirmationButtonContainer = styled(BaseConfirmationButton)`
   opacity: ${(props) => (props.disabled ? 0.3 : 1)};
 `;
 
 export const Load = styled.ActivityIndicator``;
 
-export const VerifyButtonText = styled(TextButton)`
+export const ConfimationButtonText = styled(TextButton)`
   text-align: center;
   color: white;
 `;

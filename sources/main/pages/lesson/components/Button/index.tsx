@@ -1,8 +1,8 @@
 import React from "react";
 
 import {
-  VerifyButtonContainer,
-  VerifyButtonText,
+  ConfirmationButtonContainer,
+  ConfimationButtonText,
   AnswerButtonContainer,
   AnswerLabel,
   AnswerText,
@@ -26,16 +26,16 @@ export const VerifyButton = ({
     if (isLoading) {
       return <Load color="white" />;
     } else if (alreadyAnswered) {
-      return <VerifyButtonText>Próxima questão</VerifyButtonText>;
+      return <ConfimationButtonText>Próxima questão</ConfimationButtonText>;
     } else {
-      return <VerifyButtonText>Confirmar</VerifyButtonText>;
+      return <ConfimationButtonText>Confirmar</ConfimationButtonText>;
     }
   };
 
   return (
-    <VerifyButtonContainer isLoading={isLoading} disabled={disabled}>
+    <ConfirmationButtonContainer isLoading={isLoading} disabled={disabled}>
       {buttonContent()}
-    </VerifyButtonContainer>
+    </ConfirmationButtonContainer>
   );
 };
 
