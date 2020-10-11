@@ -1,5 +1,4 @@
 import { DefaultTheme } from "styled-components/native";
-import { icons } from "../assets";
 
 import { light } from "./light";
 
@@ -17,9 +16,11 @@ export const dark: DefaultTheme = {
       backgroundColor: "#434343",
       raiseColor: "#2F2F2F",
     },
+    verifyButton: { ...light.colors.verifyButton },
     answerButton: {
-      backgroundActiveColor: "#3F91BE",
-      backgroundIsCorrectColor: "#5EAF08",
+      backgroundSelectedColor: "#579BBF",
+      backgroundActiveColor: "#353535",
+      backgroundIsCorrectColor: "#71A838",
       backgroundColor: "#434343",
       raiseColor: "#2F2F2F",
       raiseIsCorrectColor: "#417D00",

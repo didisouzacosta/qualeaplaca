@@ -83,7 +83,7 @@ const BaseAnswerButton = ({
     if (isCorrect) {
       return answerButton.backgroundIsCorrectColor;
     } else if (selected) {
-      return answerButton.backgroundActiveColor;
+      return answerButton.backgroundSelectedColor;
     } else {
       return answerButton.backgroundColor;
     }
@@ -112,17 +112,34 @@ const BaseAnswerButton = ({
   );
 };
 
+const BaseVerifyButton = ({ children, style, disabled }: BaseButton.Props) => {
+  const { colors } = useTheme();
+  const { verifyButton } = colors;
+
+  return (
+    <Button
+      backgroundActive={verifyButton.backgroundActiveColor}
+      backgroundDarker={verifyButton.raiseColor}
+      backgroundColor={verifyButton.backgroundColor}
+      disabled={disabled}
+      style={style}
+    >
+      {children}
+    </Button>
+  );
+};
+
 export const AnswerButtonContainer = styled(BaseAnswerButton)`
   display: flex;
   margin-bottom: 8px;
   opacity: ${(props) => (props.disabled ? 0.3 : 1)};
 `;
 
-export const VerifyButtonContainer = styled(BaseButton)``;
+export const VerifyButtonContainer = styled(BaseVerifyButton)``;
 
 export const VerifyButtonText = styled(TextButton)`
   text-align: center;
-  color: orange;
+  color: white;
 `;
 
 export const AnswerLabel = styled(TextButton)`

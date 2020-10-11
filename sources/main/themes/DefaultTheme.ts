@@ -22,7 +22,13 @@ declare module "styled-components" {
         backgroundColor: string;
         raiseColor: string;
       };
+      verifyButton: {
+        backgroundActiveColor: string;
+        backgroundColor: string;
+        raiseColor: string;
+      };
       answerButton: {
+        backgroundSelectedColor: string;
         backgroundActiveColor: string;
         backgroundIsCorrectColor: string;
         backgroundColor: string;
