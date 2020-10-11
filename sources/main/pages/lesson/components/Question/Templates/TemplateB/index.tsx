@@ -2,12 +2,20 @@ import React from "react";
 
 import { AnswerButton } from "../../../Button";
 
-import { Container, Row, Cell, Space, ImageContainer } from "./styles";
+import { Container, Row, Cell, Space, ImageContainer, Image } from "./styles";
 
 const TemplateB = () => {
   return (
     <Container>
-      <ImageContainer />
+      <ImageContainer>
+        <Image
+          resizeMode="contain"
+          source={{
+            uri:
+              "https://cdn.awsli.com.br/600x450/65/65883/produto/52042943/7470db9781.jpg",
+          }}
+        />
+      </ImageContainer>
       <Row>
         <Cell>
           <AnswerButton label="a)" title="R-17" />
