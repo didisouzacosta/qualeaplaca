@@ -1,4 +1,5 @@
 import React from "react";
+import { View } from "react-native";
 
 import {
   ConfirmationButtonContainer,
@@ -63,5 +64,27 @@ export const AnswerButton = ({
   >
     <AnswerLabel>{label}</AnswerLabel>
     <AnswerText>{title}</AnswerText>
+  </AnswerButtonContainer>
+);
+
+namespace AnswerImageButton {
+  export type Props = {
+    selected?: boolean;
+    disabled?: boolean;
+    isCorrect?: boolean;
+  };
+}
+
+export const AnswerImageButton = ({
+  selected,
+  disabled,
+  isCorrect,
+}: AnswerImageButton.Props) => (
+  <AnswerButtonContainer
+    selected={selected}
+    disabled={disabled}
+    isCorrect={isCorrect}
+  >
+    <View style={{ backgroundColor: "red", width: 20, height: 20 }} />
   </AnswerButtonContainer>
 );
