@@ -1,7 +1,7 @@
 import React from "react";
 
 import { ConfirmationButton } from "./../Button";
-import { TemplateA, TemplateB } from "./Templates";
+import { TemplateA, TemplateB, TemplateC } from "./Templates";
 
 import { Container, Text, Answer } from "./styles";
 
@@ -13,7 +13,7 @@ const Question = () => {
         candidato à Permissão Para Dirigir (PPD)?
       </Text>
       <Answer>
-        <TemplateB />
+        <TemplateC />
       </Answer>
       <ConfirmationButton />
     </Container>
