@@ -10,6 +10,7 @@ export const ImageContainer = styled.View`
   background-color: white;
   border-radius: 16px;
   margin-bottom: 16px;
+  padding: 16px;
 `;
 
 export const Row = styled.View`
