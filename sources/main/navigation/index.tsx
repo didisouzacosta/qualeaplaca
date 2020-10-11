@@ -57,12 +57,7 @@ const MainStackScreen = () => {
 
 const LessonStackScreen = () => {
   return (
-    <LessonStack.Navigator
-      screenOptions={{
-        headerStyle: { height: 56 },
-        headerStatusBarHeight: 0,
-      }}
-    >
+    <LessonStack.Navigator>
       <LessonStack.Screen name="Lesson" component={LessonScreen} />
     </LessonStack.Navigator>
   );
@@ -73,9 +68,8 @@ const RootStackScreen = () => {
     <NavigationContainer>
       <RootStack.Navigator
         screenOptions={{
-          gestureEnabled: true,
-          cardOverlayEnabled: true,
-          ...TransitionPresets.ModalPresentationIOS,
+          gestureEnabled: false,
+          ...TransitionPresets.ModalTransition,
         }}
         headerMode="none"
       >
