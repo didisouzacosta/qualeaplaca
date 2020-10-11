@@ -1,5 +1,5 @@
 import React from "react";
-import { View } from "react-native";
+import { Image } from "react-native";
 
 import {
   ConfirmationButtonContainer,
@@ -8,6 +8,7 @@ import {
   AnswerLabel,
   AnswerText,
   Load,
+  AnswerButtonImage,
 } from "./styles";
 
 namespace ConfirmationButton {
@@ -81,10 +82,17 @@ export const AnswerImageButton = ({
   isCorrect,
 }: AnswerImageButton.Props) => (
   <AnswerButtonContainer
+    height={180}
     selected={selected}
     disabled={disabled}
     isCorrect={isCorrect}
   >
-    <View style={{ backgroundColor: "red", width: 20, height: 20 }} />
+    <AnswerButtonImage
+      resizeMode="contain"
+      source={{
+        uri:
+          "https://lh3.googleusercontent.com/proxy/SVjlyBeOFqPb-_dUetmtNn3RK-HfEZ6vsMWk_nAVhOndin1dNq9mb09YdxXrUYFu2oBcUVPJi6furAmRpsrZXSiMaEk7F32VVMrt3ZS4PBL4N1P-LqFy75dPRGLvCVYpHu7Apn4ItyN-SQaeF6W3RDmqKrKIyE7V",
+      }}
+    />
   </AnswerButtonContainer>
 );

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { AnswerButton } from "../../../Button";
+import { AnswerImageButton } from "../../../Button";
 
 import { Container, Row, Cell, Space } from "./styles";
 
@@ -9,20 +9,21 @@ const TemplateC = () => {
     <Container>
       <Row>
         <Cell>
-          <AnswerButton label="a)" title="R-17" />
+          <AnswerImageButton selected={true} />
         </Cell>
         <Space />
         <Cell>
-          <AnswerButton label="b)" title="R-1" />
+          <AnswerImageButton />
         </Cell>
       </Row>
+      <Space />
       <Row>
         <Cell>
-          <AnswerButton label="c)" title="R-44" />
+          <AnswerImageButton />
         </Cell>
         <Space />
         <Cell>
-          <AnswerButton label="d)" title="R-4" />
+          <AnswerImageButton />
         </Cell>
       </Row>
     </Container>

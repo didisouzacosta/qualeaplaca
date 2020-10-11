@@ -25,6 +25,7 @@ const TemplateB = () => {
           <AnswerButton label="b)" title="R-1" />
         </Cell>
       </Row>
+      <Space />
       <Row>
         <Cell>
           <AnswerButton label="c)" title="R-44" />

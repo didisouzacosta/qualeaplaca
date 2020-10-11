@@ -8,6 +8,7 @@ import { TextButton } from "./../../../../components";
 namespace BaseButton {
   export type Props = {
     children?: React.ReactNode;
+    height?: number;
     disabled?: boolean;
     backgroundActive?: string;
     backgroundDarker?: string;
@@ -19,6 +20,7 @@ namespace BaseButton {
 namespace BaseAnswerButton {
   export type Props = {
     children?: React.ReactNode;
+    height?: number;
     selected?: boolean;
     disabled?: boolean;
     isCorrect?: boolean;
@@ -39,6 +41,7 @@ const BaseButton = ({
   children,
   style,
   disabled,
+  height,
   backgroundActive,
   backgroundDarker,
   backgroundColor,
@@ -57,7 +60,7 @@ const BaseButton = ({
       backgroundColor={_backgroundColor}
       backgroundShadow="transparent"
       borderRadius={16}
-      height={54}
+      height={height}
       disabled={disabled}
       stretch={true}
       style={style}
@@ -74,6 +77,7 @@ export const Button = styled(BaseButton)`
 const BaseAnswerButton = ({
   children,
   style,
+  height,
   selected,
   disabled,
   isCorrect,
@@ -115,6 +119,7 @@ const BaseAnswerButton = ({
       backgroundDarker={raiseColor()}
       backgroundColor={backgroundColor()}
       disabled={disabled || selected || isCorrect}
+      height={height}
       style={style}
     >
       {children}
@@ -146,7 +151,6 @@ const BaseConfirmationButton = ({
 
 export const AnswerButtonContainer = styled(BaseAnswerButton)`
   display: flex;
-  margin-bottom: 8px;
   opacity: ${(props) => (props.disabled ? 0.3 : 1)};
 `;
 
@@ -171,4 +175,9 @@ export const AnswerText = styled(TextButton)`
   flex: 1;
   margin-right: 16px;
   font-weight: normal;
+`;
+
+export const AnswerButtonImage = styled.Image`
+  width: 80%;
+  height: 80%;
 `;

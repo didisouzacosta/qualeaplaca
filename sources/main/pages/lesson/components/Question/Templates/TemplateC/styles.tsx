@@ -20,6 +20,7 @@ export const Image = styled.Image`
 
 export const Row = styled.View`
   display: flex;
+  flex: 1;
   flex-direction: row;
 `;
 
