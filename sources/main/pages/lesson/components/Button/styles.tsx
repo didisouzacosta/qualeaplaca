@@ -5,6 +5,17 @@ import AwesomeButton from "react-native-really-awesome-button";
 
 import { TextButton } from "./../../../../components";
 
+namespace BaseButton {
+  export type Props = {
+    children?: React.ReactNode;
+    disabled?: boolean;
+    backgroundActive?: string;
+    backgroundDarker?: string;
+    backgroundColor?: string;
+    style?: ViewStyle;
+  };
+}
+
 namespace BaseAnswerButton {
   export type Props = {
     children?: React.ReactNode;
@@ -15,13 +26,11 @@ namespace BaseAnswerButton {
   };
 }
 
-namespace BaseButton {
+namespace BaseVerifyButton {
   export type Props = {
     children?: React.ReactNode;
     disabled?: boolean;
-    backgroundActive?: string;
-    backgroundDarker?: string;
-    backgroundColor?: string;
+    isLoading?: boolean;
     style?: ViewStyle;
   };
 }
@@ -112,7 +121,12 @@ const BaseAnswerButton = ({
   );
 };
 
-const BaseVerifyButton = ({ children, style, disabled }: BaseButton.Props) => {
+const BaseVerifyButton = ({
+  children,
+  style,
+  disabled,
+  isLoading,
+}: BaseVerifyButton.Props) => {
   const { colors } = useTheme();
   const { verifyButton } = colors;
 
@@ -121,7 +135,7 @@ const BaseVerifyButton = ({ children, style, disabled }: BaseButton.Props) => {
       backgroundActive={verifyButton.backgroundActiveColor}
       backgroundDarker={verifyButton.raiseColor}
       backgroundColor={verifyButton.backgroundColor}
-      disabled={disabled}
+      disabled={disabled || isLoading}
       style={style}
     >
       {children}
@@ -135,7 +149,11 @@ export const AnswerButtonContainer = styled(BaseAnswerButton)`
   opacity: ${(props) => (props.disabled ? 0.3 : 1)};
 `;
 
-export const VerifyButtonContainer = styled(BaseVerifyButton)``;
+export const VerifyButtonContainer = styled(BaseVerifyButton)`
+  opacity: ${(props) => (props.disabled ? 0.3 : 1)};
+`;
+
+export const Load = styled.ActivityIndicator``;
 
 export const VerifyButtonText = styled(TextButton)`
   text-align: center;

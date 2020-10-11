@@ -15,7 +15,7 @@ const Question = () => {
       <Answer>
         <TemplateA />
       </Answer>
-      <VerifyButton />
+      <VerifyButton isLoading={true} />
     </Container>
   );
 };

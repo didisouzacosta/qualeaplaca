@@ -6,17 +6,20 @@ import {
   AnswerButtonContainer,
   AnswerLabel,
   AnswerText,
+  Load,
 } from "./styles";
 
 namespace VerifyButton {
   export type Props = {
+    isLoading?: boolean;
     disabled?: boolean;
   };
 }
 
-export const VerifyButton = ({ disabled }: VerifyButton.Props) => (
-  <VerifyButtonContainer disabled={disabled}>
-    <VerifyButtonText>Verificar</VerifyButtonText>
+export const VerifyButton = ({ isLoading, disabled }: VerifyButton.Props) => (
+  <VerifyButtonContainer isLoading={isLoading} disabled={disabled}>
+    {isLoading && isLoading && <Load color="white" />}
+    {!isLoading && <VerifyButtonText>Verificar</VerifyButtonText>}
   </VerifyButtonContainer>
 );
 
