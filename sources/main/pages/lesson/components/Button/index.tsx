@@ -9,7 +9,7 @@ import {
   Load,
 } from "./styles";
 
-namespace VerifyButton {
+namespace ConfirmationButton {
   export type Props = {
     alreadyAnswered?: boolean;
     isLoading?: boolean;
@@ -17,11 +17,11 @@ namespace VerifyButton {
   };
 }
 
-export const VerifyButton = ({
+export const ConfirmationButton = ({
   alreadyAnswered,
   isLoading,
   disabled,
-}: VerifyButton.Props) => {
+}: ConfirmationButton.Props) => {
   const buttonContent = () => {
     if (isLoading) {
       return <Load color="white" />;

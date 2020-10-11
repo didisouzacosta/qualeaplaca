@@ -1,6 +1,6 @@
 import React from "react";
 
-import { VerifyButton } from "./../Button";
+import { ConfirmationButton } from "./../Button";
 import { TemplateA } from "./Templates";
 
 import { Container, Text, Answer } from "./styles";
@@ -15,7 +15,7 @@ const Question = () => {
       <Answer>
         <TemplateA />
       </Answer>
-      <VerifyButton />
+      <ConfirmationButton />
     </Container>
   );
 };
