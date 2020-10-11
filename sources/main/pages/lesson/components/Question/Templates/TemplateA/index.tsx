@@ -8,7 +8,7 @@ const TemplateA = () => {
   return (
     <Container>
       <AnswerButton label="a)" title="45 horas" isCorrect={true} />
-      <AnswerButton label="b)" title="35 horas" />
+      <AnswerButton label="b)" title="35 horas" disabled={true} />
       <AnswerButton label="c)" title="44 horas" />
       <AnswerButton label="d)" title="20 horas" selected={true} />
       <AnswerButton label="e)" title="24 horas" />

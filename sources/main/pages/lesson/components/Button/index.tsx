@@ -8,23 +8,27 @@ import {
   AnswerText,
 } from "./styles";
 
-type VerifyButtonProps = {
-  disabled?: boolean;
-};
+namespace VerifyButton {
+  export type Props = {
+    disabled?: boolean;
+  };
+}
 
-type AnswerButtonProps = {
-  label: string;
-  title: string;
-  selected?: boolean;
-  disabled?: boolean;
-  isCorrect?: boolean;
-};
-
-export const VerifyButton = ({ disabled }: VerifyButtonProps) => (
+export const VerifyButton = ({ disabled }: VerifyButton.Props) => (
   <Button disabled={disabled}>
     <VerifyButtonText>Verificar</VerifyButtonText>
   </Button>
 );
+
+namespace AnswerButton {
+  export type Props = {
+    label: string;
+    title: string;
+    selected?: boolean;
+    disabled?: boolean;
+    isCorrect?: boolean;
+  };
+}
 
 export const AnswerButton = ({
   label,
@@ -32,7 +36,7 @@ export const AnswerButton = ({
   selected,
   disabled,
   isCorrect,
-}: AnswerButtonProps) => (
+}: AnswerButton.Props) => (
   <AnswerButtonContainer
     selected={selected}
     disabled={disabled}
