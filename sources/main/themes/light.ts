@@ -17,10 +17,15 @@ export const light: DefaultTheme = {
       specialSignOfWarning: "#FC7A1E",
       moreInformations: "gray",
     },
+    button: {
+      backgroundActiveColor: "#fff",
+      backgroundColor: "#fff",
+      raiseColor: "#E4E4E4",
+    },
     answerButton: {
-      active: "#CFEEFF",
-      isCorrect: "#B5EB7C",
-      background: "#fff",
+      backgroundActiveColor: "#CFEEFF",
+      backgroundIsCorrectColor: "#B5EB7C",
+      backgroundColor: "#fff",
       raiseColor: "#E4E4E4",
       raiseIsCorrectColor: "#A3CB79",
       raiseSelectedColor: "#B1E3FF",

@@ -1,7 +1,7 @@
 import React from "react";
 
 import {
-  Button,
+  VerifyButtonContainer,
   VerifyButtonText,
   AnswerButtonContainer,
   AnswerLabel,
@@ -15,9 +15,9 @@ namespace VerifyButton {
 }
 
 export const VerifyButton = ({ disabled }: VerifyButton.Props) => (
-  <Button disabled={disabled}>
+  <VerifyButtonContainer disabled={disabled}>
     <VerifyButtonText>Verificar</VerifyButtonText>
-  </Button>
+  </VerifyButtonContainer>
 );
 
 namespace AnswerButton {

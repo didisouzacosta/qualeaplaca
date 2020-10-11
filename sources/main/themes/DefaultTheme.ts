@@ -17,10 +17,15 @@ declare module "styled-components" {
         specialSignOfWarning: string;
         moreInformations: string;
       };
+      button: {
+        backgroundActiveColor: string;
+        backgroundColor: string;
+        raiseColor: string;
+      };
       answerButton: {
-        active: string;
-        isCorrect: string;
-        background: string;
+        backgroundActiveColor: string;
+        backgroundIsCorrectColor: string;
+        backgroundColor: string;
         raiseColor: string;
         raiseIsCorrectColor: string;
         raiseSelectedColor: string;

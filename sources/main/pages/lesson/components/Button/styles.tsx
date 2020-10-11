@@ -34,11 +34,18 @@ const BaseButton = ({
   backgroundDarker,
   backgroundColor,
 }: BaseButton.Props) => {
+  const { colors } = useTheme();
+  const { button } = colors;
+
+  const _backgroundActive = backgroundActive ?? button.backgroundActiveColor;
+  const _backgroundColor = backgroundColor ?? button.backgroundColor;
+  const _backgroundDarker = backgroundDarker ?? button.raiseColor;
+
   return (
     <AwesomeButton
-      backgroundActive={backgroundActive}
-      backgroundDarker={backgroundDarker}
-      backgroundColor={backgroundColor}
+      backgroundActive={_backgroundActive}
+      backgroundDarker={_backgroundDarker}
+      backgroundColor={_backgroundColor}
       backgroundShadow="transparent"
       borderRadius={12}
       disabled={disabled}
@@ -66,19 +73,19 @@ const BaseAnswerButton = ({
 
   const activeColor = () => {
     if (isCorrect) {
-      return answerButton.isCorrect;
+      return answerButton.backgroundIsCorrectColor;
     } else {
-      return answerButton.active;
+      return answerButton.backgroundActiveColor;
     }
   };
 
   const backgroundColor = () => {
     if (isCorrect) {
-      return answerButton.isCorrect;
+      return answerButton.backgroundIsCorrectColor;
     } else if (selected) {
-      return answerButton.active;
+      return answerButton.backgroundActiveColor;
     } else {
-      return answerButton.background;
+      return answerButton.backgroundColor;
     }
   };
 
@@ -111,20 +118,20 @@ export const AnswerButtonContainer = styled(BaseAnswerButton)`
   opacity: ${(props) => (props.disabled ? 0.3 : 1)};
 `;
 
-export const Text = styled(TextButton)``;
+export const VerifyButtonContainer = styled(BaseButton)``;
 
-export const VerifyButtonText = styled(Text)`
+export const VerifyButtonText = styled(TextButton)`
   text-align: center;
   color: orange;
 `;
 
-export const AnswerLabel = styled(Text)`
+export const AnswerLabel = styled(TextButton)`
   width: 24px;
   margin-left: 16px;
   margin-right: 8px;
 `;
 
-export const AnswerText = styled(Text)`
+export const AnswerText = styled(TextButton)`
   flex: 1;
   margin-right: 16px;
   font-weight: normal;

@@ -12,10 +12,15 @@ export const dark: DefaultTheme = {
     progressBackgroundColor: "#000",
     lessonBackgroundColor: "#1E1E1E",
     lessons: { ...light.colors.lessons },
+    button: {
+      backgroundActiveColor: "#434343",
+      backgroundColor: "#434343",
+      raiseColor: "#2F2F2F",
+    },
     answerButton: {
-      active: "#3F91BE",
-      isCorrect: "#5EAF08",
-      background: "#434343",
+      backgroundActiveColor: "#3F91BE",
+      backgroundIsCorrectColor: "#5EAF08",
+      backgroundColor: "#434343",
       raiseColor: "#2F2F2F",
       raiseIsCorrectColor: "#417D00",
       raiseSelectedColor: "#1E6992",
