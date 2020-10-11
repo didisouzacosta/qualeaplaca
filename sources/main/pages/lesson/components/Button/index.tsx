@@ -70,6 +70,7 @@ export const AnswerButton = ({
 
 namespace AnswerImageButton {
   export type Props = {
+    height?: number;
     selected?: boolean;
     disabled?: boolean;
     isCorrect?: boolean;
@@ -77,12 +78,13 @@ namespace AnswerImageButton {
 }
 
 export const AnswerImageButton = ({
+  height,
   selected,
   disabled,
   isCorrect,
 }: AnswerImageButton.Props) => (
   <AnswerButtonContainer
-    height={180}
+    height={height}
     selected={selected}
     disabled={disabled}
     isCorrect={isCorrect}
