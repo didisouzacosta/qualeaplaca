@@ -21,12 +21,17 @@ const LessonScreen = ({ route, navigation }: Props) => {
     },
   });
 
-  const question = new QuestionTemplateB("Qual o nome da placa abaixo?", {
-    first: { id: 1, label: "a", text: "Answer A" },
-    second: { id: 2, label: "b", text: "Answer B" },
-    third: { id: 3, label: "c", text: "Answer C" },
-    fourth: { id: 4, label: "d", text: "Answer D" },
-    rightAnswer: 1,
+  const question = new QuestionTemplateB({
+    text: "Qual é o nome correto da placa abaixo?",
+    board:
+      "https://lh3.googleusercontent.com/proxy/SVjlyBeOFqPb-_dUetmtNn3RK-HfEZ6vsMWk_nAVhOndin1dNq9mb09YdxXrUYFu2oBcUVPJi6furAmRpsrZXSiMaEk7F32VVMrt3ZS4PBL4N1P-LqFy75dPRGLvCVYpHu7Apn4ItyN-SQaeF6W3RDmqKrKIyE7V",
+    answers: {
+      first: { id: 1, label: "a", text: "A-3b" },
+      second: { id: 2, label: "b", text: "A-4a" },
+      third: { id: 3, label: "c", text: "A-5b" },
+      fourth: { id: 4, label: "d", text: "A-3a" },
+      rightAnswer: 4,
+    },
   });
 
   return (

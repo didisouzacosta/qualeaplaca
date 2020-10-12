@@ -7,19 +7,19 @@ import { Container, Text, Answer } from "./styles";
 import QuestionInterface, {
   QuestionType,
 } from "../../../../../domain/interfaces/Question.interface";
-import { AnswerType } from "../../../../../domain/Types";
+import { AnswerInterface } from "../../../../../domain/Types";
 
-type Props<T extends AnswerType> = {
+interface Props<T extends AnswerInterface> {
   question: QuestionInterface<T>;
-};
+}
 
-const Question = <T extends AnswerType>({ question }: Props<T>) => {
+const Question = <T extends AnswerInterface>({ question }: Props<T>) => {
   const factoryTemplate = () => {
     switch (question.type) {
       case QuestionType.TemplateA:
         return <TemplateA answers={question.answers} />;
       case QuestionType.TemplateB:
-        return <TemplateB answers={question.answers} />;
+        return <TemplateB board={question.board} answers={question.answers} />;
       case QuestionType.TemplateC:
         return <TemplateC />;
     }

@@ -2,19 +2,26 @@ import QuestionInterface, {
   QuestionType,
   QuestionAnswers,
 } from "../../interfaces/Question.interface";
-import { AnswerType } from "../../Types";
 
-export default class QuestionTemplate<
-  T extends AnswerType
-> extends QuestionInterface<T> {
-  type = QuestionType.TemplateA;
+type Props<T> = {
+  text: string;
+  answers: QuestionAnswers<T>;
+  board?: string;
+  selectedAnswer?: number;
+};
+export default class QuestionTemplate<T> extends QuestionInterface<T> {
+  public selectedAnswer?: number;
+  public type = QuestionType.TemplateA;
 
-  constructor(
-    readonly text: string,
-    readonly answers: QuestionAnswers<T>,
-    readonly board?: string,
-    public selectedAnswer?: number
-  ) {
+  readonly text: string;
+  readonly board?: string;
+  readonly answers: QuestionAnswers<T>;
+
+  constructor({ text, answers, board, selectedAnswer }: Props<T>) {
     super();
+    this.text = text;
+    this.board = board;
+    this.answers = answers;
+    this.selectedAnswer = selectedAnswer;
   }
 }

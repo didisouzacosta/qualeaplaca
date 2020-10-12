@@ -1,26 +1,20 @@
 import React from "react";
 import { QuestionAnswers } from "../../../../../../../domain/interfaces/Question.interface";
-import { TextAnswerType } from "../../../../../../../domain/Types";
+import { AnswerInterface } from "../../../../../../../domain/Types";
 
 import { AnswerButton } from "../../../Button";
-
 import { Container, Row, Cell, Space, ImageContainer, Image } from "./styles";
 
-type Props = {
-  answers: QuestionAnswers<TextAnswerType>;
+type Props<T extends AnswerInterface> = {
+  board?: string;
+  answers: QuestionAnswers<T>;
 };
 
-const TemplateB = ({ answers }: Props) => {
+const TemplateB = <T extends AnswerInterface>({ board, answers }: Props<T>) => {
   return (
     <Container>
       <ImageContainer>
-        <Image
-          resizeMode="contain"
-          source={{
-            uri:
-              "https://lh3.googleusercontent.com/proxy/SVjlyBeOFqPb-_dUetmtNn3RK-HfEZ6vsMWk_nAVhOndin1dNq9mb09YdxXrUYFu2oBcUVPJi6furAmRpsrZXSiMaEk7F32VVMrt3ZS4PBL4N1P-LqFy75dPRGLvCVYpHu7Apn4ItyN-SQaeF6W3RDmqKrKIyE7V",
-          }}
-        />
+        <Image resizeMode="contain" source={{ uri: board }} />
       </ImageContainer>
       <Row>
         <Cell>

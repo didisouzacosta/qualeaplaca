@@ -1,6 +1,6 @@
-import { AnswerType } from "../Types";
+import { AnswerInterface } from "../Types";
 
-abstract class QuestionInterface<T> {
+abstract class QuestionInterface<T extends AnswerInterface> {
   abstract text: string;
   abstract board?: string;
   abstract type: QuestionType;
@@ -18,7 +18,7 @@ export enum QuestionType {
   TemplateC,
 }
 
-export class QuestionAnswers<T> {
+export class QuestionAnswers<T extends AnswerInterface> {
   constructor(
     readonly first: T,
     readonly second: T,

@@ -1,9 +1,13 @@
-import { TextAnswerType } from "../../Types";
+import { TextAnswerInterface } from "../../Types";
 
-export class TextAnswer implements TextAnswerType {
-  constructor(
-    readonly id: number,
-    readonly label: string,
-    readonly text: string
-  ) {}
+export default class TextAnswer implements TextAnswerInterface {
+  readonly id: number;
+  readonly label: string;
+  readonly text: string;
+
+  constructor({ id, label, text }: TextAnswerInterface) {
+    this.id = id;
+    this.label = label;
+    this.text = text;
+  }
 }
