@@ -36,7 +36,7 @@ const LessonScreen = ({ route, navigation }: Props) => {
 
   return (
     <SafeAreaView>
-      <Progress percentage={29} />
+      <Progress percentage={59} />
       <Question question={question} />
     </SafeAreaView>
   );

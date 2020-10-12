@@ -1,8 +1,6 @@
 import React from "react";
-import {
-  AnswerInterface,
-  QuestionAnswers,
-} from "../../../../../../../domain/interfaces";
+import { AnswerInterface } from "../../../../../../../domain/interfaces";
+import { QuestionAnswers } from "../../../../../../../domain/interfaces/Question.interface";
 
 import { AnswerButton } from "./../../../../components/Button";
 import { Container, Space } from "./styles";
