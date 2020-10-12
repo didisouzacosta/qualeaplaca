@@ -1,18 +1,19 @@
 import { AnswerInterface } from "../../interfaces/Answer.interface";
 import QuestionInterface, {
-  Question,
+  QuestionType,
+  QuestionAnswers,
 } from "../../interfaces/Question.interface";
 
 export default class QuestionTemplate<
   T extends AnswerInterface
 > extends QuestionInterface<T> {
-  type = Question.Type.TemplateA;
+  type = QuestionType.TemplateA;
 
   constructor(
     readonly text: string,
-    readonly board: string | undefined,
-    readonly answers: Question.Answers<T>,
-    public selectedAnswer: number
+    readonly answers: QuestionAnswers<T>,
+    readonly board?: string,
+    public selectedAnswer?: number
   ) {
     super();
   }

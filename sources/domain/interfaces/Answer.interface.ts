@@ -3,10 +3,10 @@ export interface AnswerInterface {
 }
 
 export interface TextAnswerInterface extends AnswerInterface {
-  label?: string;
-  text?: string;
+  label: string;
+  text: string;
 }
 
 export interface ImageAnswerInterface extends AnswerInterface {
-  image?: string;
+  image: string;
 }
