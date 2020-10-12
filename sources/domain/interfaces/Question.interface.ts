@@ -2,23 +2,23 @@ import { AnswerInterface } from "./Answer.interface";
 
 abstract class QuestionInterface<T extends AnswerInterface> {
   abstract text: string;
-  abstract board?: string;
-  abstract template: Question.Type;
-  abstract answers: T[];
-  abstract rightAnswer: number;
+  abstract board: string;
+  abstract answers: Answers<T>;
   abstract selectedAnswer: number;
 
   isCorrect(): boolean {
-    return this.rightAnswer === this.selectedAnswer;
+    return this.answers.rightAnswer === this.selectedAnswer;
   }
 }
 
-export namespace Question {
-  export enum Type {
-    TemplateA = 1,
-    TemplateB,
-    TemplateC,
-  }
+export class Answers<T extends AnswerInterface> {
+  constructor(
+    readonly first: T,
+    readonly second: T,
+    readonly third: T,
+    readonly fourth: T,
+    public rightAnswer: number
+  ) {}
 }
 
 export default QuestionInterface;
