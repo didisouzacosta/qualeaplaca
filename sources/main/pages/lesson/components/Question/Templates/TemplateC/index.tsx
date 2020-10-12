@@ -1,10 +1,15 @@
 import React, { useState } from "react";
+import { AnswerInterface } from "../../../../../../../domain/interfaces";
+import { QuestionAnswers } from "../../../../../../../domain/interfaces/Question.interface";
 
 import { AnswerImageButton } from "../../../Button";
-
 import { Container, Row, Cell, Space } from "./styles";
 
-const TemplateC = () => {
+type Props = {
+  answers: QuestionAnswers<AnswerInterface>;
+};
+
+const TemplateC = ({ answers }: Props) => {
   const [buttonHeight, setButtonHeight] = useState(0);
 
   return (
@@ -16,33 +21,21 @@ const TemplateC = () => {
             setButtonHeight(height);
           }}
         >
-          <AnswerImageButton
-            height={buttonHeight}
-            uri="https://lh3.googleusercontent.com/proxy/SVjlyBeOFqPb-_dUetmtNn3RK-HfEZ6vsMWk_nAVhOndin1dNq9mb09YdxXrUYFu2oBcUVPJi6furAmRpsrZXSiMaEk7F32VVMrt3ZS4PBL4N1P-LqFy75dPRGLvCVYpHu7Apn4ItyN-SQaeF6W3RDmqKrKIyE7V"
-          />
+          <AnswerImageButton height={buttonHeight} uri={answers.first.image} />
         </Cell>
         <Space />
         <Cell>
-          <AnswerImageButton
-            height={buttonHeight}
-            uri="https://lh3.googleusercontent.com/proxy/SVjlyBeOFqPb-_dUetmtNn3RK-HfEZ6vsMWk_nAVhOndin1dNq9mb09YdxXrUYFu2oBcUVPJi6furAmRpsrZXSiMaEk7F32VVMrt3ZS4PBL4N1P-LqFy75dPRGLvCVYpHu7Apn4ItyN-SQaeF6W3RDmqKrKIyE7V"
-          />
+          <AnswerImageButton height={buttonHeight} uri={answers.second.image} />
         </Cell>
       </Row>
       <Space />
       <Row>
         <Cell>
-          <AnswerImageButton
-            height={buttonHeight}
-            uri="https://lh3.googleusercontent.com/proxy/SVjlyBeOFqPb-_dUetmtNn3RK-HfEZ6vsMWk_nAVhOndin1dNq9mb09YdxXrUYFu2oBcUVPJi6furAmRpsrZXSiMaEk7F32VVMrt3ZS4PBL4N1P-LqFy75dPRGLvCVYpHu7Apn4ItyN-SQaeF6W3RDmqKrKIyE7V"
-          />
+          <AnswerImageButton height={buttonHeight} uri={answers.third.image} />
         </Cell>
         <Space />
         <Cell>
-          <AnswerImageButton
-            height={buttonHeight}
-            uri="https://lh3.googleusercontent.com/proxy/SVjlyBeOFqPb-_dUetmtNn3RK-HfEZ6vsMWk_nAVhOndin1dNq9mb09YdxXrUYFu2oBcUVPJi6furAmRpsrZXSiMaEk7F32VVMrt3ZS4PBL4N1P-LqFy75dPRGLvCVYpHu7Apn4ItyN-SQaeF6W3RDmqKrKIyE7V"
-          />
+          <AnswerImageButton height={buttonHeight} uri={answers.fourth.image} />
         </Cell>
       </Row>
     </Container>

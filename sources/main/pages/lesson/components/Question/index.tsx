@@ -22,7 +22,7 @@ const Question = <T extends AnswerInterface>({ question }: Props<T>) => {
       case QuestionType.TemplateB:
         return <TemplateB board={question.board} answers={question.answers} />;
       case QuestionType.TemplateC:
-        return <TemplateC />;
+        return <TemplateC answers={question.answers} />;
     }
   };
 
