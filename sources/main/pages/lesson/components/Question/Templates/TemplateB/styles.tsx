@@ -7,7 +7,7 @@ export const Container = styled.View`
 
 export const ImageContainer = styled.View`
   flex: 1;
-  background-color: white;
+  background-color: ${(props) => props.theme.colors.cardColor};
   border-radius: 16px;
   margin-bottom: 16px;
   padding: 24px;

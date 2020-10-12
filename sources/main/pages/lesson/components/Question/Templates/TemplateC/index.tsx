@@ -16,21 +16,34 @@ const TemplateC = () => {
             setButtonHeight(height);
           }}
         >
-          <AnswerImageButton height={buttonHeight} />
+          <AnswerImageButton
+            height={buttonHeight}
+            uri="https://lh3.googleusercontent.com/proxy/SVjlyBeOFqPb-_dUetmtNn3RK-HfEZ6vsMWk_nAVhOndin1dNq9mb09YdxXrUYFu2oBcUVPJi6furAmRpsrZXSiMaEk7F32VVMrt3ZS4PBL4N1P-LqFy75dPRGLvCVYpHu7Apn4ItyN-SQaeF6W3RDmqKrKIyE7V"
+          />
         </Cell>
         <Space />
         <Cell>
-          <AnswerImageButton height={buttonHeight} selected={true} />
+          <AnswerImageButton
+            height={buttonHeight}
+            selected={true}
+            uri="https://lh3.googleusercontent.com/proxy/SVjlyBeOFqPb-_dUetmtNn3RK-HfEZ6vsMWk_nAVhOndin1dNq9mb09YdxXrUYFu2oBcUVPJi6furAmRpsrZXSiMaEk7F32VVMrt3ZS4PBL4N1P-LqFy75dPRGLvCVYpHu7Apn4ItyN-SQaeF6W3RDmqKrKIyE7V"
+          />
         </Cell>
       </Row>
       <Space />
       <Row>
         <Cell>
-          <AnswerImageButton height={buttonHeight} />
+          <AnswerImageButton
+            height={buttonHeight}
+            uri="https://lh3.googleusercontent.com/proxy/SVjlyBeOFqPb-_dUetmtNn3RK-HfEZ6vsMWk_nAVhOndin1dNq9mb09YdxXrUYFu2oBcUVPJi6furAmRpsrZXSiMaEk7F32VVMrt3ZS4PBL4N1P-LqFy75dPRGLvCVYpHu7Apn4ItyN-SQaeF6W3RDmqKrKIyE7V"
+          />
         </Cell>
         <Space />
         <Cell>
-          <AnswerImageButton height={buttonHeight} />
+          <AnswerImageButton
+            height={buttonHeight}
+            uri="https://lh3.googleusercontent.com/proxy/SVjlyBeOFqPb-_dUetmtNn3RK-HfEZ6vsMWk_nAVhOndin1dNq9mb09YdxXrUYFu2oBcUVPJi6furAmRpsrZXSiMaEk7F32VVMrt3ZS4PBL4N1P-LqFy75dPRGLvCVYpHu7Apn4ItyN-SQaeF6W3RDmqKrKIyE7V"
+          />
         </Cell>
       </Row>
     </Container>

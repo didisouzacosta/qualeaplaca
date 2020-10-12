@@ -12,7 +12,7 @@ const TemplateB = () => {
           resizeMode="contain"
           source={{
             uri:
-              "https://cdn.awsli.com.br/600x450/65/65883/produto/52042943/7470db9781.jpg",
+              "https://lh3.googleusercontent.com/proxy/SVjlyBeOFqPb-_dUetmtNn3RK-HfEZ6vsMWk_nAVhOndin1dNq9mb09YdxXrUYFu2oBcUVPJi6furAmRpsrZXSiMaEk7F32VVMrt3ZS4PBL4N1P-LqFy75dPRGLvCVYpHu7Apn4ItyN-SQaeF6W3RDmqKrKIyE7V",
           }}
         />
       </ImageContainer>
@@ -32,7 +32,7 @@ const TemplateB = () => {
         </Cell>
         <Space />
         <Cell>
-          <AnswerButton label="d)" title="R-4" />
+          <AnswerButton label="d)" title="R-4" selected={true} />
         </Cell>
       </Row>
     </Container>
