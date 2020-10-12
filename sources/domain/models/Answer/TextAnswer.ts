@@ -1,9 +1,9 @@
-import { TextAnswerInterface } from "../../interfaces/Answer.interface";
+import { TextAnswerType } from "../../Types";
 
-export default class TextAnswer implements TextAnswerInterface {
+export class TextAnswer implements TextAnswerType {
   constructor(
     readonly id: number,
-    readonly label?: string,
-    readonly text?: string
+    readonly label: string,
+    readonly text: string
   ) {}
 }

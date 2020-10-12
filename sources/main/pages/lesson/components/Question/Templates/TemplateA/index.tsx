@@ -1,25 +1,36 @@
 import React from "react";
-import { TextAnswerInterface } from "../../../../../../../domain/interfaces/Answer.interface";
 import { QuestionAnswers } from "../../../../../../../domain/interfaces/Question.interface";
+import { TextAnswerType } from "../../../../../../../domain/Types";
 
 import { AnswerButton } from "./../../../../components/Button";
-
 import { Container, Space } from "./styles";
 
-type Props<T extends TextAnswerInterface> = {
-  answers: QuestionAnswers<T>;
+type Props = {
+  answers: QuestionAnswers<TextAnswerType>;
 };
 
-const TemplateA = () => {
+const TemplateA = ({ answers }: Props) => {
   return (
     <Container>
-      <AnswerButton label="" title="" />
+      <AnswerButton
+        label={`${answers.first.label} )`}
+        title={`${answers.first.text}`}
+      />
       <Space />
-      <AnswerButton label="b)" title="35 horas" />
+      <AnswerButton
+        label={`${answers.second.label} )`}
+        title={`${answers.second.text}`}
+      />
       <Space />
-      <AnswerButton label="c)" title="44 horas" />
+      <AnswerButton
+        label={`${answers.third.label} )`}
+        title={`${answers.third.text}`}
+      />
       <Space />
-      <AnswerButton label="d)" title="24 horas" />
+      <AnswerButton
+        label={`${answers.fourth.label} )`}
+        title={`${answers.fourth.text}`}
+      />
     </Container>
   );
 };

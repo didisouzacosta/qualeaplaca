@@ -21,7 +21,7 @@ const LessonScreen = ({ route, navigation }: Props) => {
     },
   });
 
-  const question = new QuestionTemplateA("Qual o nome da placa abaixo?", {
+  const question = new QuestionTemplateB("Qual o nome da placa abaixo?", {
     first: { id: 1, label: "a", text: "Answer A" },
     second: { id: 2, label: "b", text: "Answer B" },
     third: { id: 3, label: "c", text: "Answer C" },

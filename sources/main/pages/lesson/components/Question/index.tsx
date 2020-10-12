@@ -7,19 +7,19 @@ import { Container, Text, Answer } from "./styles";
 import QuestionInterface, {
   QuestionType,
 } from "../../../../../domain/interfaces/Question.interface";
-import { AnswerInterface } from "../../../../../domain/interfaces/Answer.interface";
+import { AnswerType } from "../../../../../domain/Types";
 
-type Props<T extends AnswerInterface> = {
+type Props<T extends AnswerType> = {
   question: QuestionInterface<T>;
 };
 
-const Question = <T extends AnswerInterface>({ question }: Props<T>) => {
+const Question = <T extends AnswerType>({ question }: Props<T>) => {
   const factoryTemplate = () => {
-    switch (question?.type) {
+    switch (question.type) {
       case QuestionType.TemplateA:
-        return <TemplateA />;
+        return <TemplateA answers={question.answers} />;
       case QuestionType.TemplateB:
-        return <TemplateB />;
+        return <TemplateB answers={question.answers} />;
       case QuestionType.TemplateC:
         return <TemplateC />;
     }
@@ -27,7 +27,7 @@ const Question = <T extends AnswerInterface>({ question }: Props<T>) => {
 
   return (
     <Container>
-      <Text>{question?.text}</Text>
+      <Text>{question.text}</Text>
       <Answer>{factoryTemplate()}</Answer>
       <ConfirmationButton disabled={!question?.selectedAnswer} />
     </Container>

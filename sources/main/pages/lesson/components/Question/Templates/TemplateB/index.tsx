@@ -1,10 +1,16 @@
 import React from "react";
+import { QuestionAnswers } from "../../../../../../../domain/interfaces/Question.interface";
+import { TextAnswerType } from "../../../../../../../domain/Types";
 
 import { AnswerButton } from "../../../Button";
 
 import { Container, Row, Cell, Space, ImageContainer, Image } from "./styles";
 
-const TemplateB = () => {
+type Props = {
+  answers: QuestionAnswers<TextAnswerType>;
+};
+
+const TemplateB = ({ answers }: Props) => {
   return (
     <Container>
       <ImageContainer>
@@ -18,21 +24,33 @@ const TemplateB = () => {
       </ImageContainer>
       <Row>
         <Cell>
-          <AnswerButton label="a)" title="R-17" />
+          <AnswerButton
+            label={`${answers.first.label} )`}
+            title={`${answers.first.text}`}
+          />
         </Cell>
         <Space />
         <Cell>
-          <AnswerButton label="b)" title="R-1" />
+          <AnswerButton
+            label={`${answers.second.label} )`}
+            title={`${answers.second.text}`}
+          />
         </Cell>
       </Row>
       <Space />
       <Row>
         <Cell>
-          <AnswerButton label="c)" title="R-44" />
+          <AnswerButton
+            label={`${answers.third.label} )`}
+            title={`${answers.third.text}`}
+          />
         </Cell>
         <Space />
         <Cell>
-          <AnswerButton label="d)" title="R-4" />
+          <AnswerButton
+            label={`${answers.fourth.label} )`}
+            title={`${answers.fourth.text}`}
+          />
         </Cell>
       </Row>
     </Container>

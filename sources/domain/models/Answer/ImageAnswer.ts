@@ -1,5 +1,5 @@
-import { ImageAnswerInterface } from "../../interfaces/Answer.interface";
+import { ImageAnswerType } from "../../Types";
 
-export default class ImageAnswer implements ImageAnswerInterface {
+export default class ImageAnswer implements ImageAnswerType {
   constructor(readonly id: number, readonly image: string) {}
 }

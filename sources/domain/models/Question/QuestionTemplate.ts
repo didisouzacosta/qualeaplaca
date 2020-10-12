@@ -1,11 +1,11 @@
-import { AnswerInterface } from "../../interfaces/Answer.interface";
 import QuestionInterface, {
   QuestionType,
   QuestionAnswers,
 } from "../../interfaces/Question.interface";
+import { AnswerType } from "../../Types";
 
 export default class QuestionTemplate<
-  T extends AnswerInterface
+  T extends AnswerType
 > extends QuestionInterface<T> {
   type = QuestionType.TemplateA;
 
