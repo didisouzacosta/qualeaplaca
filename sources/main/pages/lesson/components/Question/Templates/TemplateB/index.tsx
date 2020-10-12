@@ -32,7 +32,7 @@ const TemplateB = () => {
         </Cell>
         <Space />
         <Cell>
-          <AnswerButton label="d)" title="R-4" selected={true} />
+          <AnswerButton label="d)" title="R-4" />
         </Cell>
       </Row>
     </Container>

@@ -11,7 +11,7 @@ const TemplateA = () => {
       <Space />
       <AnswerButton label="b)" title="35 horas" />
       <Space />
-      <AnswerButton label="c)" title="44 horas" selected={true} />
+      <AnswerButton label="c)" title="44 horas" />
       <Space />
       <AnswerButton label="d)" title="24 horas" />
     </Container>
