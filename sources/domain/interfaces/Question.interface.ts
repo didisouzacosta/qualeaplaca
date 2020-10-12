@@ -2,7 +2,7 @@ import { AnswerInterface } from "./Answer.interface";
 
 abstract class QuestionInterface<T extends AnswerInterface> {
   abstract text: string;
-  abstract board: string;
+  abstract board?: string;
   abstract type: Question.Type;
   abstract answers: Question.Answers<T>;
   abstract selectedAnswer: number;
