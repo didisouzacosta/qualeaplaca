@@ -1,4 +1,4 @@
-import { QuestionType } from "../../interfaces/Question.interface";
+import { QuestionType } from "../../interfaces";
 import { ImageAnswer } from "../Answer";
 import QuestionTemplate from "./QuestionTemplate";
 

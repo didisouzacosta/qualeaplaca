@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { AnswerInterface } from "../../../../../../../domain/interfaces";
-import { QuestionAnswers } from "../../../../../../../domain/interfaces/Question.interface";
+import {
+  AnswerInterface,
+  QuestionAnswers,
+} from "../../../../../../../domain/interfaces";
 
 import { AnswerImageButton } from "../../../Button";
 import { Container, Row, Cell, Space } from "./styles";

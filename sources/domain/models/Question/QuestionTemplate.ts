@@ -1,4 +1,4 @@
-import AnswerInterface from "../../interfaces/Answer.interface";
+import { AnswerInterface } from "../../interfaces";
 import QuestionInterface, {
   QuestionType,
   QuestionAnswers,

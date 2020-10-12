@@ -1,4 +1,5 @@
 import React from "react";
+import { useTheme } from "styled-components";
 import { NavigationContainer } from "@react-navigation/native";
 import {
   createStackNavigator,
@@ -56,8 +57,18 @@ const MainStackScreen = () => {
 };
 
 const LessonStackScreen = () => {
+  const { colors } = useTheme();
+
   return (
-    <LessonStack.Navigator>
+    <LessonStack.Navigator
+      screenOptions={{
+        headerTintColor: colors.text,
+        headerStyle: {
+          shadowColor: "transparent",
+          backgroundColor: colors.backgroundColor,
+        },
+      }}
+    >
       <LessonStack.Screen name="Lesson" component={LessonScreen} />
     </LessonStack.Navigator>
   );

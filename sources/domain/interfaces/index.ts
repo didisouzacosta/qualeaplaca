@@ -1,4 +1,7 @@
+import QuestionInterface, {
+  QuestionType,
+  QuestionAnswers,
+} from "./Question.interface";
 import AnswerInterface from "./Answer.interface";
-import QuestionInterface from "./Question.interface";
 
-export { AnswerInterface, QuestionInterface };
+export { QuestionInterface, QuestionType, QuestionAnswers, AnswerInterface };

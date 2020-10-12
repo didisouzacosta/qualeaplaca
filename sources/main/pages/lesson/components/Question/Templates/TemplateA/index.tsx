@@ -1,15 +1,17 @@
 import React from "react";
-import { AnswerInterface } from "../../../../../../../domain/interfaces";
-import { QuestionAnswers } from "../../../../../../../domain/interfaces/Question.interface";
+import {
+  AnswerInterface,
+  QuestionAnswers,
+} from "../../../../../../../domain/interfaces";
 
 import { AnswerButton } from "./../../../../components/Button";
 import { Container, Space } from "./styles";
 
-type Props<T extends AnswerInterface> = {
-  answers: QuestionAnswers<T>;
+type Props = {
+  answers: QuestionAnswers<AnswerInterface>;
 };
 
-const TemplateA = <T extends AnswerInterface>({ answers }: Props<T>) => {
+const TemplateA = ({ answers }: Props) => {
   return (
     <Container>
       <AnswerButton
