@@ -12,7 +12,7 @@ export default class QuestionTemplate<
     readonly text: string,
     readonly board: string | undefined,
     readonly answers: Question.Answers<T>,
-    readonly selectedAnswer: number
+    public selectedAnswer: number
   ) {
     super();
   }
