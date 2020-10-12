@@ -1,10 +1,10 @@
-import { ImageAnswerInterface, ImageAnswerType } from "../../Types";
+import { AnswerInterface } from "../../interfaces";
 
-export default class ImageAnswer implements ImageAnswerInterface {
+export default class ImageAnswer implements AnswerInterface {
   readonly id: number;
-  readonly image: string;
+  readonly image?: string;
 
-  constructor({ id, image }: ImageAnswerInterface) {
+  constructor({ id, image }: AnswerInterface) {
     this.id = id;
     this.image = image;
   }

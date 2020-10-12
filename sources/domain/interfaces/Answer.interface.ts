@@ -1,4 +1,4 @@
-export interface AnswerInterface {
+export default interface AnswerInterface {
   id: number;
   label?: string;
   text?: string;

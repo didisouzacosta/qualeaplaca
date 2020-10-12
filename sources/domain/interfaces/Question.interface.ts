@@ -1,4 +1,4 @@
-import { AnswerInterface } from "../Types";
+import { AnswerInterface } from "./Answer.interface";
 
 abstract class QuestionInterface<T extends AnswerInterface> {
   abstract text: string;

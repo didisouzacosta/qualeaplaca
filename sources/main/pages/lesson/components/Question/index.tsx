@@ -4,10 +4,11 @@ import { ConfirmationButton } from "./../Button";
 import { TemplateA, TemplateB, TemplateC } from "./Templates";
 
 import { Container, Text, Answer } from "./styles";
-import QuestionInterface, {
-  QuestionType,
-} from "../../../../../domain/interfaces/Question.interface";
-import { AnswerInterface } from "../../../../../domain/Types";
+import { QuestionType } from "../../../../../domain/interfaces/Question.interface";
+import {
+  AnswerInterface,
+  QuestionInterface,
+} from "../../../../../domain/interfaces";
 
 interface Props<T extends AnswerInterface> {
   question: QuestionInterface<T>;
