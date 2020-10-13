@@ -43,12 +43,20 @@ const LessonScreen = ({ route, navigation }: Props) => {
       "Precisa de ajuda?",
       "Selecione abaixo o tema que mais esteja de acordo com a sua dúvida.",
       [
-        { text: "Problema na questão" },
-        { text: "Problema no aplicativo" },
-        { text: "Enviar sugestão" },
-        { text: "Cancelar", style: "cancel" },
+        { text: "Problema na questão", onPress: () => presentCommingSoon() },
+        { text: "Problema no aplicativo", onPress: () => presentCommingSoon() },
+        { text: "Enviar sugestão", onPress: () => presentCommingSoon() },
+        {
+          text: "Cancelar",
+          style: "cancel",
+          onPress: () => presentCommingSoon(),
+        },
       ]
     );
+  };
+
+  const presentCommingSoon = () => {
+    alert("Em breve");
   };
 
   const question = new QuestionTemplateB({
