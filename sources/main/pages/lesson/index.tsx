@@ -8,6 +8,7 @@ import {
   QuestionTemplateA,
   QuestionTemplateB,
 } from "../../../domain/models/Question";
+import { Alert } from "react-native";
 
 type Props = StackScreenProps<LessonStackParams, "Lesson">;
 
@@ -16,13 +17,39 @@ const LessonScreen = ({ route, navigation }: Props) => {
     title: "Quiz",
     headerLeft: () => {
       return (
-        <BarButtonItem title="Finalizar" onPress={() => navigation.goBack()} />
+        <BarButtonItem title="Finalizar" onPress={() => presentCloseAlert()} />
       );
     },
     headerRight: () => {
-      return <BarButtonItem title="Ajuda?" onPress={() => alert("Em breve")} />;
+      return (
+        <BarButtonItem title="Ajuda?" onPress={() => presentHelpAlert()} />
+      );
     },
   });
+
+  const presentCloseAlert = () => {
+    Alert.alert(
+      "Encerrar lição",
+      "Você está na etapa 5, tem certeza que deseja encerrar a lição?",
+      [
+        { text: "Confirmar", onPress: () => navigation.goBack() },
+        { text: "Cancelar", style: "cancel" },
+      ]
+    );
+  };
+
+  const presentHelpAlert = () => {
+    Alert.alert(
+      "Precisa de ajuda?",
+      "Selecione abaixo o tema que mais esteja de acordo com a sua dúvida.",
+      [
+        { text: "Problema na questão" },
+        { text: "Problema no aplicativo" },
+        { text: "Enviar sugestão" },
+        { text: "Cancelar", style: "cancel" },
+      ]
+    );
+  };
 
   const question = new QuestionTemplateB({
     text: "Qual é o nome correto da placa abaixo?",
