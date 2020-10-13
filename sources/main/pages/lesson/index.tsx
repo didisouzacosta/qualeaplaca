@@ -1,10 +1,9 @@
 import React from "react";
-import { Button } from "react-native";
 import { StackScreenProps } from "@react-navigation/stack";
 
 import { LessonStackParams } from "./../../navigation";
 import { Progress, Question } from "./components";
-import { FinishButton, SafeAreaView } from "./styles";
+import { BarButtonItem, SafeAreaView } from "./styles";
 import {
   QuestionTemplateA,
   QuestionTemplateB,
@@ -15,9 +14,13 @@ type Props = StackScreenProps<LessonStackParams, "Lesson">;
 const LessonScreen = ({ route, navigation }: Props) => {
   navigation.setOptions({
     title: "Quiz",
-    headerLeft: () => null,
+    headerLeft: () => {
+      return (
+        <BarButtonItem title="Finalizar" onPress={() => navigation.goBack()} />
+      );
+    },
     headerRight: () => {
-      return <FinishButton onPress={() => navigation.goBack()} />;
+      return <BarButtonItem title="Ajuda?" onPress={() => alert("Em breve")} />;
     },
   });
 

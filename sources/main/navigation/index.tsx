@@ -14,6 +14,7 @@ import AboutScreen from "./../pages/about";
 import LessonScreen from "./../pages/lesson";
 
 import { LessonType } from "./../enums";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 type LessonProps = {
   type: LessonType;
@@ -58,10 +59,14 @@ const MainStackScreen = () => {
 
 const LessonStackScreen = () => {
   const { colors } = useTheme();
+  const { left } = useSafeAreaInsets();
+
+  const margin = left + 16;
 
   return (
     <LessonStack.Navigator
       screenOptions={{
+        safeAreaInsets: { left: margin, right: margin },
         headerTintColor: colors.text,
         headerStyle: {
           shadowColor: "transparent",
