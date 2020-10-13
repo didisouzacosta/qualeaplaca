@@ -11,4 +11,6 @@ export const BarButtonItemContainer = styled.TouchableOpacity`
   border-radius: 8px;
 `;
 
-export const BarButtonItemText = styled(Text)``;
+export const BarButtonItemText = styled(Text)`
+  font-size: 15px;
+`;
