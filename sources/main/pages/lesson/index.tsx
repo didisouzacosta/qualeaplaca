@@ -49,7 +49,6 @@ const LessonScreen = ({ route, navigation }: Props) => {
         {
           text: "Cancelar",
           style: "cancel",
-          onPress: () => presentCommingSoon(),
         },
       ]
     );
@@ -67,15 +66,14 @@ const LessonScreen = ({ route, navigation }: Props) => {
       first: { id: 1, label: "a", text: "A-3b" },
       second: { id: 2, label: "b", text: "A-4a" },
       third: { id: 3, label: "c", text: "A-5b" },
-      fourth: { id: 4, label: "d", text: "A-3a" },
-      rightAnswer: 4,
+      fourth: { id: 4, label: "d", text: "A-3a", isRightAnswer: true },
     },
   });
 
   return (
     <SafeAreaView>
       <Progress percentage={59} />
-      <Question question={question} />
+      <Question question={question} displayCorrectAnswer={false} />
     </SafeAreaView>
   );
 };

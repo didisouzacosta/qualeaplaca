@@ -12,17 +12,37 @@ import {
 
 interface Props<T extends AnswerInterface> {
   question: QuestionInterface<T>;
+  displayCorrectAnswer: boolean;
 }
 
-const Question = <T extends AnswerInterface>({ question }: Props<T>) => {
+const Question = <T extends AnswerInterface>({
+  question,
+  displayCorrectAnswer,
+}: Props<T>) => {
   const factoryTemplate = () => {
     switch (question.type) {
       case QuestionType.TemplateA:
-        return <TemplateA answers={question.answers} />;
+        return (
+          <TemplateA
+            answers={question.answers}
+            displayCorrectAnswer={displayCorrectAnswer}
+          />
+        );
       case QuestionType.TemplateB:
-        return <TemplateB board={question.board} answers={question.answers} />;
+        return (
+          <TemplateB
+            board={question.board}
+            answers={question.answers}
+            displayCorrectAnswer={displayCorrectAnswer}
+          />
+        );
       case QuestionType.TemplateC:
-        return <TemplateC answers={question.answers} />;
+        return (
+          <TemplateC
+            answers={question.answers}
+            displayCorrectAnswer={displayCorrectAnswer}
+          />
+        );
     }
   };
 

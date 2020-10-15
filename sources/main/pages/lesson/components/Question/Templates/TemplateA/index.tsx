@@ -9,29 +9,30 @@ import { Container, Space } from "./styles";
 
 type Props = {
   answers: QuestionAnswers<AnswerInterface>;
+  displayCorrectAnswer: boolean;
 };
 
-const TemplateA = ({ answers }: Props) => {
+const TemplateA = ({ answers, displayCorrectAnswer }: Props) => {
   return (
     <Container>
       <AnswerButton
-        label={`${answers.first.label} )`}
-        title={`${answers.first.text}`}
+        answer={answers.first}
+        displayCorrectAnswer={displayCorrectAnswer}
       />
       <Space />
       <AnswerButton
-        label={`${answers.second.label} )`}
-        title={`${answers.second.text}`}
+        answer={answers.second}
+        displayCorrectAnswer={displayCorrectAnswer}
       />
       <Space />
       <AnswerButton
-        label={`${answers.third.label} )`}
-        title={`${answers.third.text}`}
+        answer={answers.third}
+        displayCorrectAnswer={displayCorrectAnswer}
       />
       <Space />
       <AnswerButton
-        label={`${answers.fourth.label} )`}
-        title={`${answers.fourth.text}`}
+        answer={answers.fourth}
+        displayCorrectAnswer={displayCorrectAnswer}
       />
     </Container>
   );

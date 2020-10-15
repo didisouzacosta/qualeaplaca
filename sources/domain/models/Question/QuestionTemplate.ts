@@ -8,12 +8,12 @@ type Props<T extends AnswerInterface> = {
   text: string;
   answers: QuestionAnswers<T>;
   board?: string;
-  selectedAnswer?: number;
+  selectedAnswer?: T;
 };
 export default class QuestionTemplate<
   T extends AnswerInterface
 > extends QuestionInterface<T> {
-  public selectedAnswer?: number;
+  public selectedAnswer?: T;
   public type = QuestionType.TemplateA;
 
   readonly text: string;

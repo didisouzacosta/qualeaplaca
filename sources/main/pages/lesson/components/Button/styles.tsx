@@ -23,7 +23,8 @@ namespace BaseAnswerButton {
     height?: number;
     selected?: boolean;
     disabled?: boolean;
-    isCorrect?: boolean;
+    isRightAnswer?: boolean;
+    displayCorrectAnswer?: boolean;
     style?: ViewStyle;
   };
 }
@@ -80,13 +81,15 @@ const BaseAnswerButton = ({
   height,
   selected,
   disabled,
-  isCorrect,
+  isRightAnswer,
+  displayCorrectAnswer,
 }: BaseAnswerButton.Props) => {
   const { colors } = useTheme();
   const { answerButton } = colors;
+  const canDisplayCorrectAnswer = displayCorrectAnswer && isRightAnswer;
 
   const activeColor = () => {
-    if (isCorrect) {
+    if (canDisplayCorrectAnswer) {
       return answerButton.backgroundIsCorrectColor;
     } else {
       return answerButton.backgroundActiveColor;
@@ -94,7 +97,7 @@ const BaseAnswerButton = ({
   };
 
   const backgroundColor = () => {
-    if (isCorrect) {
+    if (canDisplayCorrectAnswer) {
       return answerButton.backgroundIsCorrectColor;
     } else if (selected) {
       return answerButton.backgroundSelectedColor;
@@ -104,7 +107,7 @@ const BaseAnswerButton = ({
   };
 
   const raiseColor = () => {
-    if (isCorrect) {
+    if (canDisplayCorrectAnswer) {
       return answerButton.raiseIsCorrectColor;
     } else if (selected) {
       return answerButton.raiseSelectedColor;
@@ -118,7 +121,7 @@ const BaseAnswerButton = ({
       backgroundActive={activeColor()}
       backgroundDarker={raiseColor()}
       backgroundColor={backgroundColor()}
-      disabled={disabled || selected || isCorrect}
+      disabled={disabled || selected || displayCorrectAnswer}
       height={height}
       style={style}
     >

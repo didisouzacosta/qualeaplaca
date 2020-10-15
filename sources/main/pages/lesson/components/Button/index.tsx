@@ -1,5 +1,5 @@
 import React from "react";
-import { Image } from "react-native";
+import { AnswerInterface } from "../../../../../domain/interfaces";
 
 import {
   ConfirmationButtonContainer,
@@ -42,59 +42,55 @@ export const ConfirmationButton = ({
 };
 
 namespace AnswerButton {
-  export type Props = {
-    label: string;
-    title: string;
+  export type Props<T extends AnswerInterface> = {
+    answer: T;
     selected?: boolean;
     disabled?: boolean;
-    isCorrect?: boolean;
+    displayCorrectAnswer?: boolean;
   };
 }
 
-export const AnswerButton = ({
-  label,
-  title,
+export const AnswerButton = <T extends AnswerInterface>({
+  answer,
   selected,
   disabled,
-  isCorrect,
-}: AnswerButton.Props) => (
+  displayCorrectAnswer,
+}: AnswerButton.Props<T>) => (
   <AnswerButtonContainer
     selected={selected}
     disabled={disabled}
-    isCorrect={isCorrect}
+    isRightAnswer={answer.isRightAnswer}
+    displayCorrectAnswer={displayCorrectAnswer}
   >
-    <AnswerLabel>{label}</AnswerLabel>
-    <AnswerText>{title}</AnswerText>
+    <AnswerLabel>{`${answer.label} )`}</AnswerLabel>
+    <AnswerText>{answer.text}</AnswerText>
   </AnswerButtonContainer>
 );
 
 namespace AnswerImageButton {
-  export type Props = {
+  export type Props<T extends AnswerInterface> = AnswerButton.Props<T> & {
     height?: number;
-    selected?: boolean;
-    disabled?: boolean;
-    isCorrect?: boolean;
-    uri?: string;
   };
 }
 
-export const AnswerImageButton = ({
+export const AnswerImageButton = <T extends AnswerInterface>({
   height,
   selected,
   disabled,
-  isCorrect,
-  uri,
-}: AnswerImageButton.Props) => (
+  answer,
+  displayCorrectAnswer,
+}: AnswerImageButton.Props<T>) => (
   <AnswerButtonContainer
     height={height}
     selected={selected}
     disabled={disabled}
-    isCorrect={isCorrect}
+    isRightAnswer={answer.isRightAnswer}
+    displayCorrectAnswer={displayCorrectAnswer}
   >
     <AnswerButtonImage
       resizeMode="contain"
       source={{
-        uri: uri,
+        uri: answer.image,
       }}
     />
   </AnswerButtonContainer>

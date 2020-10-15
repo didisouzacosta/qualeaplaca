@@ -5,10 +5,18 @@ abstract class QuestionInterface<T extends AnswerInterface> {
   abstract board?: string;
   abstract type: QuestionType;
   abstract answers: QuestionAnswers<T>;
-  abstract selectedAnswer?: number;
+  abstract selectedAnswer?: T;
 
   isCorrect(): boolean {
-    return this.answers.rightAnswer === this.selectedAnswer;
+    return this.selectedAnswer?.isRightAnswer ?? false;
+  }
+
+  canDisplayCorrectAnswer(): boolean {
+    return this.selectedAnswer != (undefined || null);
+  }
+
+  disabled(): boolean {
+    return this.canDisplayCorrectAnswer();
   }
 }
 
@@ -23,8 +31,7 @@ export class QuestionAnswers<T extends AnswerInterface> {
     readonly first: T,
     readonly second: T,
     readonly third: T,
-    readonly fourth: T,
-    public rightAnswer: number
+    readonly fourth: T
   ) {}
 }
 

@@ -9,6 +9,7 @@ import { Container, Row, Cell, Space } from "./styles";
 
 type Props = {
   answers: QuestionAnswers<AnswerInterface>;
+  displayCorrectAnswer: boolean;
 };
 
 const TemplateC = ({ answers }: Props) => {
@@ -23,21 +24,21 @@ const TemplateC = ({ answers }: Props) => {
             setButtonHeight(height);
           }}
         >
-          <AnswerImageButton height={buttonHeight} uri={answers.first.image} />
+          <AnswerImageButton height={buttonHeight} answer={answers.first} />
         </Cell>
         <Space />
         <Cell>
-          <AnswerImageButton height={buttonHeight} uri={answers.second.image} />
+          <AnswerImageButton height={buttonHeight} answer={answers.second} />
         </Cell>
       </Row>
       <Space />
       <Row>
         <Cell>
-          <AnswerImageButton height={buttonHeight} uri={answers.third.image} />
+          <AnswerImageButton height={buttonHeight} answer={answers.third} />
         </Cell>
         <Space />
         <Cell>
-          <AnswerImageButton height={buttonHeight} uri={answers.fourth.image} />
+          <AnswerImageButton height={buttonHeight} answer={answers.fourth} />
         </Cell>
       </Row>
     </Container>

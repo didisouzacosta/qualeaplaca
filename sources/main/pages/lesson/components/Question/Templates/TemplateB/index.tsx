@@ -10,9 +10,14 @@ import { Container, Row, Cell, Space, ImageContainer, Image } from "./styles";
 type Props<T extends AnswerInterface> = {
   board?: string;
   answers: QuestionAnswers<T>;
+  displayCorrectAnswer: boolean;
 };
 
-const TemplateB = <T extends AnswerInterface>({ board, answers }: Props<T>) => {
+const TemplateB = <T extends AnswerInterface>({
+  board,
+  answers,
+  displayCorrectAnswer,
+}: Props<T>) => {
   return (
     <Container>
       <ImageContainer>
@@ -21,15 +26,15 @@ const TemplateB = <T extends AnswerInterface>({ board, answers }: Props<T>) => {
       <Row>
         <Cell>
           <AnswerButton
-            label={`${answers.first.label} )`}
-            title={`${answers.first.text}`}
+            answer={answers.first}
+            displayCorrectAnswer={displayCorrectAnswer}
           />
         </Cell>
         <Space />
         <Cell>
           <AnswerButton
-            label={`${answers.second.label} )`}
-            title={`${answers.second.text}`}
+            answer={answers.second}
+            displayCorrectAnswer={displayCorrectAnswer}
           />
         </Cell>
       </Row>
@@ -37,15 +42,15 @@ const TemplateB = <T extends AnswerInterface>({ board, answers }: Props<T>) => {
       <Row>
         <Cell>
           <AnswerButton
-            label={`${answers.third.label} )`}
-            title={`${answers.third.text}`}
+            answer={answers.third}
+            displayCorrectAnswer={displayCorrectAnswer}
           />
         </Cell>
         <Space />
         <Cell>
           <AnswerButton
-            label={`${answers.fourth.label} )`}
-            title={`${answers.fourth.text}`}
+            answer={answers.fourth}
+            displayCorrectAnswer={displayCorrectAnswer}
           />
         </Cell>
       </Row>
