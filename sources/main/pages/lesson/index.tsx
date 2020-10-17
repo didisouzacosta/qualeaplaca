@@ -58,7 +58,7 @@ const LessonScreen = ({ route, navigation }: Props) => {
     alert("Em breve");
   };
 
-  const question = new QuestionTemplateA({
+  const question = new QuestionTemplateB({
     text: "Qual é o nome correto da placa abaixo?",
     board:
       "https://isinaliza.vteximg.com.br/arquivos/ids/170019-512-512/3587-placa-lombada-a-18-aluminio-refletivo-acm-100x100cm-1.jpg?v=636800753432600000",

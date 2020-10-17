@@ -28,7 +28,7 @@ export const ConfirmationButton = ({
     if (isLoading) {
       return <Load color="white" />;
     } else if (wasAnswered) {
-      return <ConfimationButtonText>Próxima questão</ConfimationButtonText>;
+      return <ConfimationButtonText>Próxima</ConfimationButtonText>;
     } else {
       return <ConfimationButtonText>Confirmar</ConfimationButtonText>;
     }
@@ -73,14 +73,13 @@ namespace AnswerImageButton {
 
 export const AnswerImageButton = <T extends AnswerInterface>({
   height,
-  selected,
   disabled,
   answer,
   displayCorrectAnswer,
 }: AnswerImageButton.Props<T>) => (
   <AnswerButtonContainer
     height={height}
-    selected={selected}
+    selected={answer.isSelected}
     disabled={disabled}
     isRightAnswer={answer.isRightAnswer}
     displayCorrectAnswer={displayCorrectAnswer}
