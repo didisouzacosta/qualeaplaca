@@ -5,18 +5,22 @@ abstract class QuestionInterface<T extends AnswerInterface> {
   abstract board?: string;
   abstract type: QuestionType;
   abstract answers: QuestionAnswers<T>;
-  abstract selectedAnswer?: T;
+
+  rightAnswer(): T {
+    return this.answersArr().find((answer) => answer.isRightAnswer)!;
+  }
+
+  selectedAnswer(): T | undefined {
+    return this.answersArr().find((answer) => answer.isSelected);
+  }
 
   isCorrect(): boolean {
-    return this.selectedAnswer?.isRightAnswer ?? false;
+    return this.rightAnswer === this.selectedAnswer;
   }
 
-  canDisplayCorrectAnswer(): boolean {
-    return this.selectedAnswer != (undefined || null);
-  }
-
-  disabled(): boolean {
-    return this.canDisplayCorrectAnswer();
+  private answersArr(): T[] {
+    const { first, second, third, fourth } = this.answers;
+    return [first, second, third, fourth];
   }
 }
 

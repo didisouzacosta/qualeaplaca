@@ -23,9 +23,9 @@ export const light: DefaultTheme = {
       raiseColor: "#E4E4E4",
     },
     verifyButton: {
-      backgroundActiveColor: "#56A106",
-      backgroundColor: "#65BC09",
-      raiseColor: "#4A870A",
+      backgroundActiveColor: "#71A838",
+      backgroundColor: "#71A838",
+      raiseColor: "#417D00",
     },
     answerButton: {
       backgroundSelectedColor: "#CFEEFF",

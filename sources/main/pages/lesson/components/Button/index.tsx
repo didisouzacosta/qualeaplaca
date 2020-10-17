@@ -13,21 +13,21 @@ import {
 
 namespace ConfirmationButton {
   export type Props = {
-    alreadyAnswered?: boolean;
+    wasAnswered?: boolean;
     isLoading?: boolean;
     disabled?: boolean;
   };
 }
 
 export const ConfirmationButton = ({
-  alreadyAnswered,
+  wasAnswered,
   isLoading,
   disabled,
 }: ConfirmationButton.Props) => {
   const buttonContent = () => {
     if (isLoading) {
       return <Load color="white" />;
-    } else if (alreadyAnswered) {
+    } else if (wasAnswered) {
       return <ConfimationButtonText>Próxima questão</ConfimationButtonText>;
     } else {
       return <ConfimationButtonText>Confirmar</ConfimationButtonText>;
@@ -44,7 +44,6 @@ export const ConfirmationButton = ({
 namespace AnswerButton {
   export type Props<T extends AnswerInterface> = {
     answer: T;
-    selected?: boolean;
     disabled?: boolean;
     displayCorrectAnswer?: boolean;
   };
@@ -52,12 +51,11 @@ namespace AnswerButton {
 
 export const AnswerButton = <T extends AnswerInterface>({
   answer,
-  selected,
   disabled,
   displayCorrectAnswer,
 }: AnswerButton.Props<T>) => (
   <AnswerButtonContainer
-    selected={selected}
+    selected={answer.isSelected}
     disabled={disabled}
     isRightAnswer={answer.isRightAnswer}
     displayCorrectAnswer={displayCorrectAnswer}

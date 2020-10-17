@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { ConfirmationButton } from "./../Button";
 import { TemplateA, TemplateB, TemplateC } from "./Templates";
@@ -50,7 +50,7 @@ const Question = <T extends AnswerInterface>({
     <Container>
       <Text>{question.text}</Text>
       <Answer>{factoryTemplate()}</Answer>
-      <ConfirmationButton disabled={!question?.selectedAnswer} />
+      <ConfirmationButton wasAnswered={displayCorrectAnswer} />
     </Container>
   );
 };

@@ -154,7 +154,10 @@ const BaseConfirmationButton = ({
 
 export const AnswerButtonContainer = styled(BaseAnswerButton)`
   display: flex;
-  opacity: ${(props) => (props.disabled ? 0.3 : 1)};
+  opacity: ${(props) =>
+    props.displayCorrectAnswer && !props.isRightAnswer && !props.selected
+      ? 0.3
+      : 1};
 `;
 
 export const ConfirmationButtonContainer = styled(BaseConfirmationButton)`

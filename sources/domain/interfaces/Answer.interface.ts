@@ -4,4 +4,5 @@ export default interface AnswerInterface {
   text?: string;
   image?: string;
   isRightAnswer?: boolean;
+  isSelected?: boolean;
 }
