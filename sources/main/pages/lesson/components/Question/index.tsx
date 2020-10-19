@@ -19,6 +19,8 @@ const Question = <T extends AnswerInterface>({
   question,
   displayCorrectAnswer,
 }: Props<T>) => {
+  const disabled = !question.selectedAnswer;
+
   const factoryTemplate = () => {
     switch (question.type) {
       case QuestionType.TemplateA:
@@ -50,7 +52,10 @@ const Question = <T extends AnswerInterface>({
     <Container>
       <Text>{question.text}</Text>
       <Answer>{factoryTemplate()}</Answer>
-      <ConfirmationButton wasAnswered={displayCorrectAnswer} />
+      <ConfirmationButton
+        disabled={disabled}
+        wasAnswered={displayCorrectAnswer}
+      />
     </Container>
   );
 };

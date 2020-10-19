@@ -6,9 +6,9 @@ import { LessonType } from "../../enums";
 import LessonsList from "./components/LessonsList";
 import { icons } from "./../../assets";
 import { SafeAreaView } from "./../../components/SafeAreaView";
-import { MainStackParams } from "./../../navigation";
+import { LessonStackParams } from "./../../navigation";
 
-type Props = StackScreenProps<MainStackParams, "Home">;
+type Props = StackScreenProps<LessonStackParams, "Lesson">;
 
 const HomeScreen = ({ navigation }: Props) => {
   const theme = useColorScheme();

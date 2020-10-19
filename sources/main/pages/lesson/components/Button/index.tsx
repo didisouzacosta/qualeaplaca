@@ -27,10 +27,9 @@ export const ConfirmationButton = ({
   const buttonContent = () => {
     if (isLoading) {
       return <Load color="white" />;
-    } else if (wasAnswered) {
-      return <ConfimationButtonText>Próxima</ConfimationButtonText>;
     } else {
-      return <ConfimationButtonText>Confirmar</ConfimationButtonText>;
+      const text = wasAnswered ? "Próxima" : "Confirmar";
+      return <ConfimationButtonText>{text}</ConfimationButtonText>;
     }
   };
 

@@ -24,7 +24,6 @@ export const Option = ({ title, icon, onPress }: OptionProps) => {
 };
 
 const Card = styled.TouchableOpacity`
-  /* flex: 1; */
   height: 160px;
   width: 120px;
   background-color: white;
