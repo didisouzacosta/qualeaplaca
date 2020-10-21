@@ -1,18 +1,18 @@
 import React from "react";
-import { StackScreenProps } from "@react-navigation/stack";
+import { Alert } from "react-native";
 
-import { LessonStackParams } from "./../../navigation";
 import { Progress, Question } from "./components";
 import { BarButtonItem, SafeAreaView } from "./styles";
+
 import {
   QuestionTemplateA,
   QuestionTemplateB,
 } from "../../../domain/models/Question";
-import { Alert } from "react-native";
+import { useNavigation } from "../../hooks/useNavigation";
 
-type Props = StackScreenProps<LessonStackParams, "Lesson">;
+const LessonScreen = () => {
+  const navigation = useNavigation();
 
-const LessonScreen = ({ route, navigation }: Props) => {
   navigation.setOptions({
     title: "Quiz",
     headerLeft: () => {

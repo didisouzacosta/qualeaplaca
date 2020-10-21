@@ -32,14 +32,14 @@ export type LessonStackParams = {
   Lesson: LessonProps;
 };
 
-export type RootStackParams = {
+export type StackParams = {
   Main: undefined;
   Lesson: undefined;
 };
 
 const MainStack = createStackNavigator<MainStackParams>();
 const LessonStack = createStackNavigator<LessonStackParams>();
-const RootStack = createStackNavigator<RootStackParams>();
+const RootStack = createStackNavigator<StackParams>();
 
 const MainStackScreen = () => {
   return (

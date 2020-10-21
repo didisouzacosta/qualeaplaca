@@ -1,30 +1,32 @@
 import React from "react";
+import { Modal, Text } from "react-native";
 import { useColorScheme } from "react-native-appearance";
-import { StackScreenProps } from "@react-navigation/stack";
 
 import { LessonType } from "../../enums";
 import LessonsList from "./components/LessonsList";
 import { icons } from "./../../assets";
 import { SafeAreaView } from "./../../components/SafeAreaView";
-import { LessonStackParams } from "./../../navigation";
+import { useNavigation } from "../../hooks/useNavigation";
 
-type Props = StackScreenProps<LessonStackParams, "Lesson">;
-
-const HomeScreen = ({ navigation }: Props) => {
+const HomeScreen = () => {
   const theme = useColorScheme();
+  const { navigate } = useNavigation();
 
   return (
     <SafeAreaView>
+      <Modal visible={false} animationType="slide">
+        <Text>sdfsdf</Text>
+      </Modal>
       <LessonsList
         allBoardsOnPress={() => {
-          navigation.navigate("Lesson", { type: LessonType.All });
+          navigate("Lesson", { type: LessonType.All });
         }}
         lessons={[
           {
             type: LessonType.Regulamentation,
             progress: 44,
             onPress: (type) => {
-              navigation.navigate("Lesson", {
+              navigate("Lesson", {
                 type,
               });
             },
@@ -33,14 +35,14 @@ const HomeScreen = ({ navigation }: Props) => {
             type: LessonType.Warning,
             progress: 20,
             onPress: (type) => {
-              navigation.navigate("Lesson", { type });
+              navigate("Lesson", { type });
             },
           },
           {
             type: LessonType.Identification,
             progress: 100,
             onPress: (type) => {
-              navigation.navigate("Lesson", {
+              navigate("Lesson", {
                 type,
               });
             },
@@ -49,14 +51,14 @@ const HomeScreen = ({ navigation }: Props) => {
             type: LessonType.Educational,
             progress: 28,
             onPress: (type) => {
-              navigation.navigate("Lesson", { type });
+              navigate("Lesson", { type });
             },
           },
           {
             type: LessonType.SpecialSignWarning,
             progress: 0,
             onPress: (type) => {
-              navigation.navigate("Lesson", {
+              navigate("Lesson", {
                 type,
               });
             },
@@ -65,7 +67,7 @@ const HomeScreen = ({ navigation }: Props) => {
             type: LessonType.MoreInformations,
             progress: 2,
             onPress: (type) => {
-              navigation.navigate("Lesson", {
+              navigate("Lesson", {
                 type,
               });
             },
@@ -76,28 +78,28 @@ const HomeScreen = ({ navigation }: Props) => {
             title: "Placas",
             icon: icons.adjusts.getImage(theme),
             onPress: () => {
-              navigation.navigate("Boards");
+              navigate("Boards");
             },
           },
           {
             title: "Progresso",
             icon: icons.progress.getImage(theme),
             onPress: () => {
-              navigation.navigate("Progress");
+              navigate("Progress");
             },
           },
           {
             title: "Ajustes",
             icon: icons.adjusts.getImage(theme),
             onPress: () => {
-              navigation.navigate("Adjusts");
+              navigate("Adjusts");
             },
           },
           {
             title: "Sobre",
             icon: icons.about.getImage(theme),
             onPress: () => {
-              navigation.navigate("About");
+              navigate("About");
             },
           },
         ]}
