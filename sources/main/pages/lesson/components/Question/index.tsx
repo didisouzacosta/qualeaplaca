@@ -22,7 +22,7 @@ const Question = <T extends AnswerInterface>({
   const { type, answers, board, text } = question;
 
   const disabled = (): boolean => {
-    return question.selectedAnswer() ? true : false;
+    return question.selectedAnswer() ? false : true;
   };
 
   const factoryTemplate = () => {
