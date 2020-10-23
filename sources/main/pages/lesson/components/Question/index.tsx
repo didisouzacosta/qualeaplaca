@@ -19,29 +19,33 @@ const Question = <T extends AnswerInterface>({
   question,
   displayCorrectAnswer,
 }: Props<T>) => {
-  const disabled = !question.selectedAnswer;
+  const { type, answers, board, text } = question;
+
+  const disabled = (): boolean => {
+    return question.selectedAnswer() ? true : false;
+  };
 
   const factoryTemplate = () => {
-    switch (question.type) {
+    switch (type) {
       case QuestionType.TemplateA:
         return (
           <TemplateA
-            answers={question.answers}
+            answers={answers}
             displayCorrectAnswer={displayCorrectAnswer}
           />
         );
       case QuestionType.TemplateB:
         return (
           <TemplateB
-            board={question.board}
-            answers={question.answers}
+            board={board}
+            answers={answers}
             displayCorrectAnswer={displayCorrectAnswer}
           />
         );
       case QuestionType.TemplateC:
         return (
           <TemplateC
-            answers={question.answers}
+            answers={answers}
             displayCorrectAnswer={displayCorrectAnswer}
           />
         );
@@ -50,10 +54,10 @@ const Question = <T extends AnswerInterface>({
 
   return (
     <Container>
-      <Text>{question.text}</Text>
+      <Text>{text}</Text>
       <Answer>{factoryTemplate()}</Answer>
       <ConfirmationButton
-        disabled={disabled}
+        disabled={disabled()}
         wasAnswered={displayCorrectAnswer}
       />
     </Container>
