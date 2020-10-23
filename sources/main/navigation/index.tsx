@@ -1,6 +1,5 @@
 import React from "react";
-import { useTheme } from "styled-components";
-import { NavigationContainer } from "@react-navigation/native";
+
 import {
   createStackNavigator,
   TransitionPresets,
@@ -15,6 +14,7 @@ import LessonScreen from "./../pages/lesson";
 
 import { LessonType } from "./../enums";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { NavigationContainer } from "./components";
 
 type LessonProps = {
   type: LessonType;
@@ -58,7 +58,6 @@ const MainStackScreen = () => {
 };
 
 const LessonStackScreen = () => {
-  const { colors } = useTheme();
   const { left } = useSafeAreaInsets();
 
   const margin = left + 16;
@@ -67,11 +66,6 @@ const LessonStackScreen = () => {
     <LessonStack.Navigator
       screenOptions={{
         safeAreaInsets: { left: margin, right: margin },
-        headerTintColor: colors.text,
-        headerStyle: {
-          shadowColor: "transparent",
-          backgroundColor: colors.backgroundColor,
-        },
       }}
     >
       <LessonStack.Screen name="Lesson" component={LessonScreen} />
