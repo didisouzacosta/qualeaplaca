@@ -43,7 +43,11 @@ const RootStack = createStackNavigator<StackParams>();
 
 const MainStackScreen = () => {
   return (
-    <MainStack.Navigator>
+    <MainStack.Navigator
+      screenOptions={{
+        headerBackTitle: " ",
+      }}
+    >
       <MainStack.Screen
         name="Home"
         component={HomeScreen}
