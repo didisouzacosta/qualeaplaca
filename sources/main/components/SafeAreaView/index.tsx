@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleProp, ViewProps } from "react-native";
 import styled from "styled-components/native";
+import { useTheme } from "./../../context/Theme";
 
 type SafeAreaProps = {
   children?: React.ReactNode;

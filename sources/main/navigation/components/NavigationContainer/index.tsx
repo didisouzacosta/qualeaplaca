@@ -1,11 +1,12 @@
 import React from "react";
-import { useTheme } from "styled-components";
 
 import {
   NavigationContainer as ReactNavigationContainer,
   DarkTheme,
   Theme,
 } from "@react-navigation/native";
+
+import { useTheme } from "./../../../context/Theme";
 
 type Props = {
   children: React.ReactNode;

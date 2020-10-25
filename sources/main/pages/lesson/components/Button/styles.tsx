@@ -1,9 +1,10 @@
 import React from "react";
 import { ViewStyle } from "react-native";
-import styled, { useTheme } from "styled-components/native";
+import styled from "styled-components/native";
 import AwesomeButton from "react-native-really-awesome-button";
 
 import { TextButton } from "./../../../../components";
+import { useTheme } from "./../../../../context/Theme";
 
 namespace BaseButton {
   export type Props = {
