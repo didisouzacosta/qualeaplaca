@@ -1,17 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Alert } from "react-native";
+
+import { useNavigation } from "../../hooks/useNavigation";
 
 import { Progress, Question } from "./components";
 import { BarButtonItem, SafeAreaView } from "./styles";
-
-import {
-  QuestionTemplateA,
-  QuestionTemplateB,
-} from "../../../domain/models/Question";
-import { useNavigation } from "../../hooks/useNavigation";
+import useLessonState from "./hooks/useLessonState";
 
 const LessonScreen = () => {
   const navigation = useNavigation();
+  const { currentQuestion, loadQuestions } = useLessonState();
+
+  useEffect(() => {
+    const asyncLoadQuestions = async () => {
+      await loadQuestions();
+    };
+    asyncLoadQuestions();
+  }, []);
 
   navigation.setOptions({
     title: "Quiz",
@@ -58,22 +63,12 @@ const LessonScreen = () => {
     alert("Em breve");
   };
 
-  const question = new QuestionTemplateB({
-    text: "Qual é o nome correto da placa abaixo?",
-    board:
-      "https://isinaliza.vteximg.com.br/arquivos/ids/170019-512-512/3587-placa-lombada-a-18-aluminio-refletivo-acm-100x100cm-1.jpg?v=636800753432600000",
-    answers: {
-      first: { id: 1, label: "a", text: "A-3b" },
-      second: { id: 2, label: "b", text: "A-4a", isSelected: true },
-      third: { id: 3, label: "c", text: "A-5b" },
-      fourth: { id: 4, label: "d", text: "A-3a", isRightAnswer: true },
-    },
-  });
-
   return (
     <SafeAreaView>
       <Progress percentage={59} />
-      <Question question={question} displayCorrectAnswer={false} />
+      {currentQuestion && (
+        <Question question={currentQuestion} displayCorrectAnswer={false} />
+      )}
     </SafeAreaView>
   );
 };
