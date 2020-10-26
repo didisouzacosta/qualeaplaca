@@ -11,14 +11,14 @@ type Props<T extends AnswerInterface> = {
   board?: string;
   answers: QuestionAnswers<T>;
   displayCorrectAnswer: boolean;
-  selectAnswer(answer: T): void;
+  onSelectAnswer(answer: T): void;
 };
 
 const TemplateB = <T extends AnswerInterface>({
   board,
   answers,
   displayCorrectAnswer,
-  selectAnswer,
+  onSelectAnswer,
 }: Props<T>) => {
   return (
     <Container>
@@ -30,7 +30,7 @@ const TemplateB = <T extends AnswerInterface>({
           <AnswerButton
             answer={answers.first}
             displayCorrectAnswer={displayCorrectAnswer}
-            onPress={selectAnswer}
+            onPress={onSelectAnswer}
           />
         </Cell>
         <Space />
@@ -38,7 +38,7 @@ const TemplateB = <T extends AnswerInterface>({
           <AnswerButton
             answer={answers.second}
             displayCorrectAnswer={displayCorrectAnswer}
-            onPress={selectAnswer}
+            onPress={onSelectAnswer}
           />
         </Cell>
       </Row>
@@ -48,7 +48,7 @@ const TemplateB = <T extends AnswerInterface>({
           <AnswerButton
             answer={answers.third}
             displayCorrectAnswer={displayCorrectAnswer}
-            onPress={selectAnswer}
+            onPress={onSelectAnswer}
           />
         </Cell>
         <Space />
@@ -56,7 +56,7 @@ const TemplateB = <T extends AnswerInterface>({
           <AnswerButton
             answer={answers.fourth}
             displayCorrectAnswer={displayCorrectAnswer}
-            onPress={selectAnswer}
+            onPress={onSelectAnswer}
           />
         </Cell>
       </Row>

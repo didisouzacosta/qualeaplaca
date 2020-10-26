@@ -16,6 +16,7 @@ namespace ConfirmationButton {
     wasAnswered?: boolean;
     isLoading?: boolean;
     disabled?: boolean;
+    onPress?(): void;
   };
 }
 
@@ -23,13 +24,16 @@ export const ConfirmationButton = ({
   wasAnswered,
   isLoading,
   disabled,
+  onPress,
 }: ConfirmationButton.Props) => {
   const buttonContent = () => {
     if (isLoading) {
       return <Load color="white" />;
     } else {
       const text = wasAnswered ? "Próxima" : "Confirmar";
-      return <ConfimationButtonText>{text}</ConfimationButtonText>;
+      return (
+        <ConfimationButtonText onPress={onPress}>{text}</ConfimationButtonText>
+      );
     }
   };
 

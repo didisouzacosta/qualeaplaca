@@ -12,7 +12,7 @@ const LessonScreen = () => {
     step,
     currentQuestion,
     loadQuestions,
-    selectAnswer,
+    onSelectAnswer,
   } = useLessonState();
 
   useEffect(() => {
@@ -74,7 +74,8 @@ const LessonScreen = () => {
         <Question
           question={currentQuestion}
           displayCorrectAnswer={false}
-          selectAnswer={(answer) => selectAnswer(answer)}
+          onSelectAnswer={onSelectAnswer}
+          onConfirm={() => {}}
         />
       )}
     </SafeAreaView>

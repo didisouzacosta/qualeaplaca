@@ -13,13 +13,15 @@ import {
 interface Props<T extends AnswerInterface> {
   question: QuestionInterface<T>;
   displayCorrectAnswer: boolean;
-  selectAnswer(answer: T): void;
+  onSelectAnswer(answer: T): void;
+  onConfirm(): void;
 }
 
 const Question = <T extends AnswerInterface>({
   question,
   displayCorrectAnswer,
-  selectAnswer,
+  onSelectAnswer,
+  onConfirm,
 }: Props<T>) => {
   const { type, answers, board, text } = question;
 
@@ -32,7 +34,7 @@ const Question = <T extends AnswerInterface>({
       <TemplateA
         answers={answers}
         displayCorrectAnswer={displayCorrectAnswer}
-        selectAnswer={selectAnswer}
+        onSelectAnswer={onSelectAnswer}
       />
     );
 
@@ -41,7 +43,7 @@ const Question = <T extends AnswerInterface>({
         board={board}
         answers={answers}
         displayCorrectAnswer={displayCorrectAnswer}
-        selectAnswer={selectAnswer}
+        onSelectAnswer={onSelectAnswer}
       />
     );
 
@@ -49,7 +51,7 @@ const Question = <T extends AnswerInterface>({
       <TemplateC
         answers={answers}
         displayCorrectAnswer={displayCorrectAnswer}
-        selectAnswer={selectAnswer}
+        onSelectAnswer={onSelectAnswer}
       />
     );
 
@@ -70,6 +72,7 @@ const Question = <T extends AnswerInterface>({
       <ConfirmationButton
         disabled={disabled()}
         wasAnswered={displayCorrectAnswer}
+        onPress={onConfirm}
       />
     </Container>
   );

@@ -33,7 +33,7 @@ export default () => {
       const questions = await LoadQuestionsUseCase();
       setQuestions(questions);
     },
-    selectAnswer: (answer: AnswerInterface) => {
+    onSelectAnswer: (answer: AnswerInterface) => {
       setQuestions((oldQuestions) => {
         const currentQuestion = questions[index];
         currentQuestion.selectAnswer(answer);

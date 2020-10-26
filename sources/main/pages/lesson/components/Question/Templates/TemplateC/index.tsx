@@ -10,12 +10,12 @@ import { Container, Row, Cell, Space } from "./styles";
 type Props<T extends AnswerInterface> = {
   answers: QuestionAnswers<T>;
   displayCorrectAnswer: boolean;
-  selectAnswer(answer: T): void;
+  onSelectAnswer(answer: T): void;
 };
 
 const TemplateC = <T extends AnswerInterface>({
   answers,
-  selectAnswer,
+  onSelectAnswer,
 }: Props<T>) => {
   const [buttonHeight, setButtonHeight] = useState(0);
 
@@ -31,7 +31,7 @@ const TemplateC = <T extends AnswerInterface>({
           <AnswerImageButton
             height={buttonHeight}
             answer={answers.first}
-            onPress={selectAnswer}
+            onPress={onSelectAnswer}
           />
         </Cell>
         <Space />
@@ -39,7 +39,7 @@ const TemplateC = <T extends AnswerInterface>({
           <AnswerImageButton
             height={buttonHeight}
             answer={answers.second}
-            onPress={selectAnswer}
+            onPress={onSelectAnswer}
           />
         </Cell>
       </Row>
@@ -49,7 +49,7 @@ const TemplateC = <T extends AnswerInterface>({
           <AnswerImageButton
             height={buttonHeight}
             answer={answers.third}
-            onPress={selectAnswer}
+            onPress={onSelectAnswer}
           />
         </Cell>
         <Space />
@@ -57,7 +57,7 @@ const TemplateC = <T extends AnswerInterface>({
           <AnswerImageButton
             height={buttonHeight}
             answer={answers.fourth}
-            onPress={selectAnswer}
+            onPress={onSelectAnswer}
           />
         </Cell>
       </Row>

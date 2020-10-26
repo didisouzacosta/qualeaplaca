@@ -10,38 +10,38 @@ import { Container, Space } from "./styles";
 type Props<T extends AnswerInterface> = {
   answers: QuestionAnswers<T>;
   displayCorrectAnswer: boolean;
-  selectAnswer(answer: T): void;
+  onSelectAnswer(answer: T): void;
 };
 
 const TemplateA = <T extends AnswerInterface>({
   answers,
   displayCorrectAnswer,
-  selectAnswer,
+  onSelectAnswer,
 }: Props<T>) => {
   return (
     <Container>
       <AnswerButton
         answer={answers.first}
         displayCorrectAnswer={displayCorrectAnswer}
-        onPress={selectAnswer}
+        onPress={onSelectAnswer}
       />
       <Space />
       <AnswerButton
         answer={answers.second}
         displayCorrectAnswer={displayCorrectAnswer}
-        onPress={selectAnswer}
+        onPress={onSelectAnswer}
       />
       <Space />
       <AnswerButton
         answer={answers.third}
         displayCorrectAnswer={displayCorrectAnswer}
-        onPress={selectAnswer}
+        onPress={onSelectAnswer}
       />
       <Space />
       <AnswerButton
         answer={answers.fourth}
         displayCorrectAnswer={displayCorrectAnswer}
-        onPress={selectAnswer}
+        onPress={onSelectAnswer}
       />
     </Container>
   );
