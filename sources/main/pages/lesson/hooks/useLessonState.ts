@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Vibration } from "react-native";
 import { QuestionTemplateType } from "../../../../domain/models/Question";
 import LoadQuestionsUseCase from "../../../../data/Lesson/LoadQuestionsUseCase";
 import { AnswerInterface } from "../../../../domain/interfaces";
@@ -48,6 +49,8 @@ export default () => {
           step.question.id === updatedStep.question.id ? updatedStep : step
         )
       );
+
+      if (!currentQuestion.isCorrect()) Vibration.vibrate(1);
     },
     onNextQuestion: () => {
       setIndex((oldValue) => oldValue + 1);

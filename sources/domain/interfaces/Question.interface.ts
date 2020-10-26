@@ -35,7 +35,7 @@ abstract class QuestionInterface<T extends AnswerInterface> {
   }
 
   isCorrect(): boolean {
-    return this.rightAnswer === this.selectedAnswer;
+    return this.rightAnswer() === this.selectedAnswer();
   }
 
   private answersArr(): T[] {
