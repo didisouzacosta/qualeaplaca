@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  QuestionTemplateB,
-  QuestionTemplateType,
-} from "../../../../domain/models/Question";
+import { QuestionTemplateType } from "../../../../domain/models/Question";
 import LoadQuestionsUseCase from "../../../../data/Lesson/LoadQuestionsUseCase";
 import { AnswerInterface } from "../../../../domain/interfaces";
 
@@ -26,9 +23,9 @@ export default () => {
     },
     selectAnswer: (answer: AnswerInterface) => {
       setQuestions((oldQuestions) => {
+        const currentQuestion = questions[index];
+        currentQuestion.selectAnswer(answer);
         return oldQuestions.map((question) => {
-          const currentQuestion = questions[index];
-          currentQuestion.selectAnswer(answer);
           return question.id === currentQuestion.id
             ? currentQuestion
             : question;
