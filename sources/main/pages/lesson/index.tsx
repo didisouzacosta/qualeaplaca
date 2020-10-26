@@ -9,7 +9,12 @@ import useLessonState from "./hooks/useLessonState";
 
 const LessonScreen = () => {
   const navigation = useNavigation();
-  const { currentQuestion, loadQuestions, selectAnswer } = useLessonState();
+  const {
+    step,
+    currentQuestion,
+    loadQuestions,
+    selectAnswer,
+  } = useLessonState();
 
   useEffect(() => {
     const asyncLoadQuestions = async () => {
@@ -65,7 +70,7 @@ const LessonScreen = () => {
 
   return (
     <SafeAreaView>
-      <Progress percentage={59} />
+      <Progress current={step.current} total={step.total} />
       {currentQuestion && (
         <Question
           question={currentQuestion}

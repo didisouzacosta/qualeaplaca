@@ -3,15 +3,20 @@ import React from "react";
 import { InfosContainer, Label, Progress, ProgressContainer } from "./styles";
 
 type Props = {
-  percentage: Number;
+  current: number;
+  total: number;
 };
 
-const ProgressBar = ({ percentage }: Props) => {
+const ProgressBar = ({ current, total }: Props) => {
+  const percentage = (current / total) * 100;
+
   return (
     <>
       <InfosContainer>
-        <Label>5/10</Label>
-        <Label>50%</Label>
+        <Label>
+          {current}/{total}
+        </Label>
+        <Label>{percentage}%</Label>
       </InfosContainer>
       <ProgressContainer>
         <Progress percentage={percentage} />
