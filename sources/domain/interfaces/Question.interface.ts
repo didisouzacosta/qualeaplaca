@@ -52,10 +52,10 @@ export enum QuestionType {
 
 export class QuestionAnswers<T extends AnswerInterface> {
   constructor(
-    readonly first: T,
-    readonly second: T,
-    readonly third: T,
-    readonly fourth: T
+    public first: T,
+    public second: T,
+    public third: T,
+    public fourth: T
   ) {}
 }
 

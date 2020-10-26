@@ -7,36 +7,41 @@ import {
 import { AnswerButton } from "./../../../../components/Button";
 import { Container, Space } from "./styles";
 
-type Props = {
-  answers: QuestionAnswers<AnswerInterface>;
+type Props<T extends AnswerInterface> = {
+  answers: QuestionAnswers<T>;
   displayCorrectAnswer: boolean;
+  selectAnswer(answer: T): void;
 };
 
-const TemplateA = ({ answers, displayCorrectAnswer }: Props) => {
+const TemplateA = <T extends AnswerInterface>({
+  answers,
+  displayCorrectAnswer,
+  selectAnswer,
+}: Props<T>) => {
   return (
     <Container>
       <AnswerButton
         answer={answers.first}
         displayCorrectAnswer={displayCorrectAnswer}
-        onPress={(answer) => {}}
+        onPress={selectAnswer}
       />
       <Space />
       <AnswerButton
         answer={answers.second}
         displayCorrectAnswer={displayCorrectAnswer}
-        onPress={(answer) => {}}
+        onPress={selectAnswer}
       />
       <Space />
       <AnswerButton
         answer={answers.third}
         displayCorrectAnswer={displayCorrectAnswer}
-        onPress={(answer) => {}}
+        onPress={selectAnswer}
       />
       <Space />
       <AnswerButton
         answer={answers.fourth}
         displayCorrectAnswer={displayCorrectAnswer}
-        onPress={(answer) => {}}
+        onPress={selectAnswer}
       />
     </Container>
   );

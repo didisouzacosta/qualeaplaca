@@ -1,13 +1,21 @@
-import { useState } from "react";
-import { QuestionTemplateType } from "../../../../domain/models/Question";
+import { useEffect, useState } from "react";
+import {
+  QuestionTemplateB,
+  QuestionTemplateType,
+} from "../../../../domain/models/Question";
 import LoadQuestionsUseCase from "../../../../data/Lesson/LoadQuestionsUseCase";
 import { AnswerInterface } from "../../../../domain/interfaces";
 
 export default () => {
+  const [index, setIndex] = useState(0);
   const [questions, setQuestions] = useState<QuestionTemplateType[]>([]);
   const [currentQuestion, setCurrentQuestion] = useState<
     QuestionTemplateType
   >();
+
+  useEffect(() => {
+    setCurrentQuestion(questions[index]);
+  }, [questions, index]);
 
   return {
     questions,
@@ -15,11 +23,17 @@ export default () => {
     loadQuestions: async () => {
       const questions = await LoadQuestionsUseCase();
       setQuestions(questions);
-      setCurrentQuestion(questions[0]);
     },
     selectAnswer: (answer: AnswerInterface) => {
-      currentQuestion?.selectAnswer(answer);
-      console.log(currentQuestion);
+      setQuestions((oldQuestions) => {
+        return oldQuestions.map((question) => {
+          const currentQuestion = questions[index];
+          currentQuestion.selectAnswer(answer);
+          return question.id === currentQuestion.id
+            ? currentQuestion
+            : question;
+        });
+      });
     },
   };
 };

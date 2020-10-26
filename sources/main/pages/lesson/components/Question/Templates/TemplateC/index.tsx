@@ -7,12 +7,16 @@ import {
 import { AnswerImageButton } from "../../../Button";
 import { Container, Row, Cell, Space } from "./styles";
 
-type Props = {
-  answers: QuestionAnswers<AnswerInterface>;
+type Props<T extends AnswerInterface> = {
+  answers: QuestionAnswers<T>;
   displayCorrectAnswer: boolean;
+  selectAnswer(answer: T): void;
 };
 
-const TemplateC = ({ answers }: Props) => {
+const TemplateC = <T extends AnswerInterface>({
+  answers,
+  selectAnswer,
+}: Props<T>) => {
   const [buttonHeight, setButtonHeight] = useState(0);
 
   return (
@@ -27,7 +31,7 @@ const TemplateC = ({ answers }: Props) => {
           <AnswerImageButton
             height={buttonHeight}
             answer={answers.first}
-            onPress={(answer) => {}}
+            onPress={selectAnswer}
           />
         </Cell>
         <Space />
@@ -35,7 +39,7 @@ const TemplateC = ({ answers }: Props) => {
           <AnswerImageButton
             height={buttonHeight}
             answer={answers.second}
-            onPress={(answer) => {}}
+            onPress={selectAnswer}
           />
         </Cell>
       </Row>
@@ -45,7 +49,7 @@ const TemplateC = ({ answers }: Props) => {
           <AnswerImageButton
             height={buttonHeight}
             answer={answers.third}
-            onPress={(answer) => {}}
+            onPress={selectAnswer}
           />
         </Cell>
         <Space />
@@ -53,7 +57,7 @@ const TemplateC = ({ answers }: Props) => {
           <AnswerImageButton
             height={buttonHeight}
             answer={answers.fourth}
-            onPress={(answer) => {}}
+            onPress={selectAnswer}
           />
         </Cell>
       </Row>

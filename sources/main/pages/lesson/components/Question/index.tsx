@@ -28,30 +28,38 @@ const Question = <T extends AnswerInterface>({
   };
 
   const factoryTemplate = () => {
+    const templateA = (
+      <TemplateA
+        answers={answers}
+        displayCorrectAnswer={displayCorrectAnswer}
+        selectAnswer={selectAnswer}
+      />
+    );
+
+    const templateB = (
+      <TemplateB
+        board={board}
+        answers={answers}
+        displayCorrectAnswer={displayCorrectAnswer}
+        selectAnswer={selectAnswer}
+      />
+    );
+
+    const templateC = (
+      <TemplateC
+        answers={answers}
+        displayCorrectAnswer={displayCorrectAnswer}
+        selectAnswer={selectAnswer}
+      />
+    );
+
     switch (type) {
       case QuestionType.TemplateA:
-        return (
-          <TemplateA
-            answers={answers}
-            displayCorrectAnswer={displayCorrectAnswer}
-          />
-        );
+        return templateA;
       case QuestionType.TemplateB:
-        return (
-          <TemplateB
-            board={board}
-            answers={answers}
-            displayCorrectAnswer={displayCorrectAnswer}
-            selectAnswer={selectAnswer}
-          />
-        );
+        return templateB;
       case QuestionType.TemplateC:
-        return (
-          <TemplateC
-            answers={answers}
-            displayCorrectAnswer={displayCorrectAnswer}
-          />
-        );
+        return templateC;
     }
   };
 

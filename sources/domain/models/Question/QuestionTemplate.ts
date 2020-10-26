@@ -13,11 +13,12 @@ type Props<T extends AnswerInterface> = {
 export default class QuestionTemplate<
   T extends AnswerInterface
 > extends QuestionInterface<T> {
+  public answers: QuestionAnswers<T>;
+
   readonly id: number;
   readonly type: QuestionType;
   readonly text: string;
   readonly board?: string;
-  readonly answers: QuestionAnswers<T>;
 
   constructor({ id, text, answers, board }: Props<T>) {
     super();
