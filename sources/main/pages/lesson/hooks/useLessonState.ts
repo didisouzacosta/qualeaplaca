@@ -1,48 +1,56 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { QuestionTemplateType } from "../../../../domain/models/Question";
 import LoadQuestionsUseCase from "../../../../data/Lesson/LoadQuestionsUseCase";
 import { AnswerInterface } from "../../../../domain/interfaces";
 
-type Step = {
-  current: number;
-  total: number;
-};
+type QuestionStep = Readonly<{
+  isConfirmed: boolean;
+  question: QuestionTemplateType;
+}>;
 
 export default () => {
   const [index, setIndex] = useState(0);
-  const [step, setStep] = useState<Step>({ current: 0, total: 0 });
-  const [questions, setQuestions] = useState<QuestionTemplateType[]>([]);
-  const [currentQuestion, setCurrentQuestion] = useState<
-    QuestionTemplateType
-  >();
+  const [steps, setSteps] = useState<QuestionStep[]>([]);
 
-  useEffect(() => {
-    setCurrentQuestion(questions[index]);
-    setStep((oldValue) => ({
-      ...oldValue,
-      total: questions.length,
-      current: index + 1,
-    }));
-  }, [questions, index]);
+  const questions = steps.map((step) => step.question);
+  const currentStep = steps[index];
+  const currentQuestion = currentStep?.question;
+  const pagination = { current: index + 1, total: steps.length };
+  const canDisplayCorrectAnswer = currentStep?.isConfirmed ?? false;
 
   return {
-    step,
+    pagination,
     questions,
     currentQuestion,
+    canDisplayCorrectAnswer,
     loadQuestions: async () => {
       const questions = await LoadQuestionsUseCase();
-      setQuestions(questions);
+      const steps = questions.map((question) => ({
+        isConfirmed: false,
+        question,
+      }));
+      setSteps(steps);
     },
     onSelectAnswer: (answer: AnswerInterface) => {
-      setQuestions((oldQuestions) => {
-        const currentQuestion = questions[index];
+      setSteps((oldValue) => {
         currentQuestion.selectAnswer(answer);
-        return oldQuestions.map((question) => {
-          return question.id === currentQuestion.id
-            ? currentQuestion
-            : question;
+        return oldValue.map((step) => {
+          return step.question.id === currentQuestion.id
+            ? { ...step, question: currentQuestion }
+            : step;
         });
       });
+    },
+    onConfirm: () => {
+      const updatedStep: QuestionStep = { ...currentStep, isConfirmed: true };
+      setSteps((oldValue) =>
+        oldValue.map((step) =>
+          step.question.id === updatedStep.question.id ? updatedStep : step
+        )
+      );
+    },
+    onNextQuestion: () => {
+      setIndex((oldValue) => oldValue + 1);
     },
   };
 };

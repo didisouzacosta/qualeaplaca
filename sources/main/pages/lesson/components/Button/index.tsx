@@ -31,14 +31,16 @@ export const ConfirmationButton = ({
       return <Load color="white" />;
     } else {
       const text = wasAnswered ? "Próxima" : "Confirmar";
-      return (
-        <ConfimationButtonText onPress={onPress}>{text}</ConfimationButtonText>
-      );
+      return <ConfimationButtonText>{text}</ConfimationButtonText>;
     }
   };
 
   return (
-    <ConfirmationButtonContainer isLoading={isLoading} disabled={disabled}>
+    <ConfirmationButtonContainer
+      isLoading={isLoading}
+      disabled={disabled}
+      onPress={onPress}
+    >
       {buttonContent()}
     </ConfirmationButtonContainer>
   );

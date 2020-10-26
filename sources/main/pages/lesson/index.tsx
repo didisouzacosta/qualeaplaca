@@ -9,10 +9,13 @@ import { BarButtonItem, SafeAreaView } from "./styles";
 const LessonScreen = () => {
   const navigation = useNavigation();
   const {
-    step,
+    pagination,
     currentQuestion,
+    canDisplayCorrectAnswer,
     loadQuestions,
     onSelectAnswer,
+    onConfirm,
+    onNextQuestion,
   } = useLessonState();
 
   useEffect(() => {
@@ -39,7 +42,7 @@ const LessonScreen = () => {
   const presentCloseAlert = () => {
     Alert.alert(
       "Encerrar lição",
-      `Você está na etapa ${step.current}, tem certeza que deseja encerrar a lição?`,
+      `Você está na etapa ${pagination.current}, tem certeza que deseja encerrar a lição?`,
       [
         { text: "Confirmar", onPress: () => navigation.goBack() },
         { text: "Cancelar", style: "cancel" },
@@ -69,13 +72,14 @@ const LessonScreen = () => {
 
   return (
     <SafeAreaView>
-      <Progress current={step.current} total={step.total} />
+      <Progress current={pagination.current} total={pagination.total} />
       {currentQuestion && (
         <Question
           question={currentQuestion}
-          displayCorrectAnswer={false}
+          displayCorrectAnswer={canDisplayCorrectAnswer}
           onSelectAnswer={onSelectAnswer}
-          onConfirm={() => {}}
+          onConfirm={onConfirm}
+          onNext={onNextQuestion}
         />
       )}
     </SafeAreaView>

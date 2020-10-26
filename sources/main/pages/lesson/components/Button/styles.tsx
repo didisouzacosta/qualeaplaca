@@ -38,6 +38,7 @@ namespace BaseConfirmationButton {
     disabled?: boolean;
     isLoading?: boolean;
     style?: ViewStyle;
+    onPress?(): void;
   };
 }
 
@@ -142,6 +143,7 @@ const BaseConfirmationButton = ({
   style,
   disabled,
   isLoading,
+  onPress,
 }: BaseConfirmationButton.Props) => {
   const { colors } = useTheme();
   const { verifyButton } = colors;
@@ -153,6 +155,7 @@ const BaseConfirmationButton = ({
       backgroundColor={verifyButton.backgroundColor}
       disabled={disabled || isLoading}
       style={style}
+      onPress={onPress}
     >
       {children}
     </Button>

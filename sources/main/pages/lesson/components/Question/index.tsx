@@ -15,6 +15,7 @@ interface Props<T extends AnswerInterface> {
   displayCorrectAnswer: boolean;
   onSelectAnswer(answer: T): void;
   onConfirm(): void;
+  onNext(): void;
 }
 
 const Question = <T extends AnswerInterface>({
@@ -22,6 +23,7 @@ const Question = <T extends AnswerInterface>({
   displayCorrectAnswer,
   onSelectAnswer,
   onConfirm,
+  onNext,
 }: Props<T>) => {
   const { type, answers, board, text } = question;
 
@@ -72,7 +74,9 @@ const Question = <T extends AnswerInterface>({
       <ConfirmationButton
         disabled={disabled()}
         wasAnswered={displayCorrectAnswer}
-        onPress={onConfirm}
+        onPress={() => {
+          displayCorrectAnswer ? onNext() : onConfirm();
+        }}
       />
     </Container>
   );
