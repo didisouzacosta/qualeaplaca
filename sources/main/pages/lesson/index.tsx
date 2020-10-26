@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
 import { Alert } from "react-native";
 
+import useLessonState from "./hooks/useLessonState";
 import { useNavigation } from "../../hooks/useNavigation";
-
 import { Progress, Question } from "./components";
 import { BarButtonItem, SafeAreaView } from "./styles";
-import useLessonState from "./hooks/useLessonState";
 
 const LessonScreen = () => {
   const navigation = useNavigation();
@@ -40,7 +39,7 @@ const LessonScreen = () => {
   const presentCloseAlert = () => {
     Alert.alert(
       "Encerrar lição",
-      "Você está na etapa 5, tem certeza que deseja encerrar a lição?",
+      `Você está na etapa ${step.current}, tem certeza que deseja encerrar a lição?`,
       [
         { text: "Confirmar", onPress: () => navigation.goBack() },
         { text: "Cancelar", style: "cancel" },
