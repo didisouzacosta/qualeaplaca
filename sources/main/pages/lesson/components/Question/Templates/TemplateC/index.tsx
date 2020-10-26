@@ -24,21 +24,37 @@ const TemplateC = ({ answers }: Props) => {
             setButtonHeight(height);
           }}
         >
-          <AnswerImageButton height={buttonHeight} answer={answers.first} />
+          <AnswerImageButton
+            height={buttonHeight}
+            answer={answers.first}
+            onPress={(answer) => {}}
+          />
         </Cell>
         <Space />
         <Cell>
-          <AnswerImageButton height={buttonHeight} answer={answers.second} />
+          <AnswerImageButton
+            height={buttonHeight}
+            answer={answers.second}
+            onPress={(answer) => {}}
+          />
         </Cell>
       </Row>
       <Space />
       <Row>
         <Cell>
-          <AnswerImageButton height={buttonHeight} answer={answers.third} />
+          <AnswerImageButton
+            height={buttonHeight}
+            answer={answers.third}
+            onPress={(answer) => {}}
+          />
         </Cell>
         <Space />
         <Cell>
-          <AnswerImageButton height={buttonHeight} answer={answers.fourth} />
+          <AnswerImageButton
+            height={buttonHeight}
+            answer={answers.fourth}
+            onPress={(answer) => {}}
+          />
         </Cell>
       </Row>
     </Container>

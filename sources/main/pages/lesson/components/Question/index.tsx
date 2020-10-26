@@ -13,11 +13,13 @@ import {
 interface Props<T extends AnswerInterface> {
   question: QuestionInterface<T>;
   displayCorrectAnswer: boolean;
+  selectAnswer(answer: T): void;
 }
 
 const Question = <T extends AnswerInterface>({
   question,
   displayCorrectAnswer,
+  selectAnswer,
 }: Props<T>) => {
   const { type, answers, board, text } = question;
 
@@ -40,6 +42,7 @@ const Question = <T extends AnswerInterface>({
             board={board}
             answers={answers}
             displayCorrectAnswer={displayCorrectAnswer}
+            selectAnswer={selectAnswer}
           />
         );
       case QuestionType.TemplateC:

@@ -18,21 +18,25 @@ const TemplateA = ({ answers, displayCorrectAnswer }: Props) => {
       <AnswerButton
         answer={answers.first}
         displayCorrectAnswer={displayCorrectAnswer}
+        onPress={(answer) => {}}
       />
       <Space />
       <AnswerButton
         answer={answers.second}
         displayCorrectAnswer={displayCorrectAnswer}
+        onPress={(answer) => {}}
       />
       <Space />
       <AnswerButton
         answer={answers.third}
         displayCorrectAnswer={displayCorrectAnswer}
+        onPress={(answer) => {}}
       />
       <Space />
       <AnswerButton
         answer={answers.fourth}
         displayCorrectAnswer={displayCorrectAnswer}
+        onPress={(answer) => {}}
       />
     </Container>
   );

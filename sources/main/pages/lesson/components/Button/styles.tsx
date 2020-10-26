@@ -15,6 +15,7 @@ namespace BaseButton {
     backgroundDarker?: string;
     backgroundColor?: string;
     style?: ViewStyle;
+    onPress?(): void;
   };
 }
 
@@ -27,6 +28,7 @@ namespace BaseAnswerButton {
     isRightAnswer?: boolean;
     displayCorrectAnswer?: boolean;
     style?: ViewStyle;
+    onPress?(): void;
   };
 }
 
@@ -47,6 +49,7 @@ const BaseButton = ({
   backgroundActive,
   backgroundDarker,
   backgroundColor,
+  onPress,
 }: BaseButton.Props) => {
   const { colors } = useTheme();
   const { button } = colors;
@@ -66,6 +69,7 @@ const BaseButton = ({
       disabled={disabled}
       stretch={true}
       style={style}
+      onPress={onPress}
     >
       {children}
     </AwesomeButton>
@@ -84,6 +88,7 @@ const BaseAnswerButton = ({
   disabled,
   isRightAnswer,
   displayCorrectAnswer,
+  onPress,
 }: BaseAnswerButton.Props) => {
   const { colors } = useTheme();
   const { answerButton } = colors;
@@ -125,6 +130,7 @@ const BaseAnswerButton = ({
       disabled={disabled || selected || displayCorrectAnswer}
       height={height}
       style={style}
+      onPress={onPress}
     >
       {children}
     </Button>

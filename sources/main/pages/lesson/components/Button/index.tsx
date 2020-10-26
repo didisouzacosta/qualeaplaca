@@ -45,6 +45,7 @@ namespace AnswerButton {
     answer: T;
     disabled?: boolean;
     displayCorrectAnswer?: boolean;
+    onPress(answer: T): void;
   };
 }
 
@@ -52,12 +53,14 @@ export const AnswerButton = <T extends AnswerInterface>({
   answer,
   disabled,
   displayCorrectAnswer,
+  onPress,
 }: AnswerButton.Props<T>) => (
   <AnswerButtonContainer
     selected={answer.isSelected}
     disabled={disabled}
     isRightAnswer={answer.isRightAnswer}
     displayCorrectAnswer={displayCorrectAnswer}
+    onPress={() => onPress(answer)}
   >
     <AnswerLabel>{`${answer.label} )`}</AnswerLabel>
     <AnswerText>{answer.text}</AnswerText>
@@ -75,6 +78,7 @@ export const AnswerImageButton = <T extends AnswerInterface>({
   disabled,
   answer,
   displayCorrectAnswer,
+  onPress,
 }: AnswerImageButton.Props<T>) => (
   <AnswerButtonContainer
     height={height}
@@ -82,6 +86,7 @@ export const AnswerImageButton = <T extends AnswerInterface>({
     disabled={disabled}
     isRightAnswer={answer.isRightAnswer}
     displayCorrectAnswer={displayCorrectAnswer}
+    onPress={() => onPress(answer)}
   >
     <AnswerButtonImage
       resizeMode="contain"

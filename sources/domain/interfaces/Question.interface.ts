@@ -1,6 +1,7 @@
 import AnswerInterface from "./Answer.interface";
 
 abstract class QuestionInterface<T extends AnswerInterface> {
+  abstract id: number;
   abstract text: string;
   abstract board?: string;
   abstract type: QuestionType;
@@ -12,6 +13,25 @@ abstract class QuestionInterface<T extends AnswerInterface> {
 
   selectedAnswer(): T | undefined {
     return this.answersArr().find((answer) => answer.isSelected);
+  }
+
+  selectAnswer(answer: T) {
+    const { first, second, third, fourth } = this.answers;
+
+    first.isSelected = false;
+    second.isSelected = false;
+    third.isSelected = false;
+    fourth.isSelected = false;
+
+    if (first.id === answer.id) {
+      first.isSelected = true;
+    } else if (second.id === answer.id) {
+      second.isSelected = true;
+    } else if (third.id === answer.id) {
+      third.isSelected = true;
+    } else if (fourth.id === answer.id) {
+      fourth.isSelected = true;
+    }
   }
 
   isCorrect(): boolean {
