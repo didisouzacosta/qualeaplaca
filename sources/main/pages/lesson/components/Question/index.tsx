@@ -29,38 +29,32 @@ const Question = <T extends AnswerInterface>({
   const disabled = question.selectedAnswer() ? false : true;
 
   const template = () => {
-    const templateA = (
-      <TemplateA
-        answers={answers}
-        displayCorrectAnswer={displayCorrectAnswer}
-        onSelectAnswer={onSelectAnswer}
-      />
-    );
-
-    const templateB = (
-      <TemplateB
-        board={board}
-        answers={answers}
-        displayCorrectAnswer={displayCorrectAnswer}
-        onSelectAnswer={onSelectAnswer}
-      />
-    );
-
-    const templateC = (
-      <TemplateC
-        answers={answers}
-        displayCorrectAnswer={displayCorrectAnswer}
-        onSelectAnswer={onSelectAnswer}
-      />
-    );
-
     switch (type) {
       case QuestionType.TemplateA:
-        return templateA;
+        return (
+          <TemplateA
+            answers={answers}
+            displayCorrectAnswer={displayCorrectAnswer}
+            onSelectAnswer={onSelectAnswer}
+          />
+        );
       case QuestionType.TemplateB:
-        return templateB;
+        return (
+          <TemplateB
+            board={board}
+            answers={answers}
+            displayCorrectAnswer={displayCorrectAnswer}
+            onSelectAnswer={onSelectAnswer}
+          />
+        );
       case QuestionType.TemplateC:
-        return templateC;
+        return (
+          <TemplateC
+            answers={answers}
+            displayCorrectAnswer={displayCorrectAnswer}
+            onSelectAnswer={onSelectAnswer}
+          />
+        );
     }
   };
 
