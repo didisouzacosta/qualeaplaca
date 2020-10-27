@@ -5,6 +5,7 @@ import AwesomeButton from "react-native-really-awesome-button";
 
 import { TextButton } from "./../../../../components";
 import { useTheme } from "./../../../../context/Theme";
+import { playButtonClickSound } from "./../../../../utils/Audio";
 
 namespace BaseButton {
   export type Props = {
@@ -131,7 +132,12 @@ const BaseAnswerButton = ({
       disabled={disabled || selected || displayCorrectAnswer}
       height={height}
       style={style}
-      onPress={onPress}
+      onPress={async () => {
+        if (onPress) {
+          onPress();
+          await playButtonClickSound();
+        }
+      }}
     >
       {children}
     </Button>

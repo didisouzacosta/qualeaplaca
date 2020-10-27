@@ -78,7 +78,7 @@ const LessonScreen = () => {
           question={currentQuestion}
           displayCorrectAnswer={canDisplayCorrectAnswer}
           onSelectAnswer={onSelectAnswer}
-          onConfirm={onConfirm}
+          onConfirm={async () => await onConfirm()}
           onNext={onNextQuestion}
         />
       )}

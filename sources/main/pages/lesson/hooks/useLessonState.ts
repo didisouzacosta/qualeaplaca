@@ -3,6 +3,10 @@ import { Vibration } from "react-native";
 import { QuestionTemplateType } from "../../../../domain/models/Question";
 import LoadQuestionsUseCase from "../../../../data/Lesson/LoadQuestionsUseCase";
 import { AnswerInterface } from "../../../../domain/interfaces";
+import {
+  playCorrectlyAnswerSound,
+  playIncorrectlyAnswerSound,
+} from "./../../../utils/Audio";
 
 type QuestionStep = Readonly<{
   isConfirmed: boolean;
@@ -42,7 +46,7 @@ export default () => {
         });
       });
     },
-    onConfirm: () => {
+    onConfirm: async () => {
       const updatedStep: QuestionStep = { ...currentStep, isConfirmed: true };
       setSteps((oldValue) =>
         oldValue.map((step) =>
@@ -50,7 +54,12 @@ export default () => {
         )
       );
 
-      if (!currentQuestion.isCorrect()) Vibration.vibrate(1);
+      if (currentQuestion.isCorrect()) {
+        await playCorrectlyAnswerSound();
+      } else {
+        Vibration.vibrate(1);
+        await playIncorrectlyAnswerSound();
+      }
     },
     onNextQuestion: () => {
       setIndex((oldValue) => oldValue + 1);
