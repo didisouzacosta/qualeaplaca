@@ -23,46 +23,54 @@ export default () => {
   const pagination = { current: index + 1, total: steps.length };
   const canDisplayCorrectAnswer = currentStep?.isConfirmed ?? false;
 
+  const loadQuestions = async () => {
+    const questions = await LoadQuestionsUseCase();
+    const steps = questions.map((question) => ({
+      isConfirmed: false,
+      question,
+    }));
+    setSteps(steps);
+  };
+
+  const onConfirm = async () => {
+    const updatedStep: QuestionStep = { ...currentStep, isConfirmed: true };
+    setSteps((oldValue) =>
+      oldValue.map((step) =>
+        step.question.id === updatedStep.question.id ? updatedStep : step
+      )
+    );
+
+    if (currentQuestion.isCorrect()) {
+      await playCorrectlyAnswerSound();
+    } else {
+      Vibration.vibrate(1);
+      await playIncorrectlyAnswerSound();
+    }
+  };
+
+  const onNextQuestion = () => {
+    setIndex((oldValue) => oldValue + 1);
+  };
+
+  const onSelectAnswer = (answer: AnswerInterface) => {
+    setSteps((oldValue) => {
+      currentQuestion.selectAnswer(answer);
+      return oldValue.map((step) => {
+        return step.question.id === currentQuestion.id
+          ? { ...step, question: currentQuestion }
+          : step;
+      });
+    });
+  };
+
   return {
     pagination,
     questions,
     currentQuestion,
     canDisplayCorrectAnswer,
-    loadQuestions: async () => {
-      const questions = await LoadQuestionsUseCase();
-      const steps = questions.map((question) => ({
-        isConfirmed: false,
-        question,
-      }));
-      setSteps(steps);
-    },
-    onSelectAnswer: (answer: AnswerInterface) => {
-      setSteps((oldValue) => {
-        currentQuestion.selectAnswer(answer);
-        return oldValue.map((step) => {
-          return step.question.id === currentQuestion.id
-            ? { ...step, question: currentQuestion }
-            : step;
-        });
-      });
-    },
-    onConfirm: async () => {
-      const updatedStep: QuestionStep = { ...currentStep, isConfirmed: true };
-      setSteps((oldValue) =>
-        oldValue.map((step) =>
-          step.question.id === updatedStep.question.id ? updatedStep : step
-        )
-      );
-
-      if (currentQuestion.isCorrect()) {
-        await playCorrectlyAnswerSound();
-      } else {
-        Vibration.vibrate(1);
-        await playIncorrectlyAnswerSound();
-      }
-    },
-    onNextQuestion: () => {
-      setIndex((oldValue) => oldValue + 1);
-    },
+    loadQuestions,
+    onSelectAnswer,
+    onConfirm,
+    onNextQuestion,
   };
 };
