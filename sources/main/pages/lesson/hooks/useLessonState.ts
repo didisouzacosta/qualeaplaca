@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Vibration } from "react-native";
 import { QuestionTemplateType } from "../../../../domain/models/Question";
 import LoadQuestionsUseCase from "../../../../data/Lesson/LoadQuestionsUseCase";
