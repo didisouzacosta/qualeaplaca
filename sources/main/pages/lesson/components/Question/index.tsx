@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo } from "react";
 
 import { ConfirmationButton } from "./../Button";
 import { TemplateA, TemplateB, TemplateC } from "./Templates";
@@ -26,12 +26,9 @@ const Question = <T extends AnswerInterface>({
   onNext,
 }: Props<T>) => {
   const { type, answers, board, text } = question;
+  const disabled = question.selectedAnswer() ? false : true;
 
-  const disabled = (): boolean => {
-    return question.selectedAnswer() ? false : true;
-  };
-
-  const factoryTemplate = () => {
+  const template = () => {
     const templateA = (
       <TemplateA
         answers={answers}
@@ -67,12 +64,16 @@ const Question = <T extends AnswerInterface>({
     }
   };
 
+  const titleMemoComponent = useMemo(() => {
+    return <Text>{text}</Text>;
+  }, [text]);
+
   return (
     <Container>
-      <Text>{text}</Text>
-      <Answer>{factoryTemplate()}</Answer>
+      {titleMemoComponent}
+      <Answer>{template()}</Answer>
       <ConfirmationButton
-        disabled={disabled()}
+        disabled={disabled}
         wasAnswered={displayCorrectAnswer}
         onPress={() => {
           displayCorrectAnswer ? onNext() : onConfirm();

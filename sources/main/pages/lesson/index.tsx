@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import { Alert } from "react-native";
 
 import useLessonState from "./hooks/useLessonState";
@@ -70,9 +70,13 @@ const LessonScreen = () => {
     alert("Em breve");
   };
 
+  const progressMemoComponent = useMemo(() => {
+    return <Progress current={pagination.current} total={pagination.total} />;
+  }, [pagination]);
+
   return (
     <SafeAreaView>
-      <Progress current={pagination.current} total={pagination.total} />
+      {progressMemoComponent}
       {currentQuestion && (
         <Question
           question={currentQuestion}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import {
   AnswerInterface,
   QuestionAnswers,
@@ -20,11 +20,17 @@ const TemplateB = <T extends AnswerInterface>({
   displayCorrectAnswer,
   onSelectAnswer,
 }: Props<T>) => {
-  return (
-    <Container>
+  const imageMemoComponent = useMemo(() => {
+    return (
       <ImageContainer>
         <Image resizeMode="contain" source={{ uri: board }} />
       </ImageContainer>
+    );
+  }, [board]);
+
+  return (
+    <Container>
+      {imageMemoComponent}
       <Row>
         <Cell>
           <AnswerButton
