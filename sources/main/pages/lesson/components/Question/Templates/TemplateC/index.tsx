@@ -16,6 +16,7 @@ type Props<T extends AnswerInterface> = {
 const TemplateC = <T extends AnswerInterface>({
   answers,
   onSelectAnswer,
+  displayCorrectAnswer,
 }: Props<T>) => {
   const [buttonHeight, setButtonHeight] = useState(0);
 
@@ -31,6 +32,7 @@ const TemplateC = <T extends AnswerInterface>({
           <AnswerImageButton
             height={buttonHeight}
             answer={answers.first}
+            displayCorrectAnswer={displayCorrectAnswer}
             onPress={onSelectAnswer}
           />
         </Cell>
@@ -39,6 +41,7 @@ const TemplateC = <T extends AnswerInterface>({
           <AnswerImageButton
             height={buttonHeight}
             answer={answers.second}
+            displayCorrectAnswer={displayCorrectAnswer}
             onPress={onSelectAnswer}
           />
         </Cell>
@@ -49,6 +52,7 @@ const TemplateC = <T extends AnswerInterface>({
           <AnswerImageButton
             height={buttonHeight}
             answer={answers.third}
+            displayCorrectAnswer={displayCorrectAnswer}
             onPress={onSelectAnswer}
           />
         </Cell>
@@ -57,6 +61,7 @@ const TemplateC = <T extends AnswerInterface>({
           <AnswerImageButton
             height={buttonHeight}
             answer={answers.fourth}
+            displayCorrectAnswer={displayCorrectAnswer}
             onPress={onSelectAnswer}
           />
         </Cell>
