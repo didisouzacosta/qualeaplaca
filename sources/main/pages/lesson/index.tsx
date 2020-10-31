@@ -34,7 +34,7 @@ const LessonScreen = () => {
     },
     headerRight: () => {
       return (
-        <BarButtonItem title="Ajuda?" onPress={() => presentHelpAlert()} />
+        <BarButtonItem title="Progresso" onPress={() => presentCommingSoon()} />
       );
     },
   });
@@ -84,6 +84,7 @@ const LessonScreen = () => {
           onSelectAnswer={onSelectAnswer}
           onConfirm={async () => await onConfirm()}
           onNext={onNextQuestion}
+          onHelp={presentHelpAlert}
         />
       )}
     </SafeAreaView>

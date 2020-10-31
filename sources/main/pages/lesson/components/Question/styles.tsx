@@ -1,6 +1,6 @@
 import styled from "styled-components/native";
 
-import { Text as OriginalText } from "../../../../components";
+import { Text as _Text } from "../../../../components";
 
 export const Container = styled.View`
   flex: 1;
@@ -13,7 +13,11 @@ export const Answer = styled.View`
   margin-bottom: 32px;
 `;
 
-export const Text = styled(OriginalText)`
+export const Text = styled(_Text)`
   font-size: 20px;
   line-height: 26px;
+`;
+
+export const ButtonContainer = styled.View`
+  flex-direction: column;
 `;

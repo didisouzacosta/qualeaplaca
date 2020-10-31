@@ -1,4 +1,5 @@
 import React from "react";
+import { Text } from "react-native";
 import { AnswerInterface } from "../../../../../domain/interfaces";
 
 import {
@@ -9,6 +10,7 @@ import {
   AnswerText,
   Load,
   AnswerButtonImage,
+  Button,
 } from "./styles";
 
 namespace ConfirmationButton {
@@ -101,4 +103,16 @@ export const AnswerImageButton = <T extends AnswerInterface>({
       }}
     />
   </AnswerButtonContainer>
+);
+
+namespace HelpButton {
+  export type Props = {
+    onPress(): void;
+  };
+}
+
+export const HelpButton = ({ onPress }: HelpButton.Props) => (
+  <Button onPress={onPress}>
+    <Text>?</Text>
+  </Button>
 );

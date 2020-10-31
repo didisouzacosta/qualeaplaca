@@ -1,14 +1,15 @@
 import React, { useMemo } from "react";
 
-import { ConfirmationButton } from "./../Button";
+import { ConfirmationButton, HelpButton } from "./../Button";
 import { TemplateA, TemplateB, TemplateC } from "./Templates";
 
-import { Container, Text, Answer } from "./styles";
+import { Container, Text, Answer, ButtonContainer } from "./styles";
 import { QuestionType } from "../../../../../domain/interfaces/Question.interface";
 import {
   AnswerInterface,
   QuestionInterface,
 } from "../../../../../domain/interfaces";
+import { View } from "react-native";
 
 interface Props<T extends AnswerInterface> {
   question: QuestionInterface<T>;
@@ -16,6 +17,7 @@ interface Props<T extends AnswerInterface> {
   onSelectAnswer(answer: T): void;
   onConfirm(): void;
   onNext(): void;
+  onHelp(): void;
 }
 
 const Question = <T extends AnswerInterface>({
@@ -24,6 +26,7 @@ const Question = <T extends AnswerInterface>({
   onSelectAnswer,
   onConfirm,
   onNext,
+  onHelp,
 }: Props<T>) => {
   const { type, answers, board, text } = question;
   const disabled = question.selectedAnswer() ? false : true;
@@ -66,13 +69,22 @@ const Question = <T extends AnswerInterface>({
     <Container>
       {titleMemoComponent}
       <Answer>{template()}</Answer>
-      <ConfirmationButton
-        disabled={disabled}
-        wasAnswered={displayCorrectAnswer}
-        onPress={() => {
-          displayCorrectAnswer ? onNext() : onConfirm();
-        }}
-      />
+      <ButtonContainer>
+        <View style={{ display: "flex", flexDirection: "row" }}>
+          <View style={{ flex: 1, marginRight: 8 }}>
+            <ConfirmationButton
+              disabled={disabled}
+              wasAnswered={displayCorrectAnswer}
+              onPress={() => {
+                displayCorrectAnswer ? onNext() : onConfirm();
+              }}
+            />
+          </View>
+          <View style={{ width: 64 }}>
+            <HelpButton onPress={onHelp} />
+          </View>
+        </View>
+      </ButtonContainer>
     </Container>
   );
 };
