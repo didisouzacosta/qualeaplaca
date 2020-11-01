@@ -1,7 +1,8 @@
 import React from "react";
-import { Text } from "react-native";
+import { Text, View } from "react-native";
 import { AnswerInterface } from "../../../../../domain/interfaces";
-import SvgComponent from "./question_icon";
+import { useTheme } from "../../../../context/Theme";
+import Icon from "./help_icon.svg";
 
 import {
   ConfirmationButtonContainer,
@@ -112,10 +113,13 @@ namespace HelpButton {
   };
 }
 
-export const HelpButton = ({ onPress }: HelpButton.Props) => (
-  <Button onPress={onPress}>
-    <Text>
-      <SvgComponent />
-    </Text>
-  </Button>
-);
+export const HelpButton = ({ onPress }: HelpButton.Props) => {
+  const { colors } = useTheme();
+  return (
+    <Button onPress={onPress}>
+      <View>
+        <Icon width={36} height={36} fill={colors.text} />
+      </View>
+    </Button>
+  );
+};
