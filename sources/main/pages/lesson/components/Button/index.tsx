@@ -1,6 +1,7 @@
 import React from "react";
 import { Text } from "react-native";
 import { AnswerInterface } from "../../../../../domain/interfaces";
+import SvgComponent from "./question_icon";
 
 import {
   ConfirmationButtonContainer,
@@ -113,6 +114,8 @@ namespace HelpButton {
 
 export const HelpButton = ({ onPress }: HelpButton.Props) => (
   <Button onPress={onPress}>
-    <Text>?</Text>
+    <Text>
+      <SvgComponent />
+    </Text>
   </Button>
 );
