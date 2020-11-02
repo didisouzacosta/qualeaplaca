@@ -1,8 +1,7 @@
 import React from "react";
-import { Text, View } from "react-native";
 import { AnswerInterface } from "../../../../../domain/interfaces";
 import { useTheme } from "../../../../context/Theme";
-import Icon from "./help_icon.svg";
+import useAssets from "./../../../../hooks/useAssets";
 
 import {
   ConfirmationButtonContainer,
@@ -114,15 +113,20 @@ namespace HelpButton {
 }
 
 export const HelpButton = ({ onPress }: HelpButton.Props) => {
-  const { colors } = useTheme();
+  const { HelpIcon } = useAssets().icons;
+  const {
+    backgroundActiveColor,
+    backgroundColor,
+    raiseColor,
+  } = useTheme().colors.helpButton;
   return (
     <Button
-      backgroundActive={colors.helpButton.backgroundActiveColor}
-      backgroundColor={colors.helpButton.backgroundColor}
-      backgroundDarker={colors.helpButton.raiseColor}
+      backgroundActive={backgroundActiveColor}
+      backgroundColor={backgroundColor}
+      backgroundDarker={raiseColor}
       onPress={onPress}
     >
-      <Icon width={40} fill="white" />
+      <HelpIcon width={40} />
     </Button>
   );
 };

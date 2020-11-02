@@ -6,6 +6,7 @@ import {
 
 import { AnswerButton } from "../../../Button";
 import { Container, Row, Cell, Space, ImageContainer, Image } from "./styles";
+import useAssets from "./../../../../../../hooks/useAssets";
 
 type Props<T extends AnswerInterface> = {
   board?: string;
@@ -21,9 +22,10 @@ const TemplateB = <T extends AnswerInterface>({
   onSelectAnswer,
 }: Props<T>) => {
   const imageMemoComponent = useMemo(() => {
+    const { A27 } = useAssets().boards.regulamentation;
     return (
       <ImageContainer>
-        <Image resizeMode="contain" source={{ uri: board }} />
+        <A27 width="100%" height="100%" />
       </ImageContainer>
     );
   }, [board]);
