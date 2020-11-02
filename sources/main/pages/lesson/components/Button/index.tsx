@@ -122,7 +122,7 @@ export const HelpButton = ({ onPress }: HelpButton.Props) => {
       backgroundDarker={colors.helpButton.raiseColor}
       onPress={onPress}
     >
-      <Icon width={30} fill="white" />
+      <Icon width={40} fill="white" />
     </Button>
   );
 };
