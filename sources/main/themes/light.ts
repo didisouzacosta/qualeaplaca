@@ -38,7 +38,7 @@ export const light: DefaultTheme = {
     helpButton: {
       backgroundActiveColor: "#FA6400",
       backgroundColor: "#FA6400",
-      raiseColor: "#CD5403",
+      raiseColor: "#AD4500",
     },
   },
 };
