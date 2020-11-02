@@ -36,6 +36,11 @@ declare module "styled-components" {
         raiseIsCorrectColor: string;
         raiseSelectedColor: string;
       };
+      helpButton: {
+        backgroundActiveColor: string;
+        backgroundColor: string;
+        raiseColor: string;
+      };
     };
   }
 }

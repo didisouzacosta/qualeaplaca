@@ -116,10 +116,13 @@ namespace HelpButton {
 export const HelpButton = ({ onPress }: HelpButton.Props) => {
   const { colors } = useTheme();
   return (
-    <Button onPress={onPress}>
-      <View>
-        <Icon width={36} height={36} fill={colors.text} />
-      </View>
+    <Button
+      backgroundActive={colors.helpButton.backgroundActiveColor}
+      backgroundColor={colors.helpButton.backgroundColor}
+      backgroundDarker={colors.helpButton.raiseColor}
+      onPress={onPress}
+    >
+      <Icon width={30} fill="white" />
     </Button>
   );
 };

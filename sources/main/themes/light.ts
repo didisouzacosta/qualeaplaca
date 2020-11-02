@@ -35,5 +35,10 @@ export const light: DefaultTheme = {
       raiseIsCorrectColor: "#A9CC85",
       raiseSelectedColor: "#B1E3FF",
     },
+    helpButton: {
+      backgroundActiveColor: "#FA6400",
+      backgroundColor: "#FA6400",
+      raiseColor: "#CD5403",
+    },
   },
 };
